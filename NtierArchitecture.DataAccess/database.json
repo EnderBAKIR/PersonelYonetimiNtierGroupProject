@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "EnderSql": "Server=localhost,1433;Database=PersonelYonetimiDb;User=sa;Password=Password12*;TrustServerCertificate=True"
+  }
+}
