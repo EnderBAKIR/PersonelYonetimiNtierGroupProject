@@ -20,6 +20,8 @@ namespace NtierArchitecture.Entities.Models
         public Guid DepartmentId { get; set; }
         public Discontinuity Discontinuity { get; set; }
         public Guid DiscontinuityId { get; set; }
+        public Leave Leave { get; set; }
+        public Guid LeaveId { get; set; }
 
     }
 }
