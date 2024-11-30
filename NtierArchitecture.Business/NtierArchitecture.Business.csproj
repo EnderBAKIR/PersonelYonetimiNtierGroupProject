@@ -7,14 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NtierArchitecture.DataAccess\NtierArchitecture.DataAccess.csproj" />
-    <ProjectReference Include="..\NtierArchitecture.Entities\NtierArchitecture.Entities.csproj" />
+    <PackageReference Include="FluentValidation" Version="11.11.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="IServices\" />
-    <Folder Include="Validators\" />
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\NtierArchitecture.DataAccess\NtierArchitecture.DataAccess.csproj" />
+    <ProjectReference Include="..\NtierArchitecture.Entities\NtierArchitecture.Entities.csproj" />
   </ItemGroup>
 
 </Project>
