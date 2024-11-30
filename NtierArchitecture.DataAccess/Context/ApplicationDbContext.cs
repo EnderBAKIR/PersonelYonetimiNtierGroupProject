@@ -24,6 +24,7 @@ namespace NtierArchitecture.DataAccess.Context
               .Build();
 
 
+          
             string connectionString = configuration.GetConnectionString("EnderSql");
 
 
