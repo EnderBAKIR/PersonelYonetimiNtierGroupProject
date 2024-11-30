@@ -6,5 +6,10 @@ namespace NtierArchitecture.UI
         {
             InitializeComponent();
         }
+
+        private void BaseForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

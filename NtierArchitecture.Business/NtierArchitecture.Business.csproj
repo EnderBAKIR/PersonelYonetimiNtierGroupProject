@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NtierArchitecture.DataAccess\NtierArchitecture.DataAccess.csproj" />
+    <ProjectReference Include="..\NtierArchitecture.Entities\NtierArchitecture.Entities.csproj" />
   </ItemGroup>
 
   <ItemGroup>

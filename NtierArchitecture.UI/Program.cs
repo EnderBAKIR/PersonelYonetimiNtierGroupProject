@@ -1,3 +1,5 @@
+using NtierArchitecture.UI.Formlar;
+
 namespace NtierArchitecture.UI
 {
     internal static class Program
