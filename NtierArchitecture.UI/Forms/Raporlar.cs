@@ -8,13 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace NtierArchitecture.UI.Formlar
+namespace NtierArchitecture.UI.Forms
 {
-	public partial class RaporlamaForm : Form
-	{
-		public RaporlamaForm()
-		{
-			InitializeComponent();
-		}
-	}
+    public partial class Raporlar : Form
+    {
+        public Raporlar()
+        {
+            InitializeComponent();
+        }
+    }
 }
