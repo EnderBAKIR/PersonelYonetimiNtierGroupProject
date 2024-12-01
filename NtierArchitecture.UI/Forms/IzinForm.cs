@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace NtierArchitecture.UI.Formlar
 {
-	public partial class IzinForm : Form
-	{
-		public IzinForm()
-		{
-			InitializeComponent();
-		}
-	}
+    public partial class IzinForm : Form
+    {
+        public IzinForm()
+        {
+            InitializeComponent();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
