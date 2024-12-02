@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace NtierArchitecture.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class bugs_fixed : Migration
+    public partial class bugsFixed : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

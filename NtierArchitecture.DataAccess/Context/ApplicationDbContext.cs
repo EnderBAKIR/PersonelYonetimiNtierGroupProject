@@ -18,7 +18,18 @@ namespace NtierArchitecture.DataAccess.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=localhost,1433;Database=PersonelYonetimiDb;User=sa;Password=Password12*;TrustServerCertificate=True");
+            var configuration = new ConfigurationBuilder()
+                .SetBasePath(AppContext.BaseDirectory)
+                .AddJsonFile("database.json", optional: false, reloadOnChange: true)
+                .Build();
+
+
+
+
+            string connectionString = configuration.GetConnectionString("EsraSql");
+
+
+            optionsBuilder.UseSqlServer(connectionString);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

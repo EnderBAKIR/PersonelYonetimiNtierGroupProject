@@ -12,8 +12,8 @@ using NtierArchitecture.DataAccess.Context;
 namespace NtierArchitecture.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241202192203_bugs_fixed")]
-    partial class bugs_fixed
+    [Migration("20241202194146_bugsFixed")]
+    partial class bugsFixed
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

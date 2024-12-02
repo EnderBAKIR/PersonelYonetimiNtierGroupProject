@@ -27,10 +27,4 @@
 	  <Folder Include="Repositories\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="database.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>
