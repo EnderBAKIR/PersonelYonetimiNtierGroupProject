@@ -1,7 +1,7 @@
 {
     "ConnectionStrings": {
         "EnderSql": "Server=localhost,1433;Database=PersonelYonetimiDb;User=sa;Password=Password12*;TrustServerCertificate=True",
-        "EsraSql": "Server=DESKTOP-MO5UVTL\\MSSQLSERVER02;Database=PersonelYonetimiDb;Integrated Security=True;TrustServerCertificate=True"
+        "EsraSql": "Server=localhost,1433;Database=PersonelYonetimiDb;User=sa;Password=Password12*;TrustServerCertificate=True"
 
 
     }

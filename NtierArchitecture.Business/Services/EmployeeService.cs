@@ -17,7 +17,7 @@ namespace NtierArchitecture.Business.Services
         }
         public void Create(Employee entity)
         {
-            if (IfEntityExists(c => c.Name == entity.Name))
+            if (IfEntityExists(c => c.TcNo == entity.TcNo))
             {
                 throw new Exception("Bu Çalışan daha önce kayıt edilmiştir.");
             }
