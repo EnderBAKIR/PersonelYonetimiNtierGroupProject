@@ -101,6 +101,7 @@ namespace NtierArchitecture.UI.Formlar
             if (cmbPosition.SelectedIndex != -1)
             {
                 selectDepartment = (Department?)cmbPosition.SelectedItem;
+                
             }
         }
 
