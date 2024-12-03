@@ -83,5 +83,11 @@ namespace NtierArchitecture.Business.Services
         {
             return _repository.Find(x => x.EmployeeId == employeeId).FirstOrDefault();
         }
+
+
+        public IEnumerable<Leave> GetLeavesWithEmployee()
+        {
+            return _repository.GetLeavesWithEmployee();
+        }
     }
 }

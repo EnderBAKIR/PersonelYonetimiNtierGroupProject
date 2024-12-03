@@ -9,8 +9,8 @@ namespace NtierArchitecture.DataAccess.Repositories
     public class GenericRepository<T> : IRepository<T> where T : BaseEntity
 
     {
-        private readonly ApplicationDbContext _dbContext;
-        private readonly DbSet<T> _dbSet;
+        protected readonly ApplicationDbContext _dbContext;
+        protected readonly DbSet<T> _dbSet;
         public GenericRepository(ApplicationDbContext context)
         {
             _dbContext = context;
