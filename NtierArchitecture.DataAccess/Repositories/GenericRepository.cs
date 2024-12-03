@@ -49,5 +49,9 @@ namespace NtierArchitecture.DataAccess.Repositories
             _dbContext.SaveChanges();
         }
 
+        public IQueryable<T> Find(Expression<Func<T, bool>> predicate)
+        {
+            return _dbContext.Set<T>().Where(predicate);
+        }
     }
 }

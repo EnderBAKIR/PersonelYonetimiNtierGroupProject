@@ -1,4 +1,5 @@
 using NtierArchitecture.UI.Formlar;
+using NtierArchitecture.UI.Forms;
 
 namespace NtierArchitecture.UI
 {
@@ -13,7 +14,7 @@ namespace NtierArchitecture.UI
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new PersonelForm());
+            Application.Run(new IzinForm());
         }
     }
 }

@@ -17,6 +17,7 @@ namespace NtierArchitecture.DataAccess.IRepositories
         IEnumerable<T> GetAll();
         T GetByID(Guid Id);
         bool IfEntityExists(Expression<Func<T, bool>> filter);
+        public IQueryable<T> Find(Expression<Func<T, bool>> predicate);
 
     }
 }

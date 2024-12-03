@@ -21,8 +21,7 @@ namespace NtierArchitecture.Entities.Models
         public Guid? DepartmentId { get; set; }
         public Discontinuity? Discontinuity { get; set; }
         public Guid? DiscontinuityId { get; set; }
-        public Leave? Leave { get; set; }
-        public Guid? LeaveId { get; set; }
+        public ICollection<Leave>? Leaves { get; set; }
         public string FullNameWithTc => $"{Name} {Surname} - {TcNo}";
 
     }

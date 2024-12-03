@@ -72,5 +72,16 @@ namespace NtierArchitecture.Business.Services
             }
 
         }
+
+        public IEnumerable<Leave> GetLeaveRequestsByEmployeeId(Guid employeeId)
+        {
+            return _repository.Find(x => x.EmployeeId == employeeId).ToList();
+        }
+
+
+        public Leave GetLeaveByEmployeeId(Guid employeeId)
+        {
+            return _repository.Find(x => x.EmployeeId == employeeId).FirstOrDefault();
+        }
     }
 }

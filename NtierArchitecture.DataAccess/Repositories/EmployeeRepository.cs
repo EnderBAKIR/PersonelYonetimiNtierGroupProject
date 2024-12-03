@@ -8,5 +8,7 @@ namespace NtierArchitecture.DataAccess.Repositories
         public EmployeeRepository(ApplicationDbContext context) : base(context)
         {
         }
+
+        
     }
 }
