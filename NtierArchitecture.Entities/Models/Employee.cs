@@ -23,6 +23,7 @@ namespace NtierArchitecture.Entities.Models
         public Guid? DiscontinuityId { get; set; }
         public Leave? Leave { get; set; }
         public Guid? LeaveId { get; set; }
+        public string FullNameWithTc => $"{Name} {Surname} - {TcNo}";
 
     }
 }
