@@ -21,8 +21,6 @@ namespace NtierArchitecture.Business.Services
             {
                 throw new Exception("Bu Çalışan daha önce kayıt edilmiştir.");
             }
-
-            //Install-Package FluentValidation
             EmployeeValidator cval = new();
             ValidationResult result = cval.Validate(entity);
             StringBuilder sb = new();
@@ -30,7 +28,6 @@ namespace NtierArchitecture.Business.Services
 
             if (!result.IsValid)
             {
-                //throw new Exception(string.Join(",", result.Errors));
                 throw new Exception(sb.ToString());
             }
 
@@ -66,6 +63,10 @@ namespace NtierArchitecture.Business.Services
 
         public void Update(Employee entity)
         {
+            EmployeeValidator cval = new();
+            ValidationResult result = cval.Validate(entity);
+            StringBuilder sb = new();
+            result.Errors.ForEach(x => sb.AppendLine(x.ToString()));
             if (entity != null)
             {
                 _repository.Update(entity);
@@ -86,6 +87,10 @@ namespace NtierArchitecture.Business.Services
 		{
 			_repository.Update(employee);
 			_repository.SaveChanges();
+		}
+		public Employee GetEmployeeByTcNo(string tcNo)
+		{
+			return _repository.GetAll().FirstOrDefault(e => e.TcNo == tcNo);
 		}
 	}
 }
