@@ -53,11 +53,14 @@
             txtSearch = new TextBox();
             groupBox1 = new GroupBox();
             groupBox2 = new GroupBox();
-            btnUpdate = new Button();
+            toolStrip1 = new ToolStrip();
+            toolStripComboBox1 = new ToolStripComboBox();
             btnDelete = new Button();
+            btnUpdate = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
+            toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -141,7 +144,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label9.Location = new Point(21, 50);
+            label9.Location = new Point(21, 62);
             label9.Name = "label9";
             label9.Size = new Size(134, 20);
             label9.TabIndex = 8;
@@ -156,6 +159,7 @@
             btnDetail.TabIndex = 13;
             btnDetail.Text = "Personel Detayı";
             btnDetail.UseVisualStyleBackColor = true;
+            btnDetail.Click += btnDetail_Click;
             // 
             // dataGridView1
             // 
@@ -265,7 +269,7 @@
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(156, 47);
+            txtSearch.Location = new Point(161, 62);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(358, 26);
             txtSearch.TabIndex = 28;
@@ -300,6 +304,7 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(toolStrip1);
             groupBox2.Controls.Add(btnDelete);
             groupBox2.Controls.Add(lstPersonelList);
             groupBox2.Controls.Add(txtSearch);
@@ -314,16 +319,21 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Personel Görüntüleme Değişiklik İşlemleri";
             // 
-            // btnUpdate
+            // toolStrip1
             // 
-            btnUpdate.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            btnUpdate.Location = new Point(327, 264);
-            btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(110, 52);
-            btnUpdate.TabIndex = 11;
-            btnUpdate.Text = "Güncelle";
-            btnUpdate.UseVisualStyleBackColor = true;
-            btnUpdate.Click += btnUpdate_Click;
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripComboBox1 });
+            toolStrip1.Location = new Point(3, 22);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new Size(570, 25);
+            toolStrip1.TabIndex = 29;
+            toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripComboBox1
+            // 
+            toolStripComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            toolStripComboBox1.Name = "toolStripComboBox1";
+            toolStripComboBox1.Size = new Size(170, 25);
+            toolStripComboBox1.SelectedIndexChanged += toolStripComboBox1_SelectedIndexChanged;
             // 
             // btnDelete
             // 
@@ -335,6 +345,17 @@
             btnDelete.Text = "Sil";
             btnDelete.UseVisualStyleBackColor = true;
             btnDelete.Click += btnDelete_Click;
+            // 
+            // btnUpdate
+            // 
+            btnUpdate.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            btnUpdate.Location = new Point(327, 264);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(110, 52);
+            btnUpdate.TabIndex = 11;
+            btnUpdate.Text = "Güncelle";
+            btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // PersonelForm
             // 
@@ -355,6 +376,8 @@
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -388,5 +411,7 @@
         private GroupBox groupBox2;
         private Button btnUpdate;
         private Button btnDelete;
+        private ToolStrip toolStrip1;
+        private ToolStripComboBox toolStripComboBox1;
     }
 }

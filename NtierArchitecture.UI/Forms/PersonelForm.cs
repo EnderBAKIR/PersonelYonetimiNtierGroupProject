@@ -63,12 +63,22 @@ namespace NtierArchitecture.UI.Formlar
                     _employeeService.Create(employee);
                     MessageBox.Show("Kayıt Başarılı");
                     FormTemizle();
+                    // Eğer Tümünü Listele seçili ise listeyi güncelle
+                    if (toolStripComboBox1.SelectedItem?.ToString() == "Tümünü Listele")
+                    {
+                        GetAllPersonel();
+                    }
+                    else
+                    {
+                        GetAllPersonelBySearchText(txtSearch.Text);
+                    }
                 }
                 else
                 {
                     MessageBox.Show("Geçerli bir doğum tarihi giriniz");
                     return;
                 }
+
 
             }
             catch (Exception ex)
@@ -103,6 +113,9 @@ namespace NtierArchitecture.UI.Formlar
         private void PersonelForm_Load(object sender, EventArgs e)
         {
             GetAllData();
+            toolStripComboBox1.Items.Add("Listele");
+            toolStripComboBox1.Items.Add("Tümünü Listele");
+            toolStripComboBox1.SelectedIndex = 0; // Varsayılan olarak "Listele"yi seç
 
         }
 
@@ -129,13 +142,7 @@ namespace NtierArchitecture.UI.Formlar
                 lstPersonelList.ClearSelected();
                 lstPersonelList.SelectedIndex = -1;
             }
-            else if (string.IsNullOrEmpty(searchText) || searchText.Length == 0)
-            {
 
-                // Eğer arama metni kısa veya boşsa, listeyi temizle
-                lstPersonelList.DataSource = null;
-
-            }
         }
 
         private void GetAllData()
@@ -164,7 +171,7 @@ namespace NtierArchitecture.UI.Formlar
         Employee? selectedEmployee;
         private void lstPersonelList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lstPersonelList.SelectedIndex != -1)
+            if (lstPersonelList.SelectedIndex != -1 && lstPersonelList.Focused)
             {
                 selectedEmployee = (Employee?)lstPersonelList.SelectedItem;
 
@@ -228,6 +235,7 @@ namespace NtierArchitecture.UI.Formlar
                     _employeeService.Update(selectedEmployee);
                     MessageBox.Show("Kişi başarıyla güncellendi.");
                     FormTemizle();
+                    GetAllPersonelBySearchText(txtSearch.Text);
                 }
                 else
                 {
@@ -261,6 +269,72 @@ namespace NtierArchitecture.UI.Formlar
 
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void toolStripComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var comboBox = sender as ToolStripComboBox;
+
+            if (comboBox != null)
+            {
+                switch (comboBox.SelectedItem.ToString())
+                {
+                    case "Listele":
+                        // Arama kutusundaki metne göre listele
+                        lstPersonelList.DataSource = null;
+                        dataGridView1.Rows.Clear();
+                        dataGridView1.Columns.Clear();
+                        if (!string.IsNullOrEmpty(txtSearch.Text))
+                        {
+                            GetAllPersonelBySearchText(txtSearch.Text);  // Arama yap
+                        }
+                        break;
+
+                    case "Tümünü Listele":
+                        // Listeyi temizle ve tüm verileri listele
+                        dataGridView1.Rows.Clear();
+                        dataGridView1.Columns.Clear();
+                        GetAllPersonel(); // Tümünü listele
+                        break;
+                }
+            }
+        }
+
+        private void btnDetail_Click(object sender, EventArgs e)
+        {
+            if (selectedEmployee != null)
+            {
+                // DataGridView'i temizle
+                dataGridView1.Rows.Clear();
+                dataGridView1.Columns.Clear();
+
+                // Sütunları ekle
+                dataGridView1.Columns.Add("Property", "Özellik");
+                dataGridView1.Columns.Add("Value", "Değer");
+
+                // Detayları DataGridView'e ekle
+                dataGridView1.Rows.Add("Ad", selectedEmployee.Name);
+                dataGridView1.Rows.Add("Soyad", selectedEmployee.Surname);
+                dataGridView1.Rows.Add("Doğum Tarihi", selectedEmployee.BirthDate.ToString("dd.MM.yyyy"));
+                dataGridView1.Rows.Add("TC No", selectedEmployee.TcNo);
+                dataGridView1.Rows.Add("Telefon", selectedEmployee.Tel);
+                dataGridView1.Rows.Add("Adres", selectedEmployee.Adress);
+                dataGridView1.Rows.Add("Departman", selectedEmployee.Department != null ? selectedEmployee.Department.Name : "Belirtilmedi");
+                dataGridView1.Rows.Add("Maaş", selectedEmployee.Salary?.ToString("C") ?? "Belirtilmedi");
+            }
+        }
+        private void GetAllPersonel()
+        {
+            // Tüm personelleri veri kaynağından al
+            var allPersonelList = _employeeService.GetAll().ToList();
+
+            // Listeyi Employee nesneleri ile doldur
+            lstPersonelList.ValueMember = "Id";
+            lstPersonelList.DisplayMember = "FullNameWithTc";
+            lstPersonelList.DataSource = allPersonelList;
+
+            lstPersonelList.ClearSelected();
+            lstPersonelList.SelectedIndex = -1;
         }
     }
 }

@@ -26,7 +26,7 @@ namespace NtierArchitecture.DataAccess.Context
 
 
 
-            string connectionString = configuration.GetConnectionString("ElifSql");
+            string connectionString = configuration.GetConnectionString("EsraSql");
 
 
             optionsBuilder.UseSqlServer(connectionString);
