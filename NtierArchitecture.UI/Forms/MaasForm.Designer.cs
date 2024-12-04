@@ -20,159 +20,166 @@
 			base.Dispose(disposing);
 		}
 
-        #region Windows Form Designer generated code
+		#region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
-            label1 = new Label();
-            label2 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            lstPersonelozlukBilgileri = new ListBox();
-            comboBox1 = new ComboBox();
-            txtNameSurname = new TextBox();
-            textBox2 = new TextBox();
-            lstupdate = new Button();
-            button1 = new Button();
-            SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(175, 21);
-            label1.TabIndex = 0;
-            label1.Text = "Maaş İşlemleri Ve Özlük";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(12, 89);
-            label2.Name = "label2";
-            label2.Size = new Size(140, 21);
-            label2.TabIndex = 1;
-            label2.Text = "Departman Seçiniz";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(12, 305);
-            label4.Name = "label4";
-            label4.Size = new Size(129, 21);
-            label4.TabIndex = 3;
-            label4.Text = "Yeni Maaş Atama";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(610, 118);
-            label5.Name = "label5";
-            label5.Size = new Size(76, 21);
-            label5.TabIndex = 4;
-            label5.Text = "TC Giriniz";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(585, 220);
-            label6.Name = "label6";
-            label6.Size = new Size(346, 21);
-            label6.TabIndex = 5;
-            label6.Text = "Personel Adı, Departmanı ve İzin Durum Bilgileri ";
-            // 
-            // lstPersonelozlukBilgileri
-            // 
-            lstPersonelozlukBilgileri.FormattingEnabled = true;
-            lstPersonelozlukBilgileri.ItemHeight = 21;
-            lstPersonelozlukBilgileri.Location = new Point(576, 292);
-            lstPersonelozlukBilgileri.Name = "lstPersonelozlukBilgileri";
-            lstPersonelozlukBilgileri.Size = new Size(586, 319);
-            lstPersonelozlukBilgileri.TabIndex = 6;
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(221, 86);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(299, 29);
-            comboBox1.TabIndex = 7;
-            // 
-            // txtNameSurname
-            // 
-            txtNameSurname.Location = new Point(805, 115);
-            txtNameSurname.Name = "txtNameSurname";
-            txtNameSurname.Size = new Size(343, 29);
-            txtNameSurname.TabIndex = 8;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(214, 305);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(306, 29);
-            textBox2.TabIndex = 9;
-            // 
-            // lstupdate
-            // 
-            lstupdate.Location = new Point(169, 416);
-            lstupdate.Name = "lstupdate";
-            lstupdate.Size = new Size(181, 55);
-            lstupdate.TabIndex = 10;
-            lstupdate.Text = "Güncelle";
-            lstupdate.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(973, 170);
-            button1.Name = "button1";
-            button1.Size = new Size(175, 39);
-            button1.TabIndex = 11;
-            button1.Text = "Personel getir";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // MaasForm
-            // 
-            AutoScaleDimensions = new SizeF(9F, 21F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(192, 255, 192);
-            ClientSize = new Size(1174, 645);
-            Controls.Add(button1);
-            Controls.Add(lstupdate);
-            Controls.Add(textBox2);
-            Controls.Add(txtNameSurname);
-            Controls.Add(comboBox1);
-            Controls.Add(lstPersonelozlukBilgileri);
-            Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            ForeColor = Color.DarkRed;
-            Margin = new Padding(4);
-            Name = "MaasForm";
-            Text = "MaasForm";
-            ResumeLayout(false);
-            PerformLayout();
-        }
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent()
+		{
+			label4 = new Label();
+			label2 = new Label();
+			label5 = new Label();
+			comboBox1 = new ComboBox();
+			btnupdate = new Button();
+			textBox2 = new TextBox();
+			btnPer = new Button();
+			groupBox2 = new GroupBox();
+			LstPersonelBilgileri = new ListBox();
+			groupBox1 = new GroupBox();
+			txtmaskedTC = new MaskedTextBox();
+			groupBox2.SuspendLayout();
+			groupBox1.SuspendLayout();
+			SuspendLayout();
+			// 
+			// label4
+			// 
+			label4.AutoSize = true;
+			label4.Location = new Point(18, 247);
+			label4.Name = "label4";
+			label4.Size = new Size(196, 32);
+			label4.TabIndex = 3;
+			label4.Text = "Yeni Maaş Atama";
+			// 
+			// label2
+			// 
+			label2.AutoSize = true;
+			label2.Location = new Point(18, 99);
+			label2.Name = "label2";
+			label2.Size = new Size(214, 32);
+			label2.TabIndex = 1;
+			label2.Text = "Departman Seçiniz";
+			// 
+			// label5
+			// 
+			label5.AutoSize = true;
+			label5.Location = new Point(49, 48);
+			label5.Name = "label5";
+			label5.Size = new Size(115, 32);
+			label5.TabIndex = 4;
+			label5.Text = "TC Giriniz";
+			// 
+			// comboBox1
+			// 
+			comboBox1.FormattingEnabled = true;
+			comboBox1.Location = new Point(252, 96);
+			comboBox1.Name = "comboBox1";
+			comboBox1.Size = new Size(256, 40);
+			comboBox1.TabIndex = 7;
+			// 
+			// btnupdate
+			// 
+			btnupdate.Location = new Point(172, 330);
+			btnupdate.Name = "btnupdate";
+			btnupdate.Size = new Size(181, 55);
+			btnupdate.TabIndex = 10;
+			btnupdate.Text = "Güncelle";
+			btnupdate.UseVisualStyleBackColor = true;
+			// 
+			// textBox2
+			// 
+			textBox2.Location = new Point(252, 240);
+			textBox2.Name = "textBox2";
+			textBox2.Size = new Size(256, 39);
+			textBox2.TabIndex = 9;
+			// 
+			// btnPer
+			// 
+			btnPer.Location = new Point(156, 99);
+			btnPer.Name = "btnPer";
+			btnPer.Size = new Size(211, 51);
+			btnPer.TabIndex = 11;
+			btnPer.Text = "Personel getir";
+			btnPer.UseVisualStyleBackColor = true;
+			// 
+			// groupBox2
+			// 
+			groupBox2.Controls.Add(txtmaskedTC);
+			groupBox2.Controls.Add(LstPersonelBilgileri);
+			groupBox2.Controls.Add(label5);
+			groupBox2.Controls.Add(btnPer);
+			groupBox2.Location = new Point(611, 12);
+			groupBox2.Name = "groupBox2";
+			groupBox2.Size = new Size(505, 585);
+			groupBox2.TabIndex = 15;
+			groupBox2.TabStop = false;
+			groupBox2.Text = "PersonelBilgileri";
+			// 
+			// LstPersonelBilgileri
+			// 
+			LstPersonelBilgileri.FormattingEnabled = true;
+			LstPersonelBilgileri.ItemHeight = 32;
+			LstPersonelBilgileri.Location = new Point(19, 173);
+			LstPersonelBilgileri.Name = "LstPersonelBilgileri";
+			LstPersonelBilgileri.Size = new Size(465, 388);
+			LstPersonelBilgileri.TabIndex = 12;
+			// 
+			// groupBox1
+			// 
+			groupBox1.Controls.Add(btnupdate);
+			groupBox1.Controls.Add(label4);
+			groupBox1.Controls.Add(textBox2);
+			groupBox1.Controls.Add(comboBox1);
+			groupBox1.Controls.Add(label2);
+			groupBox1.Location = new Point(12, 12);
+			groupBox1.Name = "groupBox1";
+			groupBox1.Size = new Size(547, 585);
+			groupBox1.TabIndex = 14;
+			groupBox1.TabStop = false;
+			groupBox1.Text = "Maaş İşlemleri ve Özlük";
+			// 
+			// txtmaskedTC
+			// 
+			txtmaskedTC.Location = new Point(186, 41);
+			txtmaskedTC.Mask = "00000000000";
+			txtmaskedTC.Name = "txtmaskedTC";
+			txtmaskedTC.Size = new Size(298, 39);
+			txtmaskedTC.TabIndex = 13;
+			txtmaskedTC.ValidatingType = typeof(int);
+			// 
+			// MaasForm
+			// 
+			AutoScaleDimensions = new SizeF(13F, 32F);
+			AutoScaleMode = AutoScaleMode.Font;
+			BackColor = Color.FromArgb(192, 255, 192);
+			ClientSize = new Size(1174, 645);
+			Controls.Add(groupBox2);
+			Controls.Add(groupBox1);
+			Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+			ForeColor = Color.DarkRed;
+			Margin = new Padding(4);
+			Name = "MaasForm";
+			Text = "MaasForm";
+			groupBox2.ResumeLayout(false);
+			groupBox2.PerformLayout();
+			groupBox1.ResumeLayout(false);
+			groupBox1.PerformLayout();
+			ResumeLayout(false);
+		}
 
-        #endregion
+		#endregion
 
-        private Label label1;
-		private Label label2;
 		private Label label4;
+		private Label label2;
 		private Label label5;
-		private Label label6;
-		private ListBox lstPersonelozlukBilgileri;
 		private ComboBox comboBox1;
-		private TextBox txtNameSurname;
+		private Button btnupdate;
 		private TextBox textBox2;
-		private Button lstupdate;
-        private Button button1;
-    }
+		private Button btnPer;
+		private GroupBox groupBox2;
+		private ListBox LstPersonelBilgileri;
+		private GroupBox groupBox1;
+		private MaskedTextBox txtmaskedTC;
+	}
 }

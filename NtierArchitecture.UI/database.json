@@ -1,8 +1,7 @@
 {
-    "ConnectionStrings": {
-        "EnderSql": "Server=localhost,1433;Database=PersonelYonetimiDb;User=sa;Password=Password12*;TrustServerCertificate=True",
-        "EsraSql": "Server=localhost,1433;Database=PersonelYonetimiDb;User=sa;Password=Password12*;TrustServerCertificate=True"
-
-
-    }
+  "ConnectionStrings": {
+    "EnderSql": "Server=localhost,1433;Database=PersonelYonetimiDb;User=sa;Password=Password12*;TrustServerCertificate=True",
+    "EsraSql": "Server=localhost,1433;Database=PersonelYonetimiDb;User=sa;Password=Password12*;TrustServerCertificate=True",
+    "ElifSql": "Data Source=.;Initial Catalog=PersonelYonetimiDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;",
+  }
 }

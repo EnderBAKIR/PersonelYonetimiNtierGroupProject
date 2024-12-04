@@ -72,12 +72,20 @@ namespace NtierArchitecture.Business.Services
             }
 
         }
-
         public Employee GetEmployeeByTcAndPassword(string tcNo, string password)
         {
             return _repository
                 .Find(e => e.TcNo == tcNo && e.Password == password)
                 .FirstOrDefault();
         }
-    }
+		public List<Employee> GetEmployeesByDepartment(string departmentName)
+		{
+			return _repository.GetAll().Where(e => e.Department != null && e.Department.Name == departmentName).ToList();
+		}
+		public void UpdateEmployee(Employee employee)
+		{
+			_repository.Update(employee);
+			_repository.SaveChanges();
+		}
+	}
 }
