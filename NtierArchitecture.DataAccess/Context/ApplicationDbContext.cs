@@ -23,7 +23,7 @@ namespace NtierArchitecture.DataAccess.Context
                 .AddJsonFile("database.json", optional: false, reloadOnChange: true)
                 .Build();
 
-            string connectionString = configuration.GetConnectionString("ElifSql");
+            string connectionString = configuration.GetConnectionString("EsraSql");
 
 
             optionsBuilder.UseSqlServer(connectionString);
