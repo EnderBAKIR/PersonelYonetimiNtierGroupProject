@@ -320,7 +320,7 @@ namespace NtierArchitecture.UI.Formlar
                 dataGridView1.Rows.Add("Telefon", selectedEmployee.Tel);
                 dataGridView1.Rows.Add("Adres", selectedEmployee.Adress);
                 dataGridView1.Rows.Add("Departman", selectedEmployee.Department != null ? selectedEmployee.Department.Name : "Belirtilmedi");
-                dataGridView1.Rows.Add("Maaş", selectedEmployee.Salary?.ToString("C") ?? "Belirtilmedi");
+                dataGridView1.Rows.Add("Maaş", selectedEmployee.Salary?.ToString("N2") + " TL" ?? "Belirtilmedi");
             }
         }
         private void GetAllPersonel()
