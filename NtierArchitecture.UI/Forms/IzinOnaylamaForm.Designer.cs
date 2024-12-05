@@ -44,14 +44,15 @@
             // 
             // label1
             // 
-            label1.BackColor = SystemColors.AppWorkspace;
-            label1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label1.ForeColor = SystemColors.MenuHighlight;
-            label1.Location = new Point(89, 9);
+            label1.BackColor = SystemColors.ControlLight;
+            label1.Font = new Font("Sitka Heading", 18F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label1.ForeColor = SystemColors.MenuText;
+            label1.Location = new Point(20, 9);
             label1.Name = "label1";
-            label1.Size = new Size(206, 33);
+            label1.Size = new Size(123, 33);
             label1.TabIndex = 0;
             label1.Text = "Aktif İzin Talepleri";
+            label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lstActiveLeaves
             // 
@@ -65,47 +66,50 @@
             // 
             // dgwEmployeeDetails
             // 
+            dgwEmployeeDetails.BackgroundColor = Color.Azure;
             dgwEmployeeDetails.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgwEmployeeDetails.Location = new Point(20, 419);
+            dgwEmployeeDetails.Location = new Point(30, 432);
             dgwEmployeeDetails.Name = "dgwEmployeeDetails";
-            dgwEmployeeDetails.Size = new Size(840, 89);
+            dgwEmployeeDetails.Size = new Size(818, 94);
             dgwEmployeeDetails.TabIndex = 2;
             // 
             // label2
             // 
-            label2.BackColor = SystemColors.AppWorkspace;
-            label2.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label2.ForeColor = SystemColors.MenuHighlight;
-            label2.Location = new Point(340, 383);
+            label2.BackColor = SystemColors.ControlLight;
+            label2.Font = new Font("Sitka Heading", 18F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label2.ForeColor = Color.DarkCyan;
+            label2.Location = new Point(341, 396);
             label2.Name = "label2";
-            label2.Size = new Size(206, 33);
+            label2.Size = new Size(230, 33);
             label2.TabIndex = 3;
             label2.Text = "Personel Detayları";
             // 
             // label3
             // 
-            label3.BackColor = SystemColors.AppWorkspace;
-            label3.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label3.ForeColor = SystemColors.MenuHighlight;
+            label3.BackColor = SystemColors.ControlLight;
+            label3.Font = new Font("Sitka Heading", 18F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label3.ForeColor = Color.DarkCyan;
             label3.Location = new Point(357, 256);
             label3.Name = "label3";
-            label3.Size = new Size(173, 33);
+            label3.Size = new Size(190, 33);
             label3.TabIndex = 4;
             label3.Text = "Talep Detayları";
             // 
             // dgwLeaveDetails
             // 
+            dgwLeaveDetails.BackgroundColor = Color.Azure;
             dgwLeaveDetails.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgwLeaveDetails.Location = new Point(20, 292);
+            dgwLeaveDetails.Location = new Point(30, 292);
             dgwLeaveDetails.Name = "dgwLeaveDetails";
-            dgwLeaveDetails.Size = new Size(840, 88);
+            dgwLeaveDetails.Size = new Size(818, 88);
             dgwLeaveDetails.TabIndex = 5;
             // 
             // btnRejected
             // 
-            btnRejected.BackColor = Color.Red;
-            btnRejected.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            btnRejected.Location = new Point(487, 531);
+            btnRejected.BackColor = Color.Firebrick;
+            btnRejected.Font = new Font("Microsoft YaHei", 17.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            btnRejected.ForeColor = SystemColors.ButtonHighlight;
+            btnRejected.Location = new Point(461, 544);
             btnRejected.Name = "btnRejected";
             btnRejected.Size = new Size(129, 42);
             btnRejected.TabIndex = 7;
@@ -125,20 +129,21 @@
             // 
             // label4
             // 
-            label4.BackColor = SystemColors.AppWorkspace;
-            label4.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label4.ForeColor = SystemColors.MenuHighlight;
-            label4.Location = new Point(532, 9);
+            label4.BackColor = SystemColors.ControlLight;
+            label4.Font = new Font("Sitka Heading", 18F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label4.ForeColor = SystemColors.MenuText;
+            label4.Location = new Point(487, 9);
             label4.Name = "label4";
-            label4.Size = new Size(294, 33);
+            label4.Size = new Size(205, 33);
             label4.TabIndex = 9;
             label4.Text = "Sonuçlanmış İzin Talepleri";
             // 
             // btnApproved
             // 
-            btnApproved.BackColor = Color.GreenYellow;
-            btnApproved.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            btnApproved.Location = new Point(260, 531);
+            btnApproved.BackColor = Color.ForestGreen;
+            btnApproved.Font = new Font("Microsoft YaHei", 17.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            btnApproved.ForeColor = SystemColors.ControlLightLight;
+            btnApproved.Location = new Point(272, 544);
             btnApproved.Name = "btnApproved";
             btnApproved.Size = new Size(129, 42);
             btnApproved.TabIndex = 10;

@@ -316,12 +316,17 @@
             // 
             // toolStrip1
             // 
+            toolStrip1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            toolStrip1.AutoSize = false;
             toolStrip1.BackColor = Color.LemonChiffon;
+            toolStrip1.BackgroundImageLayout = ImageLayout.Stretch;
+            toolStrip1.Dock = DockStyle.None;
             toolStrip1.Font = new Font("Segoe UI", 12F);
             toolStrip1.Items.AddRange(new ToolStripItem[] { txtSearchBox, toolStripLabel1, toolStripSeparator1, toolStripComboBox1 });
-            toolStrip1.Location = new Point(3, 22);
+            toolStrip1.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            toolStrip1.Location = new Point(21, 33);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(570, 25);
+            toolStrip1.Size = new Size(534, 25);
             toolStrip1.TabIndex = 29;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -399,7 +404,6 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             ResumeLayout(false);
