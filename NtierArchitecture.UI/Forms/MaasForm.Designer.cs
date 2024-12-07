@@ -32,13 +32,13 @@
 			label2 = new Label();
 			label5 = new Label();
 			comboBox1 = new ComboBox();
-			btnupdate = new Button();
+			btnYenile = new Button();
 			textBox2 = new TextBox();
 			btnPer = new Button();
 			groupBox2 = new GroupBox();
+			txtmaskedTC = new MaskedTextBox();
 			LstPersonelBilgileri = new ListBox();
 			groupBox1 = new GroupBox();
-			txtmaskedTC = new MaskedTextBox();
 			groupBox2.SuspendLayout();
 			groupBox1.SuspendLayout();
 			SuspendLayout();
@@ -78,14 +78,15 @@
 			comboBox1.Size = new Size(256, 40);
 			comboBox1.TabIndex = 7;
 			// 
-			// btnupdate
+			// btnYenile
 			// 
-			btnupdate.Location = new Point(172, 330);
-			btnupdate.Name = "btnupdate";
-			btnupdate.Size = new Size(181, 55);
-			btnupdate.TabIndex = 10;
-			btnupdate.Text = "Güncelle";
-			btnupdate.UseVisualStyleBackColor = true;
+			btnYenile.Location = new Point(168, 332);
+			btnYenile.Name = "btnYenile";
+			btnYenile.Size = new Size(181, 55);
+			btnYenile.TabIndex = 10;
+			btnYenile.Text = "Güncelle";
+			btnYenile.UseVisualStyleBackColor = true;
+			btnYenile.Click += btnYenile_Click_1;
 			// 
 			// textBox2
 			// 
@@ -102,6 +103,7 @@
 			btnPer.TabIndex = 11;
 			btnPer.Text = "Personel getir";
 			btnPer.UseVisualStyleBackColor = true;
+			btnPer.Click += btnPer_Click_1;
 			// 
 			// groupBox2
 			// 
@@ -116,6 +118,15 @@
 			groupBox2.TabStop = false;
 			groupBox2.Text = "PersonelBilgileri";
 			// 
+			// txtmaskedTC
+			// 
+			txtmaskedTC.Location = new Point(186, 41);
+			txtmaskedTC.Mask = "00000000000";
+			txtmaskedTC.Name = "txtmaskedTC";
+			txtmaskedTC.Size = new Size(298, 39);
+			txtmaskedTC.TabIndex = 13;
+			txtmaskedTC.ValidatingType = typeof(int);
+			// 
 			// LstPersonelBilgileri
 			// 
 			LstPersonelBilgileri.FormattingEnabled = true;
@@ -127,7 +138,7 @@
 			// 
 			// groupBox1
 			// 
-			groupBox1.Controls.Add(btnupdate);
+			groupBox1.Controls.Add(btnYenile);
 			groupBox1.Controls.Add(label4);
 			groupBox1.Controls.Add(textBox2);
 			groupBox1.Controls.Add(comboBox1);
@@ -138,15 +149,6 @@
 			groupBox1.TabIndex = 14;
 			groupBox1.TabStop = false;
 			groupBox1.Text = "Maaş İşlemleri ve Özlük";
-			// 
-			// txtmaskedTC
-			// 
-			txtmaskedTC.Location = new Point(186, 41);
-			txtmaskedTC.Mask = "00000000000";
-			txtmaskedTC.Name = "txtmaskedTC";
-			txtmaskedTC.Size = new Size(298, 39);
-			txtmaskedTC.TabIndex = 13;
-			txtmaskedTC.ValidatingType = typeof(int);
 			// 
 			// MaasForm
 			// 
@@ -161,6 +163,7 @@
 			Margin = new Padding(4);
 			Name = "MaasForm";
 			Text = "MaasForm";
+			Load += MaasForm_Load;
 			groupBox2.ResumeLayout(false);
 			groupBox2.PerformLayout();
 			groupBox1.ResumeLayout(false);
@@ -174,7 +177,7 @@
 		private Label label2;
 		private Label label5;
 		private ComboBox comboBox1;
-		private Button btnupdate;
+		private Button btnYenile;
 		private TextBox textBox2;
 		private Button btnPer;
 		private GroupBox groupBox2;

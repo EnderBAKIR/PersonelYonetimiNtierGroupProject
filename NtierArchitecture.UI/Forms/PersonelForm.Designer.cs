@@ -36,7 +36,6 @@
             label6 = new Label();
             label7 = new Label();
             label8 = new Label();
-            label9 = new Label();
             btnDetail = new Button();
             dataGridView1 = new DataGridView();
             lstPersonelList = new ListBox();
@@ -50,10 +49,12 @@
             btnAdd = new Button();
             label10 = new Label();
             maskedtxtPswrd = new MaskedTextBox();
-            txtSearch = new TextBox();
             groupBox1 = new GroupBox();
             groupBox2 = new GroupBox();
             toolStrip1 = new ToolStrip();
+            txtSearchBox = new ToolStripTextBox();
+            toolStripLabel1 = new ToolStripLabel();
+            toolStripSeparator1 = new ToolStripSeparator();
             toolStripComboBox1 = new ToolStripComboBox();
             btnDelete = new Button();
             btnUpdate = new Button();
@@ -77,6 +78,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
+            label2.ForeColor = Color.SaddleBrown;
             label2.Location = new Point(85, 44);
             label2.Name = "label2";
             label2.Size = new Size(31, 20);
@@ -87,6 +89,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
+            label3.ForeColor = Color.SaddleBrown;
             label3.Location = new Point(79, 87);
             label3.Name = "label3";
             label3.Size = new Size(59, 20);
@@ -96,6 +99,7 @@
             // label4
             // 
             label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
+            label4.ForeColor = Color.SaddleBrown;
             label4.Location = new Point(27, 138);
             label4.Name = "label4";
             label4.Size = new Size(177, 33);
@@ -105,6 +109,7 @@
             // label5
             // 
             label5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
+            label5.ForeColor = Color.SaddleBrown;
             label5.Location = new Point(69, 235);
             label5.Name = "label5";
             label5.Size = new Size(104, 32);
@@ -115,6 +120,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
+            label6.ForeColor = Color.SaddleBrown;
             label6.Location = new Point(79, 280);
             label6.Name = "label6";
             label6.Size = new Size(56, 20);
@@ -125,6 +131,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
+            label7.ForeColor = Color.SaddleBrown;
             label7.Location = new Point(69, 327);
             label7.Name = "label7";
             label7.Size = new Size(69, 20);
@@ -134,35 +141,30 @@
             // label8
             // 
             label8.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
+            label8.ForeColor = Color.SaddleBrown;
             label8.Location = new Point(51, 380);
             label8.Name = "label8";
             label8.Size = new Size(153, 30);
             label8.TabIndex = 7;
             label8.Text = "Pozisyon Seçimi";
             // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label9.Location = new Point(21, 62);
-            label9.Name = "label9";
-            label9.Size = new Size(134, 20);
-            label9.TabIndex = 8;
-            label9.Text = "Personel Ara 🔍";
-            // 
             // btnDetail
             // 
+            btnDetail.BackColor = Color.Goldenrod;
             btnDetail.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            btnDetail.ForeColor = Color.White;
             btnDetail.Location = new Point(21, 327);
             btnDetail.Name = "btnDetail";
             btnDetail.Size = new Size(166, 47);
             btnDetail.TabIndex = 13;
             btnDetail.Text = "Personel Detayı";
-            btnDetail.UseVisualStyleBackColor = true;
+            btnDetail.UseVisualStyleBackColor = false;
             btnDetail.Click += btnDetail_Click;
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.BackgroundColor = SystemColors.MenuBar;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(21, 380);
             dataGridView1.Name = "dataGridView1";
@@ -175,9 +177,9 @@
             // 
             lstPersonelList.FormattingEnabled = true;
             lstPersonelList.ItemHeight = 20;
-            lstPersonelList.Location = new Point(21, 94);
+            lstPersonelList.Location = new Point(21, 74);
             lstPersonelList.Name = "lstPersonelList";
-            lstPersonelList.Size = new Size(534, 164);
+            lstPersonelList.Size = new Size(534, 184);
             lstPersonelList.TabIndex = 15;
             lstPersonelList.SelectedIndexChanged += lstPersonelList_SelectedIndexChanged;
             // 
@@ -239,19 +241,21 @@
             // 
             // btnAdd
             // 
+            btnAdd.BackColor = Color.DarkSlateGray;
             btnAdd.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            btnAdd.ForeColor = Color.ForestGreen;
+            btnAdd.ForeColor = SystemColors.ButtonHighlight;
             btnAdd.Location = new Point(234, 440);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(214, 52);
             btnAdd.TabIndex = 27;
             btnAdd.Text = "Personel Ekle";
-            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.UseVisualStyleBackColor = false;
             btnAdd.Click += btnAdd_Click;
             // 
             // label10
             // 
             label10.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
+            label10.ForeColor = Color.SaddleBrown;
             label10.Location = new Point(85, 177);
             label10.Name = "label10";
             label10.Size = new Size(53, 33);
@@ -266,14 +270,6 @@
             maskedtxtPswrd.Size = new Size(260, 26);
             maskedtxtPswrd.TabIndex = 25;
             maskedtxtPswrd.ValidatingType = typeof(int);
-            // 
-            // txtSearch
-            // 
-            txtSearch.Location = new Point(161, 62);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(358, 26);
-            txtSearch.TabIndex = 28;
-            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // groupBox1
             // 
@@ -304,15 +300,14 @@
             // 
             // groupBox2
             // 
+            groupBox2.BackColor = Color.PaleGoldenrod;
             groupBox2.Controls.Add(toolStrip1);
             groupBox2.Controls.Add(btnDelete);
             groupBox2.Controls.Add(lstPersonelList);
-            groupBox2.Controls.Add(txtSearch);
             groupBox2.Controls.Add(dataGridView1);
             groupBox2.Controls.Add(btnDetail);
-            groupBox2.Controls.Add(label9);
             groupBox2.Controls.Add(btnUpdate);
-            groupBox2.Location = new Point(551, 12);
+            groupBox2.Location = new Point(582, 18);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(576, 569);
             groupBox2.TabIndex = 30;
@@ -321,15 +316,45 @@
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripComboBox1 });
-            toolStrip1.Location = new Point(3, 22);
+            toolStrip1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            toolStrip1.AutoSize = false;
+            toolStrip1.BackColor = Color.LemonChiffon;
+            toolStrip1.BackgroundImageLayout = ImageLayout.Stretch;
+            toolStrip1.Dock = DockStyle.None;
+            toolStrip1.Font = new Font("Segoe UI", 12F);
+            toolStrip1.Items.AddRange(new ToolStripItem[] { txtSearchBox, toolStripLabel1, toolStripSeparator1, toolStripComboBox1 });
+            toolStrip1.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            toolStrip1.Location = new Point(21, 33);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(570, 25);
+            toolStrip1.Size = new Size(534, 25);
             toolStrip1.TabIndex = 29;
             toolStrip1.Text = "toolStrip1";
             // 
+            // txtSearchBox
+            // 
+            txtSearchBox.Alignment = ToolStripItemAlignment.Right;
+            txtSearchBox.Name = "txtSearchBox";
+            txtSearchBox.Size = new Size(200, 25);
+            txtSearchBox.TextChanged += txtSearchBox_TextChanged;
+            // 
+            // toolStripLabel1
+            // 
+            toolStripLabel1.ActiveLinkColor = Color.Red;
+            toolStripLabel1.Alignment = ToolStripItemAlignment.Right;
+            toolStripLabel1.ForeColor = SystemColors.MenuHighlight;
+            toolStripLabel1.Name = "toolStripLabel1";
+            toolStripLabel1.Size = new Size(32, 22);
+            toolStripLabel1.Text = "🔍";
+            // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Alignment = ToolStripItemAlignment.Right;
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(6, 25);
+            // 
             // toolStripComboBox1
             // 
+            toolStripComboBox1.Alignment = ToolStripItemAlignment.Right;
             toolStripComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             toolStripComboBox1.Name = "toolStripComboBox1";
             toolStripComboBox1.Size = new Size(170, 25);
@@ -337,31 +362,35 @@
             // 
             // btnDelete
             // 
+            btnDelete.BackColor = Color.DarkSlateGray;
             btnDelete.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            btnDelete.ForeColor = Color.White;
             btnDelete.Location = new Point(453, 264);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(89, 52);
             btnDelete.TabIndex = 28;
             btnDelete.Text = "Sil";
-            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.UseVisualStyleBackColor = false;
             btnDelete.Click += btnDelete_Click;
             // 
             // btnUpdate
             // 
+            btnUpdate.BackColor = Color.DarkSlateGray;
             btnUpdate.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            btnUpdate.ForeColor = Color.White;
             btnUpdate.Location = new Point(327, 264);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(110, 52);
             btnUpdate.TabIndex = 11;
             btnUpdate.Text = "Güncelle";
-            btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.UseVisualStyleBackColor = false;
             btnUpdate.Click += btnUpdate_Click;
             // 
             // PersonelForm
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(255, 255, 192);
+            BackColor = Color.PaleGoldenrod;
             ClientSize = new Size(1194, 600);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
@@ -375,7 +404,6 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             ResumeLayout(false);
@@ -391,7 +419,6 @@
 		private Label label6;
 		private Label label7;
 		private Label label8;
-		private Label label9;
 		private Button button3;
 		private Button btnDetail;
 		private DataGridView dataGridView1;
@@ -406,12 +433,14 @@
         private Button btnAdd;
         private Label label10;
         private MaskedTextBox maskedtxtPswrd;
-        private TextBox txtSearch;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
         private Button btnUpdate;
         private Button btnDelete;
         private ToolStrip toolStrip1;
         private ToolStripComboBox toolStripComboBox1;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripTextBox txtSearchBox;
+        private ToolStripLabel toolStripLabel1;
     }
 }

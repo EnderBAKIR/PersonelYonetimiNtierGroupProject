@@ -70,7 +70,7 @@ namespace NtierArchitecture.UI.Formlar
                     }
                     else
                     {
-                        GetAllPersonelBySearchText(txtSearch.Text);
+                        GetAllPersonelBySearchText(txtSearchBox.Text);
                     }
                 }
                 else
@@ -142,7 +142,10 @@ namespace NtierArchitecture.UI.Formlar
                 lstPersonelList.ClearSelected();
                 lstPersonelList.SelectedIndex = -1;
             }
-
+            else if (string.IsNullOrEmpty(searchText))
+            {
+                lstPersonelList.DataSource = null;
+            }
         }
 
         private void GetAllData()
@@ -158,10 +161,7 @@ namespace NtierArchitecture.UI.Formlar
 
         }
 
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-            GetAllPersonelBySearchText(txtSearch.Text);
-        }
+      
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -235,7 +235,7 @@ namespace NtierArchitecture.UI.Formlar
                     _employeeService.Update(selectedEmployee);
                     MessageBox.Show("Kişi başarıyla güncellendi.");
                     FormTemizle();
-                    GetAllPersonelBySearchText(txtSearch.Text);
+                    GetAllPersonelBySearchText(txtSearchBox.Text);
                 }
                 else
                 {
@@ -258,7 +258,7 @@ namespace NtierArchitecture.UI.Formlar
                 {
                     _employeeService.Delete(selectedEmployee.Id);
                     MessageBox.Show("Silme işlemi Başarılı.");
-                    GetAllPersonelBySearchText(txtSearch.Text);
+                    GetAllPersonelBySearchText(txtSearchBox.Text);
                     selectedEmployee = null;
                     FormTemizle();
 
@@ -284,9 +284,9 @@ namespace NtierArchitecture.UI.Formlar
                         lstPersonelList.DataSource = null;
                         dataGridView1.Rows.Clear();
                         dataGridView1.Columns.Clear();
-                        if (!string.IsNullOrEmpty(txtSearch.Text))
+                        if (!string.IsNullOrEmpty(txtSearchBox.Text))
                         {
-                            GetAllPersonelBySearchText(txtSearch.Text);  // Arama yap
+                            GetAllPersonelBySearchText(txtSearchBox.Text);  // Arama yap
                         }
                         break;
 
@@ -320,7 +320,7 @@ namespace NtierArchitecture.UI.Formlar
                 dataGridView1.Rows.Add("Telefon", selectedEmployee.Tel);
                 dataGridView1.Rows.Add("Adres", selectedEmployee.Adress);
                 dataGridView1.Rows.Add("Departman", selectedEmployee.Department != null ? selectedEmployee.Department.Name : "Belirtilmedi");
-                dataGridView1.Rows.Add("Maaş", selectedEmployee.Salary?.ToString("C") ?? "Belirtilmedi");
+                dataGridView1.Rows.Add("Maaş", selectedEmployee.Salary?.ToString("N2") + " TL" ?? "Belirtilmedi");
             }
         }
         private void GetAllPersonel()
@@ -335,6 +335,11 @@ namespace NtierArchitecture.UI.Formlar
 
             lstPersonelList.ClearSelected();
             lstPersonelList.SelectedIndex = -1;
+        }
+
+        private void txtSearchBox_TextChanged(object sender, EventArgs e)
+        {
+            GetAllPersonelBySearchText(txtSearchBox.Text);
         }
     }
 }
