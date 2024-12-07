@@ -26,7 +26,7 @@ namespace NtierArchitecture.DataAccess.Context
 
 
 
-            string connectionString = configuration.GetConnectionString("EsraSql");
+            string connectionString = configuration.GetConnectionString("KubraSql");
 
 
             optionsBuilder.UseSqlServer(connectionString);

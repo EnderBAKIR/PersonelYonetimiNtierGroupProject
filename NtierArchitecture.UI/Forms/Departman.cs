@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NtierArchitecture.Entities.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,19 +8,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace NtierArchitecture.UI.Formlar
 {
-	public partial class Departman : Form
-	{
-		public Departman()
-		{
-			InitializeComponent();
-		}
-
-		private void button2_Click(object sender, EventArgs e)
-		{
-
-		}
-	}
+    public partial class Departman : Form
+    {
+        public Departman()
+        {
+            InitializeComponent();
+        }
+    }
 }
+   
+

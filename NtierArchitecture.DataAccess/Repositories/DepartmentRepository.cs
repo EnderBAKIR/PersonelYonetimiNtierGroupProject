@@ -1,4 +1,5 @@
-﻿using NtierArchitecture.DataAccess.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using NtierArchitecture.DataAccess.Context;
 using NtierArchitecture.Entities.Models;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace NtierArchitecture.DataAccess.Repositories
     public class DepartmentRepository : GenericRepository<Department>
     {
         public DepartmentRepository(ApplicationDbContext context) : base(context)
-        {
+        {  
         }
     }
 }
