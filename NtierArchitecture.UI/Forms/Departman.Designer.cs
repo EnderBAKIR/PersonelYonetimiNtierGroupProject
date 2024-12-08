@@ -34,8 +34,8 @@
             AddDepart = new Button();
             btnDelete = new Button();
             lstDepartmants = new ListBox();
-            DepartmantsName = new TextBox();
-            button1 = new Button();
+            txtDepartmanName = new TextBox();
+            btnUpdate = new Button();
             SuspendLayout();
             // 
             // label1
@@ -64,6 +64,7 @@
             DepartmantsShow.TabIndex = 4;
             DepartmantsShow.Text = "Departmanları Görüntüle";
             DepartmantsShow.UseVisualStyleBackColor = true;
+            DepartmantsShow.Click += DepartmantsShow_Click;
             // 
             // AddDepart
             // 
@@ -73,6 +74,7 @@
             AddDepart.TabIndex = 5;
             AddDepart.Text = "Ekle";
             AddDepart.UseVisualStyleBackColor = true;
+            AddDepart.Click += AddDepart_Click;
             // 
             // btnDelete
             // 
@@ -82,6 +84,7 @@
             btnDelete.TabIndex = 8;
             btnDelete.Text = "Sil";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // lstDepartmants
             // 
@@ -91,22 +94,24 @@
             lstDepartmants.Name = "lstDepartmants";
             lstDepartmants.Size = new Size(338, 340);
             lstDepartmants.TabIndex = 10;
+            lstDepartmants.SelectedIndexChanged += lstDepartmants_SelectedIndexChanged;
             // 
-            // DepartmantsName
+            // txtDepartmanName
             // 
-            DepartmantsName.Location = new Point(255, 61);
-            DepartmantsName.Name = "DepartmantsName";
-            DepartmantsName.Size = new Size(342, 34);
-            DepartmantsName.TabIndex = 11;
+            txtDepartmanName.Location = new Point(255, 61);
+            txtDepartmanName.Name = "txtDepartmanName";
+            txtDepartmanName.Size = new Size(342, 34);
+            txtDepartmanName.TabIndex = 11;
             // 
-            // button1
+            // btnUpdate
             // 
-            button1.Location = new Point(386, 139);
-            button1.Name = "button1";
-            button1.Size = new Size(151, 58);
-            button1.TabIndex = 12;
-            button1.Text = "Güncelle";
-            button1.UseVisualStyleBackColor = true;
+            btnUpdate.Location = new Point(386, 139);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(151, 58);
+            btnUpdate.TabIndex = 12;
+            btnUpdate.Text = "Güncelle";
+            btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // Departman
             // 
@@ -114,8 +119,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MediumAquamarine;
             ClientSize = new Size(1189, 576);
-            Controls.Add(button1);
-            Controls.Add(DepartmantsName);
+            Controls.Add(btnUpdate);
+            Controls.Add(txtDepartmanName);
             Controls.Add(lstDepartmants);
             Controls.Add(btnDelete);
             Controls.Add(AddDepart);
@@ -127,6 +132,7 @@
             Margin = new Padding(4);
             Name = "Departman";
             Text = "Departman";
+            Load += Departman_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -139,7 +145,7 @@
 		private Button AddDepart;
 		private Button btnDelete;
 		private ListBox lstDepartmants;
-		private TextBox DepartmantsName;
-        private Button button1;
+		private TextBox txtDepartmanName;
+        private Button btnUpdate;
     }
 }
