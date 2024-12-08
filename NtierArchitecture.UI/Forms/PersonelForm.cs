@@ -3,6 +3,7 @@ using NtierArchitecture.DataAccess.Context;
 using NtierArchitecture.DataAccess.Repositories;
 using NtierArchitecture.Entities.Models;
 using System.Data;
+using System.Diagnostics;
 
 namespace NtierArchitecture.UI.Formlar
 {
@@ -36,10 +37,24 @@ namespace NtierArchitecture.UI.Formlar
                 string PAdress = txtAdress.Text;
                 string PTel = maskedtxtTC.Text;
                 string PPassWord = maskedtxtPswrd.Text;
-
+                bool isActive;
                 if (cmbPosition.SelectedIndex == -1)
                 {
                     MessageBox.Show("Lütfen bir departman seçiniz.");
+                    return;
+                }
+                
+                if (rdActive.Checked)
+                {
+                    isActive = true;
+                }
+                else if (rdInactive.Checked)
+                {
+                    isActive = false;
+                }
+                else
+                {
+                    MessageBox.Show("Lütfen aktiflik durumunu seçiniz.");
                     return;
                 }
                 // MaskedTextBox'tan tarih verisini al ve kontrol et
@@ -57,7 +72,9 @@ namespace NtierArchitecture.UI.Formlar
                         Tel = PTel,
                         Department = selectDepartment,
                         Password = PPassWord,
-                        Adress = PAdress
+                        Adress = PAdress,
+                        IsActive=isActive
+
 
                     };
                     _employeeService.Create(employee);
@@ -96,8 +113,11 @@ namespace NtierArchitecture.UI.Formlar
             maskedtxtPswrd.Text = "";
             maskedtxtTel.Text = "";
             txtAdress.Text = "";
-            cmbPosition.SelectedItem = -1;
+            cmbPosition.SelectedIndex = -1;
+            rdActive.Checked = false; 
+            rdInactive.Checked = false;
             txtName.Focus();
+           
         }
 
         Department? selectDepartment;
@@ -161,7 +181,7 @@ namespace NtierArchitecture.UI.Formlar
 
         }
 
-      
+
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -185,6 +205,17 @@ namespace NtierArchitecture.UI.Formlar
                     maskedtxtTel.Text = selectedEmployee.Tel;
                     txtAdress.Text = selectedEmployee.Adress;
                     cmbPosition.SelectedItem = selectedEmployee.Department;
+                    if (selectedEmployee.IsActive)
+                    {
+                        rdActive.Checked = true;
+                        rdInactive.Checked = false;
+                    }
+                    else
+                    {
+                        rdActive.Checked = false;
+                        rdInactive.Checked = true;
+                    }
+
                 }
                 else if (selectedEmployee == null)
 
@@ -222,6 +253,20 @@ namespace NtierArchitecture.UI.Formlar
                     selectedEmployee.Tel = maskedtxtTel.Text;
                     selectedEmployee.Adress = txtAdress.Text;
                     selectedEmployee.Department = selectDepartment;
+                    if (rdActive.Checked)
+                    {
+                        selectedEmployee.IsActive = true;
+                    }
+                    else if (rdInactive.Checked)
+                    {
+                        selectedEmployee.IsActive = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Lütfen aktiflik durumunu seçiniz.");
+                        return;
+                    }
+                
                     DateTime birthDate;
                     if (DateTime.TryParse(maskedtxtBirth.Text, out birthDate))
                     {

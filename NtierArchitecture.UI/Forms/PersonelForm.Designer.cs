@@ -50,6 +50,9 @@
             label10 = new Label();
             maskedtxtPswrd = new MaskedTextBox();
             groupBox1 = new GroupBox();
+            rdInactive = new RadioButton();
+            rdActive = new RadioButton();
+            label9 = new Label();
             groupBox2 = new GroupBox();
             toolStrip1 = new ToolStrip();
             txtSearchBox = new ToolStripTextBox();
@@ -244,7 +247,7 @@
             btnAdd.BackColor = Color.DarkSlateGray;
             btnAdd.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             btnAdd.ForeColor = SystemColors.ButtonHighlight;
-            btnAdd.Location = new Point(234, 440);
+            btnAdd.Location = new Point(235, 473);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(214, 52);
             btnAdd.TabIndex = 27;
@@ -273,6 +276,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(rdInactive);
+            groupBox1.Controls.Add(rdActive);
             groupBox1.Controls.Add(cmbPosition);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(btnAdd);
@@ -289,6 +294,7 @@
             groupBox1.Controls.Add(txtAdress);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(txtSurname);
+            groupBox1.Controls.Add(label9);
             groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(txtName);
             groupBox1.Location = new Point(12, 12);
@@ -297,6 +303,38 @@
             groupBox1.TabIndex = 29;
             groupBox1.TabStop = false;
             groupBox1.Text = "Personel Ekleme İşlemleri";
+            // 
+            // rdInactive
+            // 
+            rdInactive.AutoSize = true;
+            rdInactive.Location = new Point(310, 433);
+            rdInactive.Name = "rdInactive";
+            rdInactive.Size = new Size(63, 24);
+            rdInactive.TabIndex = 28;
+            rdInactive.TabStop = true;
+            rdInactive.Text = "Hayır";
+            rdInactive.UseVisualStyleBackColor = true;
+            // 
+            // rdActive
+            // 
+            rdActive.AutoSize = true;
+            rdActive.Location = new Point(230, 433);
+            rdActive.Name = "rdActive";
+            rdActive.Size = new Size(59, 24);
+            rdActive.TabIndex = 28;
+            rdActive.TabStop = true;
+            rdActive.Text = "Evet";
+            rdActive.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            label9.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
+            label9.ForeColor = Color.SaddleBrown;
+            label9.Location = new Point(51, 435);
+            label9.Name = "label9";
+            label9.Size = new Size(153, 30);
+            label9.TabIndex = 7;
+            label9.Text = "Çalışıyor mu";
             // 
             // groupBox2
             // 
@@ -442,5 +480,8 @@
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripTextBox txtSearchBox;
         private ToolStripLabel toolStripLabel1;
+        private RadioButton rdInactive;
+        private RadioButton rdActive;
+        private Label label9;
     }
 }

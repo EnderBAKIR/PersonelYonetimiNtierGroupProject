@@ -67,9 +67,14 @@ namespace NtierArchitecture.Business.Services
             ValidationResult result = cval.Validate(entity);
             StringBuilder sb = new();
             result.Errors.ForEach(x => sb.AppendLine(x.ToString()));
+            if (!result.IsValid)
+            {
+                throw new Exception(sb.ToString());
+            }
             if (entity != null)
             {
                 _repository.Update(entity);
+                _repository.SaveChanges();
             }
 
         }
