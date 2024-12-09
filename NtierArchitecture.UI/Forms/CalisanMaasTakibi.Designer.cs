@@ -249,12 +249,15 @@
             // 
             // btnTazminatOdeme
             // 
-            btnTazminatOdeme.Location = new Point(70, 221);
+            btnTazminatOdeme.BackColor = Color.Silver;
+            btnTazminatOdeme.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            btnTazminatOdeme.Location = new Point(64, 265);
             btnTazminatOdeme.Name = "btnTazminatOdeme";
-            btnTazminatOdeme.Size = new Size(163, 23);
+            btnTazminatOdeme.Size = new Size(169, 44);
             btnTazminatOdeme.TabIndex = 8;
-            btnTazminatOdeme.Text = "ödeme tamamlandı";
-            btnTazminatOdeme.UseVisualStyleBackColor = true;
+            btnTazminatOdeme.Text = "Ödeme Tamamlandı";
+            btnTazminatOdeme.UseVisualStyleBackColor = false;
+            btnTazminatOdeme.Click += btnTazminatOdeme_Click;
             // 
             // lstTazminatControl
             // 
@@ -264,22 +267,24 @@
             lstTazminatControl.Name = "lstTazminatControl";
             lstTazminatControl.Size = new Size(286, 109);
             lstTazminatControl.TabIndex = 7;
+            lstTazminatControl.SelectedIndexChanged += lstTazminatControl_SelectedIndexChanged;
             // 
             // btnTazminatAtama
             // 
             btnTazminatAtama.AutoSize = true;
             btnTazminatAtama.BackColor = Color.Honeydew;
-            btnTazminatAtama.Location = new Point(200, 168);
+            btnTazminatAtama.Location = new Point(200, 176);
             btnTazminatAtama.Name = "btnTazminatAtama";
             btnTazminatAtama.Size = new Size(105, 31);
             btnTazminatAtama.TabIndex = 4;
             btnTazminatAtama.Text = "Tazminat Ata";
             btnTazminatAtama.UseVisualStyleBackColor = false;
+            btnTazminatAtama.Click += btnTazminatAtama_Click;
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(19, 176);
+            label9.Location = new Point(19, 184);
             label9.Name = "label9";
             label9.Size = new Size(54, 15);
             label9.TabIndex = 3;
@@ -288,7 +293,7 @@
             // lblTazminat
             // 
             lblTazminat.AutoSize = true;
-            lblTazminat.Location = new Point(91, 176);
+            lblTazminat.Location = new Point(90, 184);
             lblTazminat.Name = "lblTazminat";
             lblTazminat.Size = new Size(28, 15);
             lblTazminat.TabIndex = 2;

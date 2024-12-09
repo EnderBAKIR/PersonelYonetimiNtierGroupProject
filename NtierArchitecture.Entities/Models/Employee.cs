@@ -25,6 +25,8 @@ namespace NtierArchitecture.Entities.Models
 
         public ICollection<SalaryTracking>? SalaryTrackings { get; set; }
         public string FullNameWithTc => $"{Name} {Surname} - {TcNo}";
-
+        public bool IsCompensationPayed { get; set; } = false;
+        public double CompensationFee { get; set; }
+        public string TcWithCompensation => $"TC: {TcNo} - Yatırılacak Tazminat: {CompensationFee}";
     }
 }

@@ -91,6 +91,9 @@ namespace NtierArchitecture.DataAccess.Migrations
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<double>("CompensationFee")
+                        .HasColumnType("float");
+
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
@@ -101,6 +104,9 @@ namespace NtierArchitecture.DataAccess.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsCompensationPayed")
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
@@ -205,7 +211,7 @@ namespace NtierArchitecture.DataAccess.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("SalaryTracking");
+                    b.ToTable("SalaryTrackings");
                 });
 
             modelBuilder.Entity("NtierArchitecture.Entities.Models.Employee", b =>

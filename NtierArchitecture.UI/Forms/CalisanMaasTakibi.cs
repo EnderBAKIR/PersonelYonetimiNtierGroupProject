@@ -38,10 +38,80 @@ namespace NtierArchitecture.UI.Forms
         private void CalisanMaasTakibi_Load(object sender, EventArgs e)
         {
             LoadDepartments();
+            TazminatListe();
         }
 
+        private void TazminatListe()
+        {
+
+            var employees = _employeeService.GetAll().ToList();
+
+            // Filtreleme: Sadece IsActive = false ve IsCompensationPayed = false olanlar
+            var filteredEmployees = employees
+                .Where(emp => !emp.IsActive && !emp.IsCompensationPayed)
+                .ToList();
+
+        
+            lstTazminatControl.DataSource = null; 
+            lstTazminatControl.ValueMember = "Id";
+            lstTazminatControl.DisplayMember = "TcWithCompensation"; 
+            lstTazminatControl.DataSource = filteredEmployees; 
+        }
+        public static class CompensationHelper
+        {
+            private const double CompensationRate = 0.05; // Sabit tazminat oranı
+
+            public static double CalculateCompensationFee(Employee employee)
+            {
+                if (employee == null)
+                    throw new ArgumentNullException(nameof(employee));
+
+               
+                int yearsOfWork = DateTime.Now.Year - employee.CreateDate.Year;
+                if (DateTime.Now < employee.CreateDate.AddYears(yearsOfWork))
+                {
+                    yearsOfWork--; // Henüz tam yıl tamamlanmadıysa azalt
+                }
+
+                // Tazminat ücreti
+                double compensationFee = employee.Salary.GetValueOrDefault() * CompensationRate * yearsOfWork;
+
+                // Ödendi kontrolü
+                if (employee.IsCompensationPayed)
+                {
+                    compensationFee = 0; // Ödendiyse sıfır
+                }
+
+                return compensationFee;
+            }
+        }
+        private void btnTazminatAtama_Click(object sender, EventArgs e)
+        {
+            if (selectEmployee == null)
+            {
+                MessageBox.Show("Lütfen bir çalışan seçin.");
+                return;
+            }
+
+          
+            if (double.TryParse(lblTazminat.Text, out double compensationFee))
+            {
+                selectEmployee.CompensationFee = compensationFee;
 
 
+              
+                _employeeService.Update(selectEmployee);
+
+          
+                TazminatListe();
+
+                MessageBox.Show("Tazminat başarıyla atandı ");
+            }
+            else
+            {
+                MessageBox.Show("Geçerli bir tazminat değeri bulunamadı.");
+            }
+        }
         private void LoadMonthsAndYears()
         {
             cmbMonth.DataSource = Enumerable.Range(1, 12)
@@ -150,24 +220,24 @@ namespace NtierArchitecture.UI.Forms
 
         private void LoadDepartments()
         {
-            var departments = _departmentService.GetAll(); 
+            var departments = _departmentService.GetAll();
             cmbDepartments.DataSource = departments;
-            cmbDepartments.DisplayMember = "Name"; 
+            cmbDepartments.DisplayMember = "Name";
             cmbDepartments.ValueMember = "Id";
         }
 
         private void cmbDepartments_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             var selectedDepartmentId = cmbDepartments.SelectedValue as Guid?;
 
             if (selectedDepartmentId.HasValue)
             {
-                
+
                 var filteredEmployees = _employeeService.GetAllEmployeesWithDepartment()
                     .Where(emp => emp.DepartmentId == selectedDepartmentId.Value &&
-                                  !_salaryTrackingService.IsSalaryPaid(emp.Id, (int)cmbMonth.SelectedValue, (int)cmbYear.SelectedValue) && 
-                                  emp.CreateDate <= new DateTime((int)cmbYear.SelectedValue, (int)cmbMonth.SelectedValue, 5)) 
+                                  !_salaryTrackingService.IsSalaryPaid(emp.Id, (int)cmbMonth.SelectedValue, (int)cmbYear.SelectedValue) &&
+                                  emp.CreateDate <= new DateTime((int)cmbYear.SelectedValue, (int)cmbMonth.SelectedValue, 5))
                     .Select(emp => new
                     {
                         Department = emp.Department.Name,
@@ -177,7 +247,7 @@ namespace NtierArchitecture.UI.Forms
                     })
                     .ToList();
 
-                
+
                 dgwEmployees.Rows.Clear();
                 foreach (var employee in filteredEmployees)
                 {
@@ -189,7 +259,7 @@ namespace NtierArchitecture.UI.Forms
                     );
                 }
 
-                
+
                 if (!filteredEmployees.Any())
                 {
                     MessageBox.Show("Seçilen departmanda maaşı ödenmemiş çalışan bulunamadı.");
@@ -197,7 +267,7 @@ namespace NtierArchitecture.UI.Forms
             }
             else
             {
-                
+
                 LoadEmployees();
             }
         }
@@ -227,32 +297,32 @@ namespace NtierArchitecture.UI.Forms
                 );
             }
 
-            
+
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            
+
             string searchText = txtSearch.Text.Trim();
 
-            
+
             if (searchText.Length < 3)
             {
-                LoadEmployees(); 
+                LoadEmployees();
                 return;
             }
 
-            
+
             int selectedMonth = (int)cmbMonth.SelectedValue;
             int selectedYear = (int)cmbYear.SelectedValue;
             DateTime dateThreshold = new DateTime(selectedYear, selectedMonth, 5);
 
-            
+
             var filteredEmployees = _employeeService.GetAllEmployeesWithDepartment()
                 .Where(emp => !_salaryTrackingService.IsSalaryPaid(emp.Id, selectedMonth, selectedYear) &&
-                              emp.CreateDate <= dateThreshold && 
+                              emp.CreateDate <= dateThreshold &&
                               (emp.Name + " " + emp.Surname).Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
-                              emp.TcNo.Contains(searchText)) 
+                              emp.TcNo.Contains(searchText))
                 .Select(emp => new
                 {
                     Department = emp.Department.Name,
@@ -262,7 +332,7 @@ namespace NtierArchitecture.UI.Forms
                 })
                 .ToList();
 
-            
+
             dgwEmployees.Rows.Clear();
             foreach (var employee in filteredEmployees)
             {
@@ -274,7 +344,44 @@ namespace NtierArchitecture.UI.Forms
                 );
             }
 
-            
+
+        }
+        Employee? selectEmployee;
+        private void lstTazminatControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            {
+                selectEmployee = (Employee?)lstTazminatControl.SelectedItem;
+                if (selectEmployee != null)
+                {
+                    // Tazminat hesapla
+                    double compensationFee = CompensationHelper.CalculateCompensationFee(selectEmployee);
+                  
+                    lblTazminat.Text = $" {compensationFee.ToString("N2")}";      
+                    selectEmployee.CompensationFee = compensationFee;
+                }
+            }
+        }
+
+        private void btnTazminatOdeme_Click(object sender, EventArgs e)
+        {
+            if (selectEmployee == null)
+            {
+                MessageBox.Show("Lütfen bir çalışan seçin.");
+                return;
+            }
+          
+            // Ödeme durumu güncelle
+            selectEmployee.IsCompensationPayed = true;
+
+         
+            _employeeService.Update(selectEmployee);
+
+            MessageBox.Show("Tazminat ödemesi başarıyla tamamlandı!");
+
+            //  true olanlar listeden kalkar)
+            TazminatListe();
+
+
         }
     }
 }

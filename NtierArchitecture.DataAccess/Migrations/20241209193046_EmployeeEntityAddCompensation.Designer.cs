@@ -12,8 +12,8 @@ using NtierArchitecture.DataAccess.Context;
 namespace NtierArchitecture.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241202175447_UpdateEmployee")]
-    partial class UpdateEmployee
+    [Migration("20241209193046_EmployeeEntityAddCompensation")]
+    partial class EmployeeEntityAddCompensation
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -94,20 +94,23 @@ namespace NtierArchitecture.DataAccess.Migrations
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<double>("CompensationFee")
+                        .HasColumnType("float");
+
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("DepartmentId")
+                    b.Property<Guid?>("DepartmentId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("DiscontinuityId")
+                    b.Property<Guid?>("DiscontinuityId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<Guid>("LeaveId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<bool>("IsCompensationPayed")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -115,7 +118,7 @@ namespace NtierArchitecture.DataAccess.Migrations
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Salary")
+                    b.Property<double?>("Salary")
                         .HasColumnType("float");
 
                     b.Property<string>("Surname")
@@ -136,8 +139,6 @@ namespace NtierArchitecture.DataAccess.Migrations
 
                     b.HasIndex("DiscontinuityId");
 
-                    b.HasIndex("LeaveId");
-
                     b.ToTable("Employees");
                 });
 
@@ -157,6 +158,9 @@ namespace NtierArchitecture.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("EmployeeId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
@@ -166,39 +170,86 @@ namespace NtierArchitecture.DataAccess.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("EmployeeId");
+
                     b.ToTable("Leaves");
+                });
+
+            modelBuilder.Entity("NtierArchitecture.Entities.Models.SalaryTracking", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("EmployeeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsPayed")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("PaymentMonth")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PaymentYear")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.ToTable("SalaryTrackings");
                 });
 
             modelBuilder.Entity("NtierArchitecture.Entities.Models.Employee", b =>
                 {
                     b.HasOne("NtierArchitecture.Entities.Models.Department", "Department")
                         .WithMany("Employees")
-                        .HasForeignKey("DepartmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DepartmentId");
 
                     b.HasOne("NtierArchitecture.Entities.Models.Discontinuity", "Discontinuity")
                         .WithMany("Employees")
-                        .HasForeignKey("DiscontinuityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("NtierArchitecture.Entities.Models.Leave", "Leave")
-                        .WithMany("Employees")
-                        .HasForeignKey("LeaveId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DiscontinuityId");
 
                     b.Navigation("Department");
 
                     b.Navigation("Discontinuity");
+                });
 
-                    b.Navigation("Leave");
+            modelBuilder.Entity("NtierArchitecture.Entities.Models.Leave", b =>
+                {
+                    b.HasOne("NtierArchitecture.Entities.Models.Employee", "Employee")
+                        .WithMany("Leaves")
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Employee");
+                });
+
+            modelBuilder.Entity("NtierArchitecture.Entities.Models.SalaryTracking", b =>
+                {
+                    b.HasOne("NtierArchitecture.Entities.Models.Employee", "Employee")
+                        .WithMany("SalaryTrackings")
+                        .HasForeignKey("EmployeeId");
+
+                    b.Navigation("Employee");
                 });
 
             modelBuilder.Entity("NtierArchitecture.Entities.Models.Department", b =>
@@ -211,9 +262,11 @@ namespace NtierArchitecture.DataAccess.Migrations
                     b.Navigation("Employees");
                 });
 
-            modelBuilder.Entity("NtierArchitecture.Entities.Models.Leave", b =>
+            modelBuilder.Entity("NtierArchitecture.Entities.Models.Employee", b =>
                 {
-                    b.Navigation("Employees");
+                    b.Navigation("Leaves");
+
+                    b.Navigation("SalaryTrackings");
                 });
 #pragma warning restore 612, 618
         }

@@ -15,6 +15,7 @@ namespace NtierArchitecture.DataAccess.Context
         public DbSet<Discontinuity> Discontinuities { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Leave> Leaves { get; set; }
+        public DbSet<SalaryTracking> SalaryTrackings { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -22,7 +23,7 @@ namespace NtierArchitecture.DataAccess.Context
                 .SetBasePath(AppContext.BaseDirectory)
                 .AddJsonFile("database.json", optional: false, reloadOnChange: true)
                 .Build();
-            string connectionString = configuration.GetConnectionString("MeryemSql");
+            string connectionString = configuration.GetConnectionString("EsraSql");
             optionsBuilder.UseSqlServer(connectionString);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
