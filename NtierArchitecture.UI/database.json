@@ -5,3 +5,5 @@
     "ElifSql": "Data Source=.;Initial Catalog=PersonelYonetimiDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;",
     "KubraSql": "Data Source=LAPTOP-A6F1CISJ\\SQLEXPRESS;Initial Catalog=PersonelYonetimiDb;Integrated Security=True;Trust Server Certificate=True",
     "MeryemSql": "Data Source=TRN00095;Initial Catalog=PersonelYonetimiDb;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True"
+  }
+}
