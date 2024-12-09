@@ -24,6 +24,11 @@ namespace NtierArchitecture.DataAccess.Repositories
 		{
 			_context.SaveChanges(); //Veritabanına değişiklikleri kaydeder
 		}
-	}
+
+        public List<Employee> GetAllEmployeesWithDepartment()
+        {
+            return _context.Employees.Include(e => e.Department).ToList();
+        }
+    }
 }
 

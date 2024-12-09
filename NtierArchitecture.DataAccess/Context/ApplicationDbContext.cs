@@ -22,7 +22,7 @@ namespace NtierArchitecture.DataAccess.Context
                 .SetBasePath(AppContext.BaseDirectory)
                 .AddJsonFile("database.json", optional: false, reloadOnChange: true)
                 .Build();
-            string connectionString = configuration.GetConnectionString("ElifSql");
+            string connectionString = configuration.GetConnectionString("EnderSql");
             optionsBuilder.UseSqlServer(connectionString);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

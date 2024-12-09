@@ -97,5 +97,10 @@ namespace NtierArchitecture.Business.Services
 		{
 			return _repository.GetAll().FirstOrDefault(e => e.TcNo == tcNo);
 		}
-	}
+
+        public List<Employee> GetAllEmployeesWithDepartment()
+        {
+            return _repository.GetAllEmployeesWithDepartment();
+        }
+    }
 }

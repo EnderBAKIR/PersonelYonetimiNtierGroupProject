@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NtierArchitecture.DataAccess.Context;
 
@@ -11,9 +12,11 @@ using NtierArchitecture.DataAccess.Context;
 namespace NtierArchitecture.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241209133117_SalaryTrackingModel")]
+    partial class SalaryTrackingModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -192,10 +195,7 @@ namespace NtierArchitecture.DataAccess.Migrations
                     b.Property<bool>("IsPayed")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("PaymentMonth")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("PaymentYear")
+                    b.Property<int>("PayCheckDay")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("UpdateDate")
