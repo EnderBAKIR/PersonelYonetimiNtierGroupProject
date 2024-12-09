@@ -29,10 +29,10 @@ namespace NtierArchitecture.UI.Formlar
 
         private void IzinForm_Load(object sender, EventArgs e)
         {
-            
+
         }
 
-        
+
 
 
         private void label2_Click(object sender, EventArgs e)
@@ -60,15 +60,15 @@ namespace NtierArchitecture.UI.Formlar
                 {
                     var listItem = new ListItem
                     {
-                        Id = leaveRequest.Id.ToString(),  
+                        Id = leaveRequest.Id.ToString(),
                         DisplayText = $"Oluşturulma Tarihi :  {leaveRequest.CreateDate.ToShortDateString()} - Gün Sayısı :  {leaveRequest.Day} "
                     };
 
-                    
+
                     lstLeaveList.Items.Add(listItem);
                 }
-               
-               
+
+
             }
         }
         private void btnGetInfo_Click(object sender, EventArgs e)
@@ -104,24 +104,24 @@ namespace NtierArchitecture.UI.Formlar
             }
         }
 
-        
+
 
         private void btnCreateLeave_Click(object sender, EventArgs e)
         {
             try
             {
 
-            
-            
-            string leaveDescription = txtLeaveDescription.Text;
-            int leaveDays = (int)nmrLeaveDay.Value;
 
 
-            if (string.IsNullOrWhiteSpace(leaveDescription) || leaveDays <= 0)
-            {
-                MessageBox.Show("Lütfen izin açıklamasını ve gün sayısını giriniz!");
-                return;
-            }
+                string leaveDescription = txtLeaveDescription.Text;
+                int leaveDays = (int)nmrLeaveDay.Value;
+
+
+                if (string.IsNullOrWhiteSpace(leaveDescription) || leaveDays <= 0)
+                {
+                    MessageBox.Show("Lütfen izin açıklamasını ve gün sayısını giriniz!");
+                    return;
+                }
 
 
 
@@ -155,9 +155,9 @@ namespace NtierArchitecture.UI.Formlar
                     }
                 }
                 else
-            {
-                MessageBox.Show("Çalışan bulunamadı! Lütfen bilgilerinizi kontrol edin.");
-            }
+                {
+                    MessageBox.Show("Çalışan bulunamadı! Lütfen bilgilerinizi kontrol edin.");
+                }
             }
 
             catch (Exception ex)
@@ -202,55 +202,66 @@ namespace NtierArchitecture.UI.Formlar
 
         private void btnLeaveUpdate_Click(object sender, EventArgs e)
         {
-            if (lstLeaveList.SelectedIndex == -1)
+            try
             {
-                MessageBox.Show("Lütfen güncellemek istediğiniz izin talebini seçin.");
-                return;
-            }
 
-            if (string.IsNullOrWhiteSpace(txtLeaveDescription.Text))
-            {
-                MessageBox.Show("Lütfen izin açıklamasını girin.");
-                return;
-            }
 
-            if (nmrLeaveDay.Value <= 0)
-            {
-                MessageBox.Show("Lütfen izin gün sayısını girin.");
-                return;
-            }
 
-            // Seçilen item'ı al ve ListItem türüne dönüştür
-            ListItem selectedItem = (ListItem)lstLeaveList.SelectedItem;
-
-            if (selectedItem != null)
-            {
-                // Id'yi kullanarak LeaveRequest nesnesini al
-                var leaveRequest = _leaveService.GetByID(Guid.Parse(selectedItem.Id));
-
-                if (leaveRequest != null)
+                if (lstLeaveList.SelectedIndex == -1)
                 {
-                    // LeaveRequest'i güncelle
-                    leaveRequest.Description = txtLeaveDescription.Text;
-                    leaveRequest.Day = (int)nmrLeaveDay.Value;
-                    leaveRequest.UpdateDate = DateTime.Now;
-                    leaveRequest.StartDate = dtStartDate.Value;
-                    leaveRequest.EndDate = dtEndDate.Value;
-
-                    // Veritabanında güncelleme işlemi yap
-                    _leaveService.Update(leaveRequest);
-
-                    // ListBox'ı güncelle
-
-                    selectedItem.DisplayText = $"Oluşturulma Tarihi :  {leaveRequest.CreateDate.ToShortDateString()} - Gün Sayısı :  {leaveRequest.Day} ";
-                    lstLeaveList.Items[lstLeaveList.SelectedIndex] = selectedItem;
-
-                    MessageBox.Show("İzin talebi başarıyla güncellendi.");
+                    MessageBox.Show("Lütfen güncellemek istediğiniz izin talebini seçin.");
+                    return;
                 }
-                else
+
+                if (string.IsNullOrWhiteSpace(txtLeaveDescription.Text))
                 {
-                    MessageBox.Show("İzin talebi bulunamadı.");
+                    MessageBox.Show("Lütfen izin açıklamasını girin.");
+                    return;
                 }
+
+                if (nmrLeaveDay.Value <= 0)
+                {
+                    MessageBox.Show("Lütfen izin gün sayısını girin.");
+                    return;
+                }
+
+                // Seçilen item'ı al ve ListItem türüne dönüştür
+                ListItem selectedItem = (ListItem)lstLeaveList.SelectedItem;
+
+                if (selectedItem != null)
+                {
+                    // Id'yi kullanarak LeaveRequest nesnesini al
+                    var leaveRequest = _leaveService.GetByID(Guid.Parse(selectedItem.Id));
+
+                    if (leaveRequest != null)
+                    {
+                        // LeaveRequest'i güncelle
+                        leaveRequest.Description = txtLeaveDescription.Text;
+                        leaveRequest.Day = (int)nmrLeaveDay.Value;
+                        leaveRequest.UpdateDate = DateTime.Now;
+                        leaveRequest.StartDate = dtStartDate.Value;
+                        leaveRequest.EndDate = dtEndDate.Value;
+
+                        // Veritabanında güncelleme işlemi yap
+                        _leaveService.Update(leaveRequest);
+
+                        // ListBox'ı güncelle
+
+                        selectedItem.DisplayText = $"Oluşturulma Tarihi :  {leaveRequest.CreateDate.ToShortDateString()} - Gün Sayısı :  {leaveRequest.Day} ";
+                        lstLeaveList.Items[lstLeaveList.SelectedIndex] = selectedItem;
+
+                        MessageBox.Show("İzin talebi başarıyla güncellendi.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("İzin talebi bulunamadı.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show($"Hata: {ex.Message}");
             }
         }
 
@@ -299,6 +310,6 @@ namespace NtierArchitecture.UI.Formlar
             }
         }
 
-        
+
     }
 }

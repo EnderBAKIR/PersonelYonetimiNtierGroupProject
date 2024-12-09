@@ -1,4 +1,5 @@
-﻿using FluentValidation.Results;
+﻿using FluentValidation;
+using FluentValidation.Results;
 using NtierArchitecture.Business.IServices;
 using NtierArchitecture.Business.Validators;
 using NtierArchitecture.DataAccess.Repositories;
@@ -67,6 +68,14 @@ namespace NtierArchitecture.Business.Services
 
         public void Update(Department entity)
         {
+            DepartmentValidator cval = new();
+            ValidationResult result = cval.Validate(entity);
+            StringBuilder sb = new();
+            result.Errors.ForEach(x => sb.AppendLine(x.ToString()));
+            if (!result.IsValid)
+            {
+                throw new Exception(sb.ToString());
+            }
             if (entity != null)
             {
                 _repository.Update(entity);

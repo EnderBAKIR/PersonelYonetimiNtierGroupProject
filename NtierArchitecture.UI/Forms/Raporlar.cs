@@ -69,11 +69,13 @@ namespace NtierArchitecture.UI.Forms
                 // Departmana ait çalışanlar
                 var employees = _employeeService.GetEmployeesByDepartmentId(departmentId);
 
+               List<Employee> activeEmployees = employees.Where(x => x.IsActive == true).ToList();
+
                 // Toplam çalışan sayısını güncelle
-                lblEmployeeCount.Text = $"Çalışan sayısı: {employees.Count}";
+                lblEmployeeCount.Text = $"Çalışan sayısı: {activeEmployees.Count}";
 
                 // Ortalama maaşı güncelle
-                if (employees.Any())
+                if (activeEmployees.Any())
                 {
                     lblDepartmentsSalaryAverage.Text = $"Ortalama maaş: {employees.Average(e => e.Salary ?? 0):F2}";
                 }
@@ -99,11 +101,15 @@ namespace NtierArchitecture.UI.Forms
                 lstEmployeeList.Items.Clear();
                 foreach (var employee in employees)
                 {
-                    lstEmployeeList.Items.Add(new ListItem
+                    if (employee.IsActive == true)
                     {
-                        Id = employee.Id.ToString(),
-                        DisplayText = $"{employee.Name + employee.Surname} - TC: {employee.TcNo}"  // Ad ve TC numarasını daha belirgin hale getirebiliriz
-                    });
+                        lstEmployeeList.Items.Add(new ListItem
+                        {
+                            Id = employee.Id.ToString(),
+                            DisplayText = $"{employee.Name + employee.Surname} - TC: {employee.TcNo}"  // Ad ve TC numarasını daha belirgin hale getirebiliriz
+                        });
+                    }
+                   
                 }
             }
         }

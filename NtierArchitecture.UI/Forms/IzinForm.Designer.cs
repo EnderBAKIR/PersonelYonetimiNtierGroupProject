@@ -162,6 +162,7 @@
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(234, 29);
             txtPassword.TabIndex = 13;
+            txtPassword.UseSystemPasswordChar = true;
             // 
             // lstLeaveList
             // 
@@ -299,6 +300,7 @@
             Controls.Add(groupBox1);
             Controls.Add(groupBox2);
             Font = new Font("Segoe UI", 12F);
+            KeyPreview = true;
             Margin = new Padding(4);
             Name = "IzinForm";
             Text = "IzinForm";

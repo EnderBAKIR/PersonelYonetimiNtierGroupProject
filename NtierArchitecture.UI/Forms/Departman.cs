@@ -2,16 +2,7 @@
 using NtierArchitecture.DataAccess.Context;
 using NtierArchitecture.DataAccess.Repositories;
 using NtierArchitecture.Entities.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 
 namespace NtierArchitecture.UI.Formlar
 {
@@ -29,18 +20,30 @@ namespace NtierArchitecture.UI.Formlar
         }
         private void AddDepart_Click(object sender, EventArgs e)
         {
-            var departmentName = txtDepartmanName.Text.Trim();
-            if (string.IsNullOrWhiteSpace(departmentName))
-            {
-                MessageBox.Show("Departman ismi boş olamaz.");
-                return;
-            }
-            var newDepartment = new Department { Name = departmentName };
-            _departmentService.Create(newDepartment);
 
-            MessageBox.Show($"Departman '{departmentName}' başarıyla eklendi.");
-            LoadDepartments();
-            txtDepartmanName.Clear();
+            try
+            {
+
+
+
+                var departmentName = txtDepartmanName.Text.Trim();
+                if (string.IsNullOrWhiteSpace(departmentName))
+                {
+                    MessageBox.Show("Departman ismi boş olamaz.");
+                    return;
+                }
+                var newDepartment = new Department { Name = departmentName };
+                _departmentService.Create(newDepartment);
+
+                MessageBox.Show($"Departman '{departmentName}' başarıyla eklendi.");
+                LoadDepartments();
+                txtDepartmanName.Clear();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show($"Hata: {ex.Message}");
+            }
         }
         private void LoadDepartments()
         {
@@ -97,33 +100,44 @@ namespace NtierArchitecture.UI.Formlar
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (lstDepartmants.SelectedItem is ListItem selectedItem)
+            try
             {
-                Guid departmentId = Guid.Parse(selectedItem.Id);
-                var newName = txtDepartmanName.Text.Trim();
 
-                if (string.IsNullOrWhiteSpace(newName))
+
+
+                if (lstDepartmants.SelectedItem is ListItem selectedItem)
                 {
-                    MessageBox.Show("Departman ismi boş olamaz.");
-                    return;
+                    Guid departmentId = Guid.Parse(selectedItem.Id);
+                    var newName = txtDepartmanName.Text.Trim();
+
+                    if (string.IsNullOrWhiteSpace(newName))
+                    {
+                        MessageBox.Show("Departman ismi boş olamaz.");
+                        return;
+                    }
+
+                    var department = _departmentService.GetByID(departmentId);
+                    if (department != null)
+                    {
+                        var oldName = department.Name;
+                        department.Name = newName;
+                        _departmentService.Update(department);
+
+                        MessageBox.Show($"Departman   güncellendi");
+
+                        LoadDepartments();
+                        txtDepartmanName.Clear();
+                    }
                 }
-
-                var department = _departmentService.GetByID(departmentId);
-                if (department != null)
+                else
                 {
-                    var oldName = department.Name;
-                    department.Name = newName;
-                    _departmentService.Update(department);
-
-                    MessageBox.Show($"Departman   güncellendi");
-
-                    LoadDepartments();
-                    txtDepartmanName.Clear();
+                    MessageBox.Show("Güncellemek için bir departman seçmelisiniz.");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Güncellemek için bir departman seçmelisiniz.");
+
+                MessageBox.Show($"Hata: {ex.Message}");
             }
         }
 
@@ -142,5 +156,5 @@ namespace NtierArchitecture.UI.Formlar
         }
     }
 }
-   
+
 
