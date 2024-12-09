@@ -102,5 +102,10 @@ namespace NtierArchitecture.Business.Services
         {
             return _repository.GetAllEmployeesWithDepartment();
         }
+
+        public List<Employee> GetEmployeesByDepartmentId(Guid departmanId)
+        {
+            return _repository.GetAll().Where(e => e.Department != null && e.Department.Id == departmanId).ToList();
+        }
     }
 }

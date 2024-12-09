@@ -1,6 +1,8 @@
 ﻿using NtierArchitecture.Business.Services;
 using NtierArchitecture.DataAccess.Context;
+using NtierArchitecture.DataAccess.IRepositories;
 using NtierArchitecture.DataAccess.Repositories;
+using NtierArchitecture.Entities.Models;
 
 
 namespace NtierArchitecture.UI.Forms
@@ -92,6 +94,7 @@ namespace NtierArchitecture.UI.Forms
                 // Departmana ait çalışanlar
                 var employees = _employeeService.GetEmployeesByDepartmentId(departmentId);
 
+
                 // Listeyi temizle ve yeni çalışanları ekle
                 lstEmployeeList.Items.Clear();
                 foreach (var employee in employees)
@@ -104,7 +107,7 @@ namespace NtierArchitecture.UI.Forms
                 }
             }
         }
-
+       
         private void lstEmployeeList_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lstEmployeeList.SelectedItem is ListItem selectedEmployee)
