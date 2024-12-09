@@ -12,35 +12,17 @@ namespace NtierArchitecture.UI.Formlar
 	{
 		private readonly ApplicationDbContext _dbContext;
 		private readonly EmployeeService _employeeService;
-
+		private readonly EmployeeRepository employeeRepository;	
+		private void MaasForm_Load(object sender, EventArgs e) { }
 		public MaasForm()
 		{
 			_dbContext = new ApplicationDbContext();
-			EmployeeRepository employeeRepository = new EmployeeRepository(_dbContext);
+			employeeRepository = new EmployeeRepository(_dbContext);
 			_employeeService = new EmployeeService(employeeRepository);
-
 			InitializeComponent();
-			AddSampleDepartment();
-			LoadDepartmentsIntoComboBox();
+			LoadDepartments();
 		}
-		private void MaasForm_Load(object sender, EventArgs e) { }
-		private void AddSampleDepartment()
-		{
-			using (var context = new ApplicationDbContext())
-			{
-				if (!context.Departments.Any(d => d.Name == "Bilgi Teknolojileri"))
-				{
-					var department = new Department
-					{
-						Id = Guid.NewGuid(),
-						Name = "Bilgi Teknolojileri"
-					};
-					context.Departments.Add(department);
-					context.SaveChanges();
-				}
-			}
-		}
-		private void LoadDepartmentsIntoComboBox()
+		private void LoadDepartments()
 		{
 			comboBox1.Items.Clear();
 			var departments = _dbContext.Departments.Select(d => d.Name).ToList();
@@ -48,36 +30,37 @@ namespace NtierArchitecture.UI.Formlar
 		}
 		private void btnYenile_Click_1(object sender, EventArgs e)
 		{
-			var selectedDepartment = comboBox1.SelectedItem?.ToString();
-			if (string.IsNullOrEmpty(selectedDepartment) && string.IsNullOrEmpty(textBox2.Text))
+			string selectedDepartment = comboBox1.SelectedItem.ToString();
+			string tcNo = tcmaskedbox.Text.Trim();
+			string newSalaryText = textBox2.Text.Trim();
+			if (string.IsNullOrEmpty(selectedDepartment) || string.IsNullOrEmpty(tcNo) || string.IsNullOrEmpty(newSalaryText))
 			{
-				MessageBox.Show("Lütfen departman ve maaş bilgilerini doldurunuz.");
+				MessageBox.Show("Lütfen departman, T.C. kimlik numarası ve maaş bilgilerini doldurunuz.");
 				return;
 			}
-
-			if (double.TryParse(textBox2.Text, out double newSalary))
+			if (double.TryParse(newSalaryText, out double newSalary))
 			{
 				using (var context = new ApplicationDbContext())
-				{
-					// Seçili departmanı ve çalışanları al
-					var department = context.Departments.FirstOrDefault(d => d.Name == selectedDepartment);
-					if (department != null)
+				{					
+					var employee = context.Employees.FirstOrDefault(e => e.TcNo == tcNo);
+					if (employee != null)// T.C. kimlik numarasına göre çalışanı bul
 					{
-						var employees = context.Employees.Where(e => e.DepartmentId == department.Id).ToList();
-						if (employees.Any())
-						{
-							// Maaşları güncelle
-							foreach (var employee in employees)
-							{
-								employee.Salary = newSalary;
-							}
+						var department = context.Departments.FirstOrDefault(d => d.Id == employee.DepartmentId);
+
+						if (department != null && department.Name == selectedDepartment)
+						{							
+							employee.Salary = newSalary;
 							context.SaveChanges();
-							MessageBox.Show("Maaşlar güncellendi.");
+							MessageBox.Show("Maaş başarıyla güncellendi.");
 						}
 						else
 						{
-							MessageBox.Show("Bu departmanda çalışan bulunamadı.");
+							MessageBox.Show("Girilen T.C. kimlik numarası ve seçilen departman eşleşmiyor.");
 						}
+					}
+					else
+					{
+						MessageBox.Show("T.C. kimlik numarasına sahip bir personel bulunamadı.");
 					}
 				}
 			}
@@ -86,7 +69,6 @@ namespace NtierArchitecture.UI.Formlar
 				MessageBox.Show("Geçerli bir maaş giriniz.");
 			}
 		}
-
 		private void btnPer_Click_1(object sender, EventArgs e)
 		{
 			string tcNo = txtmaskedTC.Text.Trim();
