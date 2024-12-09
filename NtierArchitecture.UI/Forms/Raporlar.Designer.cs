@@ -28,129 +28,129 @@
         /// </summary>
         private void InitializeComponent()
         {
-            comboBox1 = new ComboBox();
-            label1 = new Label();
-            label2 = new Label();
-            comboBox2 = new ComboBox();
-            listBox1 = new ListBox();
-            dataGridView1 = new DataGridView();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            cmbDepartman = new ComboBox();
+            lblCalisanSayisi = new Label();
+            lblOrtalamaMaas = new Label();
+            cmbDepartman2 = new ComboBox();
+            lstDepartman = new ListBox();
+            dgwDepartman = new DataGridView();
+            lblAktifCalisan = new Label();
+            lblIstenAyrilan = new Label();
+            lblToplamFirmaMaasGideri = new Label();
+            ((System.ComponentModel.ISupportInitialize)dgwDepartman).BeginInit();
             SuspendLayout();
             // 
-            // comboBox1
+            // cmbDepartman
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(23, 12);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(137, 23);
-            comboBox1.TabIndex = 0;
-            comboBox1.Text = "Departmanlar";
+            cmbDepartman.FormattingEnabled = true;
+            cmbDepartman.Location = new Point(23, 12);
+            cmbDepartman.Name = "cmbDepartman";
+            cmbDepartman.Size = new Size(137, 23);
+            cmbDepartman.TabIndex = 0;
+            cmbDepartman.Text = "Departmanlar";
             // 
-            // label1
+            // lblCalisanSayisi
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(177, 15);
-            label1.Name = "label1";
-            label1.Size = new Size(77, 15);
-            label1.TabIndex = 1;
-            label1.Text = "Çalışan Sayısı";
+            lblCalisanSayisi.AutoSize = true;
+            lblCalisanSayisi.Location = new Point(177, 15);
+            lblCalisanSayisi.Name = "lblCalisanSayisi";
+            lblCalisanSayisi.Size = new Size(77, 15);
+            lblCalisanSayisi.TabIndex = 1;
+            lblCalisanSayisi.Text = "Çalışan Sayısı";
             // 
-            // label2
+            // lblOrtalamaMaas
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(260, 15);
-            label2.Name = "label2";
-            label2.Size = new Size(87, 15);
-            label2.TabIndex = 2;
-            label2.Text = "Ortalama Maaş";
+            lblOrtalamaMaas.AutoSize = true;
+            lblOrtalamaMaas.Location = new Point(260, 15);
+            lblOrtalamaMaas.Name = "lblOrtalamaMaas";
+            lblOrtalamaMaas.Size = new Size(87, 15);
+            lblOrtalamaMaas.TabIndex = 2;
+            lblOrtalamaMaas.Text = "Ortalama Maaş";
             // 
-            // comboBox2
+            // cmbDepartman2
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(23, 84);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(121, 23);
-            comboBox2.TabIndex = 3;
-            comboBox2.Text = "Departmanlar";
+            cmbDepartman2.FormattingEnabled = true;
+            cmbDepartman2.Location = new Point(23, 84);
+            cmbDepartman2.Name = "cmbDepartman2";
+            cmbDepartman2.Size = new Size(121, 23);
+            cmbDepartman2.TabIndex = 3;
+            cmbDepartman2.Text = "Departmanlar";
             // 
-            // listBox1
+            // lstDepartman
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(177, 84);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(277, 124);
-            listBox1.TabIndex = 4;
+            lstDepartman.FormattingEnabled = true;
+            lstDepartman.ItemHeight = 15;
+            lstDepartman.Location = new Point(177, 84);
+            lstDepartman.Name = "lstDepartman";
+            lstDepartman.Size = new Size(277, 124);
+            lstDepartman.TabIndex = 4;
             // 
-            // dataGridView1
+            // dgwDepartman
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(177, 214);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(383, 124);
-            dataGridView1.TabIndex = 5;
+            dgwDepartman.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgwDepartman.Location = new Point(177, 214);
+            dgwDepartman.Name = "dgwDepartman";
+            dgwDepartman.Size = new Size(383, 124);
+            dgwDepartman.TabIndex = 5;
             // 
-            // label3
+            // lblAktifCalisan
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(12, 389);
-            label3.Name = "label3";
-            label3.Size = new Size(73, 15);
-            label3.TabIndex = 6;
-            label3.Text = "Aktif Çalışan";
+            lblAktifCalisan.AutoSize = true;
+            lblAktifCalisan.Location = new Point(12, 389);
+            lblAktifCalisan.Name = "lblAktifCalisan";
+            lblAktifCalisan.Size = new Size(73, 15);
+            lblAktifCalisan.TabIndex = 6;
+            lblAktifCalisan.Text = "Aktif Çalışan";
             // 
-            // label4
+            // lblIstenAyrilan
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(113, 389);
-            label4.Name = "label4";
-            label4.Size = new Size(72, 15);
-            label4.TabIndex = 7;
-            label4.Text = "İşten Ayrılan";
+            lblIstenAyrilan.AutoSize = true;
+            lblIstenAyrilan.Location = new Point(113, 389);
+            lblIstenAyrilan.Name = "lblIstenAyrilan";
+            lblIstenAyrilan.Size = new Size(72, 15);
+            lblIstenAyrilan.TabIndex = 7;
+            lblIstenAyrilan.Text = "İşten Ayrılan";
             // 
-            // label5
+            // lblToplamFirmaMaasGideri
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(225, 389);
-            label5.Name = "label5";
-            label5.Size = new Size(144, 15);
-            label5.TabIndex = 8;
-            label5.Text = "Toplam Firma Maaş Gideri";
+            lblToplamFirmaMaasGideri.AutoSize = true;
+            lblToplamFirmaMaasGideri.Location = new Point(225, 389);
+            lblToplamFirmaMaasGideri.Name = "lblToplamFirmaMaasGideri";
+            lblToplamFirmaMaasGideri.Size = new Size(144, 15);
+            lblToplamFirmaMaasGideri.TabIndex = 8;
+            lblToplamFirmaMaasGideri.Text = "Toplam Firma Maaş Gideri";
             // 
             // Raporlar
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(572, 441);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(dataGridView1);
-            Controls.Add(listBox1);
-            Controls.Add(comboBox2);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(comboBox1);
+            Controls.Add(lblToplamFirmaMaasGideri);
+            Controls.Add(lblIstenAyrilan);
+            Controls.Add(lblAktifCalisan);
+            Controls.Add(dgwDepartman);
+            Controls.Add(lstDepartman);
+            Controls.Add(cmbDepartman2);
+            Controls.Add(lblOrtalamaMaas);
+            Controls.Add(lblCalisanSayisi);
+            Controls.Add(cmbDepartman);
             Name = "Raporlar";
             Text = "Raporlar";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgwDepartman).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private ComboBox comboBox1;
-        private Label label1;
-        private Label label2;
-        private ComboBox comboBox2;
-        private ListBox listBox1;
-        private DataGridView dataGridView1;
-        private Label label3;
-        private Label label4;
-        private Label label5;
+        private ComboBox cmbDepartman;
+        private Label lblCalisanSayisi;
+        private Label lblOrtalamaMaas;
+        private ComboBox cmbDepartman2;
+        private ListBox lstDepartman;
+        private DataGridView dgwDepartman;
+        private Label lblAktifCalisan;
+        private Label lblIstenAyrilan;
+        private Label lblToplamFirmaMaasGideri;
     }
 }
