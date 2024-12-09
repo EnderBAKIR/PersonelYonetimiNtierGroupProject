@@ -4,6 +4,4 @@
     "EsraSql": "Server=localhost,1433;Database=PersonelYonetimiDb;User=sa;Password=Password12*;TrustServerCertificate=True",
     "ElifSql": "Data Source=.;Initial Catalog=PersonelYonetimiDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;",
     "KubraSql": "Data Source=LAPTOP-A6F1CISJ\\SQLEXPRESS;Initial Catalog=PersonelYonetimiDb;Integrated Security=True;Trust Server Certificate=True",
-    "MeryemSql": "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=PersonelYonetimiDb;Integrated Security=True;Encrypt=False;Trust Server Certificate=False"
-  }
-}
+    "MeryemSql": "Data Source=TRN00095;Initial Catalog=PersonelYonetimiDb;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True"

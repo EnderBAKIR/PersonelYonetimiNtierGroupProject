@@ -28,129 +28,177 @@
         /// </summary>
         private void InitializeComponent()
         {
-            cmbDepartman = new ComboBox();
-            lblCalisanSayisi = new Label();
-            lblOrtalamaMaas = new Label();
-            cmbDepartman2 = new ComboBox();
-            lstDepartman = new ListBox();
-            dgwDepartman = new DataGridView();
-            lblAktifCalisan = new Label();
-            lblIstenAyrilan = new Label();
-            lblToplamFirmaMaasGideri = new Label();
-            ((System.ComponentModel.ISupportInitialize)dgwDepartman).BeginInit();
+            cmbDepartments = new ComboBox();
+            lblEmployeeCount = new Label();
+            lblDepartmentsSalaryAverage = new Label();
+            cmbDepartments2 = new ComboBox();
+            lstEmployeeList = new ListBox();
+            dgwEmployeeDetails = new DataGridView();
+            lblActiveEmp = new Label();
+            lblQuittingJob = new Label();
+            lblSalaryCount = new Label();
+            ((System.ComponentModel.ISupportInitialize)dgwEmployeeDetails).BeginInit();
             SuspendLayout();
+
             // 
-            // cmbDepartman
+            // cmbDepartments
             // 
-            cmbDepartman.FormattingEnabled = true;
-            cmbDepartman.Location = new Point(23, 12);
-            cmbDepartman.Name = "cmbDepartman";
-            cmbDepartman.Size = new Size(137, 23);
-            cmbDepartman.TabIndex = 0;
-            cmbDepartman.Text = "Departmanlar";
+            cmbDepartments.FormattingEnabled = true;
+            cmbDepartments.Location = new Point(20, 20);
+            cmbDepartments.Name = "cmbDepartments";
+            cmbDepartments.Size = new Size(180, 35);
+            cmbDepartments.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            cmbDepartments.TabIndex = 0;
+            cmbDepartments.Text = "Departmanlar";
+            cmbDepartments.BackColor = Color.WhiteSmoke;
+            cmbDepartments.ForeColor = Color.DarkSlateGray;
+            cmbDepartments.SelectedIndexChanged += cmbDepartments_SelectedIndexChanged;
+            cmbDepartments.FlatStyle = FlatStyle.Flat;
+
             // 
-            // lblCalisanSayisi
+            // lblEmployeeCount
             // 
-            lblCalisanSayisi.AutoSize = true;
-            lblCalisanSayisi.Location = new Point(177, 15);
-            lblCalisanSayisi.Name = "lblCalisanSayisi";
-            lblCalisanSayisi.Size = new Size(77, 15);
-            lblCalisanSayisi.TabIndex = 1;
-            lblCalisanSayisi.Text = "Çalışan Sayısı";
+            lblEmployeeCount.AutoSize = true;
+            lblEmployeeCount.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblEmployeeCount.ForeColor = Color.DarkSlateGray;
+            lblEmployeeCount.Location = new Point(210, 20);
+            lblEmployeeCount.Name = "lblEmployeeCount";
+            lblEmployeeCount.Size = new Size(170, 28);
+            lblEmployeeCount.TabIndex = 1;
+            lblEmployeeCount.Text = "Çalışan Sayısı: 0";
+            lblEmployeeCount.BackColor = Color.Transparent;
+
             // 
-            // lblOrtalamaMaas
+            // lblDepartmentsSalaryAverage
             // 
-            lblOrtalamaMaas.AutoSize = true;
-            lblOrtalamaMaas.Location = new Point(260, 15);
-            lblOrtalamaMaas.Name = "lblOrtalamaMaas";
-            lblOrtalamaMaas.Size = new Size(87, 15);
-            lblOrtalamaMaas.TabIndex = 2;
-            lblOrtalamaMaas.Text = "Ortalama Maaş";
+            lblDepartmentsSalaryAverage.AutoSize = true;
+            lblDepartmentsSalaryAverage.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblDepartmentsSalaryAverage.ForeColor = Color.DarkSlateGray;
+            lblDepartmentsSalaryAverage.Location = new Point(380, 20);
+            lblDepartmentsSalaryAverage.Name = "lblDepartmentsSalaryAverage";
+            lblDepartmentsSalaryAverage.Size = new Size(230, 28);
+            lblDepartmentsSalaryAverage.TabIndex = 2;
+            lblDepartmentsSalaryAverage.Text = "Ortalama Maaş: 0,00";
+            lblDepartmentsSalaryAverage.BackColor = Color.Transparent;
+
             // 
-            // cmbDepartman2
+            // cmbDepartments2
             // 
-            cmbDepartman2.FormattingEnabled = true;
-            cmbDepartman2.Location = new Point(23, 84);
-            cmbDepartman2.Name = "cmbDepartman2";
-            cmbDepartman2.Size = new Size(121, 23);
-            cmbDepartman2.TabIndex = 3;
-            cmbDepartman2.Text = "Departmanlar";
+            cmbDepartments2.FormattingEnabled = true;
+            cmbDepartments2.Location = new Point(20, 90);
+            cmbDepartments2.Name = "cmbDepartments2";
+            cmbDepartments2.Size = new Size(180, 35);
+            cmbDepartments2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            cmbDepartments2.TabIndex = 3;
+            cmbDepartments2.Text = "Departmanlar";
+            cmbDepartments2.BackColor = Color.WhiteSmoke;
+            cmbDepartments2.ForeColor = Color.DarkSlateGray;
+            cmbDepartments2.FlatStyle = FlatStyle.Flat;
+            cmbDepartments2.SelectedIndexChanged += cmbDepartments2_SelectedIndexChanged;
+
             // 
-            // lstDepartman
+            // lstEmployeeList
             // 
-            lstDepartman.FormattingEnabled = true;
-            lstDepartman.ItemHeight = 15;
-            lstDepartman.Location = new Point(177, 84);
-            lstDepartman.Name = "lstDepartman";
-            lstDepartman.Size = new Size(277, 124);
-            lstDepartman.TabIndex = 4;
+            lstEmployeeList.FormattingEnabled = true;
+            lstEmployeeList.ItemHeight = 15;
+            lstEmployeeList.Location = new Point(210, 90);
+            lstEmployeeList.Name = "lstEmployeeList";
+            lstEmployeeList.Size = new Size(350, 150);
+            lstEmployeeList.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lstEmployeeList.TabIndex = 4;
+            lstEmployeeList.BackColor = Color.WhiteSmoke;
+            lstEmployeeList.ForeColor = Color.DarkSlateGray;
+            lstEmployeeList.BorderStyle = BorderStyle.None;
+            lstEmployeeList.SelectedIndexChanged += lstEmployeeList_SelectedIndexChanged;
+
             // 
-            // dgwDepartman
+            // dgwEmployeeDetails
             // 
-            dgwDepartman.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgwDepartman.Location = new Point(177, 214);
-            dgwDepartman.Name = "dgwDepartman";
-            dgwDepartman.Size = new Size(383, 124);
-            dgwDepartman.TabIndex = 5;
+            dgwEmployeeDetails.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgwEmployeeDetails.Location = new Point(210, 250);
+            dgwEmployeeDetails.Name = "dgwEmployeeDetails";
+            dgwEmployeeDetails.Size = new Size(450, 150);
+            dgwEmployeeDetails.TabIndex = 5;
+            dgwEmployeeDetails.BackgroundColor = Color.White;
+            dgwEmployeeDetails.BorderStyle = BorderStyle.None;
+            dgwEmployeeDetails.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            dgwEmployeeDetails.GridColor = Color.LightGray;
+            dgwEmployeeDetails.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgwEmployeeDetails.DefaultCellStyle.BackColor = Color.WhiteSmoke;
+            dgwEmployeeDetails.DefaultCellStyle.ForeColor = Color.DarkSlateGray;
+
             // 
-            // lblAktifCalisan
+            // lblActiveEmp
             // 
-            lblAktifCalisan.AutoSize = true;
-            lblAktifCalisan.Location = new Point(12, 389);
-            lblAktifCalisan.Name = "lblAktifCalisan";
-            lblAktifCalisan.Size = new Size(73, 15);
-            lblAktifCalisan.TabIndex = 6;
-            lblAktifCalisan.Text = "Aktif Çalışan";
+            lblActiveEmp.AutoSize = true;
+            lblActiveEmp.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblActiveEmp.ForeColor = Color.SeaGreen;
+            lblActiveEmp.Location = new Point(12, 420);
+            lblActiveEmp.Name = "lblActiveEmp";
+            lblActiveEmp.Size = new Size(180, 28);
+            lblActiveEmp.TabIndex = 6;
+            lblActiveEmp.Text = "Aktif Çalışanlar: 0";
+
             // 
-            // lblIstenAyrilan
+            // lblQuittingJob
             // 
-            lblIstenAyrilan.AutoSize = true;
-            lblIstenAyrilan.Location = new Point(113, 389);
-            lblIstenAyrilan.Name = "lblIstenAyrilan";
-            lblIstenAyrilan.Size = new Size(72, 15);
-            lblIstenAyrilan.TabIndex = 7;
-            lblIstenAyrilan.Text = "İşten Ayrılan";
+            lblQuittingJob.AutoSize = true;
+            lblQuittingJob.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblQuittingJob.ForeColor = Color.OrangeRed;
+            lblQuittingJob.Location = new Point(200, 420);
+            lblQuittingJob.Name = "lblQuittingJob";
+            lblQuittingJob.Size = new Size(180, 28);
+            lblQuittingJob.TabIndex = 7;
+            lblQuittingJob.Text = "İşten Ayrılanlar: 0";
+
             // 
-            // lblToplamFirmaMaasGideri
+            // lblSalaryCount
             // 
-            lblToplamFirmaMaasGideri.AutoSize = true;
-            lblToplamFirmaMaasGideri.Location = new Point(225, 389);
-            lblToplamFirmaMaasGideri.Name = "lblToplamFirmaMaasGideri";
-            lblToplamFirmaMaasGideri.Size = new Size(144, 15);
-            lblToplamFirmaMaasGideri.TabIndex = 8;
-            lblToplamFirmaMaasGideri.Text = "Toplam Firma Maaş Gideri";
+            lblSalaryCount.AutoSize = true;
+            lblSalaryCount.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblSalaryCount.ForeColor = Color.DeepSkyBlue;
+            lblSalaryCount.Location = new Point(380, 420);
+            lblSalaryCount.Name = "lblSalaryCount";
+            lblSalaryCount.Size = new Size(235, 28);
+            lblSalaryCount.TabIndex = 8;
+            lblSalaryCount.Text = "Toplam Maaş Gideri: 0,00";
+
             // 
             // Raporlar
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(572, 441);
-            Controls.Add(lblToplamFirmaMaasGideri);
-            Controls.Add(lblIstenAyrilan);
-            Controls.Add(lblAktifCalisan);
-            Controls.Add(dgwDepartman);
-            Controls.Add(lstDepartman);
-            Controls.Add(cmbDepartman2);
-            Controls.Add(lblOrtalamaMaas);
-            Controls.Add(lblCalisanSayisi);
-            Controls.Add(cmbDepartman);
+            ClientSize = new Size(700, 480); // Boyutu arttırdık
+            Controls.Add(lblSalaryCount);
+            Controls.Add(lblQuittingJob);
+            Controls.Add(lblActiveEmp);
+            Controls.Add(dgwEmployeeDetails);
+            Controls.Add(lstEmployeeList);
+            Controls.Add(cmbDepartments2);
+            Controls.Add(lblDepartmentsSalaryAverage);
+            Controls.Add(lblEmployeeCount);
+            Controls.Add(cmbDepartments);
             Name = "Raporlar";
-            Text = "Raporlar";
-            ((System.ComponentModel.ISupportInitialize)dgwDepartman).EndInit();
+            Text = "Departman ve Çalışan Raporları";
+            Load += Raporlar_Load_1;
+            ((System.ComponentModel.ISupportInitialize)dgwEmployeeDetails).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
+
+
+
         #endregion
 
-        private ComboBox cmbDepartman;
-        private Label lblCalisanSayisi;
-        private Label lblOrtalamaMaas;
-        private ComboBox cmbDepartman2;
-        private ListBox lstDepartman;
-        private DataGridView dgwDepartman;
-        private Label lblAktifCalisan;
-        private Label lblIstenAyrilan;
-        private Label lblToplamFirmaMaasGideri;
+        private ComboBox cmbDepartments;
+        private Label lblEmployeeCount;
+        private Label lblDepartmentsSalaryAverage;
+        private ComboBox cmbDepartments2;
+        private ListBox lstEmployeeList;
+        private DataGridView dgwEmployeeDetails;
+        private Label lblActiveEmp;
+        private Label lblQuittingJob;
+        private Label lblSalaryCount;
     }
 }
