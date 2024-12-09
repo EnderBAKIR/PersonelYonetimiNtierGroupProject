@@ -10,10 +10,7 @@ namespace NtierArchitecture.UI
 			InitializeComponent();
 		}
 
-		private void BaseForm_Load(object sender, EventArgs e)
-		{
-
-		}
+		private void BaseForm_Load(object sender, EventArgs e) {		}
 		private void FormKontrol(Form frm)
 		{
 			bool acikMi = false;
@@ -37,36 +34,40 @@ namespace NtierArchitecture.UI
 		}
 		private void izinFormuToolStripMenuItem1_Click(object sender, EventArgs e)
 		{
-			IzinForm Ifor = new IzinForm();
-			FormKontrol(Ifor);
+			MaasForm maasForm = new MaasForm();
+			FormKontrol(maasForm);
 		}
 		private void izinFormuToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			PersonelForm PerForm = new PersonelForm();
 			FormKontrol(PerForm);
 		}
-
-		private void departmanlarToolStripMenuItem_Click(object sender, EventArgs e)
+		private void çalýþanMaaþTakibiToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			CalisanMaasTakibi cmform = new CalisanMaasTakibi();
+			FormKontrol(cmform);
+		}
+		private void departmanFormuToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			Departman DForm = new Departman();
 			FormKontrol(DForm);
 		}
 
-		private void maaþFormuToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			MaasForm MForm = new MaasForm();
-			FormKontrol(MForm);
-		}
-
-		private void raporlarToolStripMenuItem_Click(object sender, EventArgs e)
+		private void raporlamaToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			Raporlar RForm = new Raporlar();
 			FormKontrol(RForm);
 		}
 
-		private void izinOnayToolStripMenuItem_Click(object sender, EventArgs e)
+		private void izinTalepToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-          IzinOnaylamaForm IoForm=new IzinOnaylamaForm();
+			IzinForm Iform = new IzinForm();
+			FormKontrol(Iform);
+		}
+
+		private void izinOnaylamaToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			IzinOnaylamaForm IoForm = new IzinOnaylamaForm();
 			FormKontrol(IoForm);
 		}
 	}
