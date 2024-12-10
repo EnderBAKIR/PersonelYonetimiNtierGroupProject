@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
             label3 = new Label();
             DepartmantsShow = new Button();
             AddDepart = new Button();
@@ -38,51 +37,45 @@
             btnUpdate = new Button();
             SuspendLayout();
             // 
-            // label1
-            // 
-            label1.ForeColor = Color.Black;
-            label1.Location = new Point(12, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(264, 38);
-            label1.TabIndex = 0;
-            label1.Text = "DEPARTMAN İŞLEMLERİ";
-            // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(12, 61);
+            label3.BackColor = Color.White;
+            label3.Font = new Font("Verdana Pro Cond", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(3, 18);
             label3.Name = "label3";
-            label3.Size = new Size(228, 28);
+            label3.Size = new Size(276, 28);
             label3.TabIndex = 2;
             label3.Text = "Departman Adını Yazınız:";
             // 
             // DepartmantsShow
             // 
-            DepartmantsShow.Location = new Point(752, 34);
+            DepartmantsShow.Image = Properties.Resources.Adsız_tasarım__4_;
+            DepartmantsShow.Location = new Point(549, 390);
             DepartmantsShow.Name = "DepartmantsShow";
-            DepartmantsShow.Size = new Size(338, 82);
+            DepartmantsShow.Size = new Size(107, 99);
             DepartmantsShow.TabIndex = 4;
-            DepartmantsShow.Text = "Departmanları Görüntüle";
             DepartmantsShow.UseVisualStyleBackColor = true;
             DepartmantsShow.Click += DepartmantsShow_Click;
             // 
             // AddDepart
             // 
-            AddDepart.Location = new Point(12, 139);
+            AddDepart.Image = Properties.Resources.Adsız_tasarım__1_;
+            AddDepart.Location = new Point(39, 401);
             AddDepart.Name = "AddDepart";
-            AddDepart.Size = new Size(135, 59);
+            AddDepart.Size = new Size(96, 78);
             AddDepart.TabIndex = 5;
-            AddDepart.Text = "Ekle";
             AddDepart.UseVisualStyleBackColor = true;
             AddDepart.Click += AddDepart_Click;
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(186, 139);
+            btnDelete.Image = Properties.Resources.Adsız_tasarım__2_;
+            btnDelete.Location = new Point(212, 390);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(150, 58);
+            btnDelete.Size = new Size(107, 101);
             btnDelete.TabIndex = 8;
-            btnDelete.Text = "Sil";
             btnDelete.UseVisualStyleBackColor = true;
             btnDelete.Click += btnDelete_Click;
             // 
@@ -90,26 +83,26 @@
             // 
             lstDepartmants.FormattingEnabled = true;
             lstDepartmants.ItemHeight = 28;
-            lstDepartmants.Location = new Point(752, 139);
+            lstDepartmants.Location = new Point(500, 66);
             lstDepartmants.Name = "lstDepartmants";
-            lstDepartmants.Size = new Size(338, 340);
+            lstDepartmants.Size = new Size(253, 312);
             lstDepartmants.TabIndex = 10;
             lstDepartmants.SelectedIndexChanged += lstDepartmants_SelectedIndexChanged;
             // 
             // txtDepartmanName
             // 
-            txtDepartmanName.Location = new Point(255, 61);
+            txtDepartmanName.Location = new Point(285, 12);
             txtDepartmanName.Name = "txtDepartmanName";
-            txtDepartmanName.Size = new Size(342, 34);
+            txtDepartmanName.Size = new Size(224, 34);
             txtDepartmanName.TabIndex = 11;
             // 
             // btnUpdate
             // 
-            btnUpdate.Location = new Point(386, 139);
+            btnUpdate.Image = Properties.Resources.Adsız_tasarım__3_;
+            btnUpdate.Location = new Point(376, 390);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(151, 58);
+            btnUpdate.Size = new Size(100, 101);
             btnUpdate.TabIndex = 12;
-            btnUpdate.Text = "Güncelle";
             btnUpdate.UseVisualStyleBackColor = true;
             btnUpdate.Click += btnUpdate_Click;
             // 
@@ -117,8 +110,9 @@
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.MediumAquamarine;
-            ClientSize = new Size(1189, 576);
+            BackColor = Color.Tan;
+            BackgroundImage = Properties.Resources.departmansicon;
+            ClientSize = new Size(752, 521);
             Controls.Add(btnUpdate);
             Controls.Add(txtDepartmanName);
             Controls.Add(lstDepartmants);
@@ -126,21 +120,18 @@
             Controls.Add(AddDepart);
             Controls.Add(DepartmantsShow);
             Controls.Add(label3);
-            Controls.Add(label1);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
             ForeColor = Color.DarkRed;
             Margin = new Padding(4);
             Name = "Departman";
-            Text = "Departman";
+            Text = "DEPARTMAN İŞLEMLERİ";
             Load += Departman_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Label label1;
-		private Label label3;
+        private Label label3;
 		private Button DepartmantsShow;
 		private Button AddDepart;
 		private Button btnDelete;
