@@ -338,7 +338,7 @@
             // 
             // groupBox2
             // 
-            groupBox2.BackColor = Color.PaleGoldenrod;
+            groupBox2.BackColor = Color.FromArgb(249, 250, 252);
             groupBox2.Controls.Add(toolStrip1);
             groupBox2.Controls.Add(btnDelete);
             groupBox2.Controls.Add(lstPersonelList);
@@ -428,7 +428,7 @@
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.PaleGoldenrod;
+            BackColor = Color.FromArgb(249, 250, 252);
             ClientSize = new Size(1194, 600);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
