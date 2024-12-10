@@ -185,13 +185,27 @@ namespace NtierArchitecture.UI.Formlar
 
                 if (leaveRequest != null)
                 {
+                    if (leaveRequest.Status != LeaveStatus.Approved && leaveRequest.Status != LeaveStatus.Rejected)
+                    {
+                        _leaveService.Delete(leaveRequest.Id);
 
-                    _leaveService.Delete(leaveRequest.Id);
 
+                        lstLeaveList.Items.Remove(selectedItem);
 
-                    lstLeaveList.Items.Remove(selectedItem);
-
-                    MessageBox.Show("İzin talebi başarıyla silindi.");
+                        MessageBox.Show("İzin talebi başarıyla silindi.");
+                    }
+                    else
+                    {
+                        if (leaveRequest.Status == LeaveStatus.Approved)
+                        {
+                            MessageBox.Show("Onaylanmış izin talebi süresi geçene kadar silinemez");
+                        }
+                        if (leaveRequest.Status == LeaveStatus.Rejected)
+                        {
+                            MessageBox.Show("Reddedilmiş izin talebi süresi geçene kadar silinemez");
+                        }
+                    }
+                    
                 }
                 else
                 {
@@ -225,32 +239,39 @@ namespace NtierArchitecture.UI.Formlar
                     return;
                 }
 
-                // Seçilen item'ı al ve ListItem türüne dönüştür
+                
                 ListItem selectedItem = (ListItem)lstLeaveList.SelectedItem;
 
                 if (selectedItem != null)
                 {
-                    // Id'yi kullanarak LeaveRequest nesnesini al
+                    
                     var leaveRequest = _leaveService.GetByID(Guid.Parse(selectedItem.Id));
 
                     if (leaveRequest != null)
                     {
-                        // LeaveRequest'i güncelle
-                        leaveRequest.Description = txtLeaveDescription.Text;
-                        leaveRequest.Day = (int)nmrLeaveDay.Value;
-                        leaveRequest.UpdateDate = DateTime.Now;
-                        leaveRequest.StartDate = dtStartDate.Value;
-                        leaveRequest.EndDate = dtEndDate.Value;
+                        if (leaveRequest.Status != LeaveStatus.Approved && leaveRequest.Status != LeaveStatus.Rejected)
+                        {
+                            leaveRequest.Description = txtLeaveDescription.Text;
+                            leaveRequest.Day = (int)nmrLeaveDay.Value;
+                            leaveRequest.UpdateDate = DateTime.Now;
+                            leaveRequest.StartDate = dtStartDate.Value;
+                            leaveRequest.EndDate = dtEndDate.Value;
 
-                        // Veritabanında güncelleme işlemi yap
-                        _leaveService.Update(leaveRequest);
+                            
+                            _leaveService.Update(leaveRequest);
 
-                        // ListBox'ı güncelle
+                            
 
-                        selectedItem.DisplayText = $"Oluşturulma Tarihi :  {leaveRequest.CreateDate.ToShortDateString()} - Gün Sayısı :  {leaveRequest.Day} ";
-                        lstLeaveList.Items[lstLeaveList.SelectedIndex] = selectedItem;
+                            selectedItem.DisplayText = $"Oluşturulma Tarihi :  {leaveRequest.CreateDate.ToShortDateString()} - Gün Sayısı :  {leaveRequest.Day} ";
+                            lstLeaveList.Items[lstLeaveList.SelectedIndex] = selectedItem;
 
-                        MessageBox.Show("İzin talebi başarıyla güncellendi.");
+                            MessageBox.Show("İzin talebi başarıyla güncellendi.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Yanıtlanmış izin talepleri güncellenemez");
+                        }
+                       
                     }
                     else
                     {

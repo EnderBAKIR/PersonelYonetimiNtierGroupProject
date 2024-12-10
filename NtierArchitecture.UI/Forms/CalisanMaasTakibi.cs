@@ -142,6 +142,7 @@ namespace NtierArchitecture.UI.Forms
 
             var unpaidEmployees = _employeeService.GetAllEmployeesWithDepartment()
                 .Where(emp =>
+                    emp.IsActive && // Sadece aktif çalışanlar
                     !_salaryTrackingService.IsSalaryPaid(emp.Id, selectedMonth, selectedYear) &&
                     emp.CreateDate <= dateThreshold
                 )
@@ -228,14 +229,13 @@ namespace NtierArchitecture.UI.Forms
 
         private void cmbDepartments_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             var selectedDepartmentId = cmbDepartments.SelectedValue as Guid?;
 
             if (selectedDepartmentId.HasValue)
             {
-
                 var filteredEmployees = _employeeService.GetAllEmployeesWithDepartment()
-                    .Where(emp => emp.DepartmentId == selectedDepartmentId.Value &&
+                    .Where(emp => emp.IsActive && // Sadece aktif çalışanlar
+                                  emp.DepartmentId == selectedDepartmentId.Value &&
                                   !_salaryTrackingService.IsSalaryPaid(emp.Id, (int)cmbMonth.SelectedValue, (int)cmbYear.SelectedValue) &&
                                   emp.CreateDate <= new DateTime((int)cmbYear.SelectedValue, (int)cmbMonth.SelectedValue, 5))
                     .Select(emp => new
@@ -246,7 +246,6 @@ namespace NtierArchitecture.UI.Forms
                         Salary = emp.Salary
                     })
                     .ToList();
-
 
                 dgwEmployees.Rows.Clear();
                 foreach (var employee in filteredEmployees)
@@ -259,7 +258,6 @@ namespace NtierArchitecture.UI.Forms
                     );
                 }
 
-
                 if (!filteredEmployees.Any())
                 {
                     MessageBox.Show("Seçilen departmanda maaşı ödenmemiş çalışan bulunamadı.");
@@ -267,7 +265,6 @@ namespace NtierArchitecture.UI.Forms
             }
             else
             {
-
                 LoadEmployees();
             }
         }
@@ -275,16 +272,17 @@ namespace NtierArchitecture.UI.Forms
         private void LoadEmployees()
         {
             var unpaidEmployees = _employeeService.GetAllEmployeesWithDepartment()
-                .Where(emp => !_salaryTrackingService.IsSalaryPaid(emp.Id, selectedMonth, selectedYear) &&
-                             emp.CreateDate <= dateThreshold)
-                .Select(emp => new
-                {
-                    Department = emp.Department.Name,
-                    Tc = emp.TcNo,
-                    FullName = $"{emp.Name} {emp.Surname}",
-                    Salary = emp.Salary
-                })
-                .ToList();
+        .Where(emp => emp.IsActive && // Sadece aktif çalışanlar
+                     !_salaryTrackingService.IsSalaryPaid(emp.Id, selectedMonth, selectedYear) &&
+                     emp.CreateDate <= dateThreshold)
+        .Select(emp => new
+        {
+            Department = emp.Department.Name,
+            Tc = emp.TcNo,
+            FullName = $"{emp.Name} {emp.Surname}",
+            Salary = emp.Salary
+        })
+        .ToList();
 
             dgwEmployees.Rows.Clear();
             foreach (var employee in unpaidEmployees)
@@ -305,21 +303,19 @@ namespace NtierArchitecture.UI.Forms
 
             string searchText = txtSearch.Text.Trim();
 
-
             if (searchText.Length < 3)
             {
                 LoadEmployees();
                 return;
             }
 
-
             int selectedMonth = (int)cmbMonth.SelectedValue;
             int selectedYear = (int)cmbYear.SelectedValue;
             DateTime dateThreshold = new DateTime(selectedYear, selectedMonth, 5);
 
-
             var filteredEmployees = _employeeService.GetAllEmployeesWithDepartment()
-                .Where(emp => !_salaryTrackingService.IsSalaryPaid(emp.Id, selectedMonth, selectedYear) &&
+                .Where(emp => emp.IsActive && // Sadece aktif çalışanlar
+                              !_salaryTrackingService.IsSalaryPaid(emp.Id, selectedMonth, selectedYear) &&
                               emp.CreateDate <= dateThreshold &&
                               (emp.Name + " " + emp.Surname).Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
                               emp.TcNo.Contains(searchText))
@@ -331,7 +327,6 @@ namespace NtierArchitecture.UI.Forms
                     Salary = emp.Salary
                 })
                 .ToList();
-
 
             dgwEmployees.Rows.Clear();
             foreach (var employee in filteredEmployees)
