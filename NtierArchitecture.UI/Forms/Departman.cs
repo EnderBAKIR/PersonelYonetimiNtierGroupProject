@@ -1,4 +1,5 @@
-﻿using NtierArchitecture.Business.Services;
+﻿using Krypton.Toolkit;
+using NtierArchitecture.Business.Services;
 using NtierArchitecture.DataAccess.Context;
 using NtierArchitecture.DataAccess.Repositories;
 using NtierArchitecture.Entities.Models;
@@ -6,7 +7,7 @@ using NtierArchitecture.Entities.Models;
 
 namespace NtierArchitecture.UI.Formlar
 {
-    public partial class Departman : Form
+    public partial class Departman : KryptonForm
     {
         private readonly ApplicationDbContext _context;
         private readonly DepartmentRepository _departmentRepository;
@@ -26,7 +27,7 @@ namespace NtierArchitecture.UI.Formlar
 
 
 
-                var departmentName = txtDepartmanName.Text.Trim();
+                var departmentName = txtDepartmentName1.Text.Trim();
                 if (string.IsNullOrWhiteSpace(departmentName))
                 {
                     MessageBox.Show("Departman ismi boş olamaz.");
@@ -37,7 +38,7 @@ namespace NtierArchitecture.UI.Formlar
 
                 MessageBox.Show($"Departman '{departmentName}' başarıyla eklendi.");
                 LoadDepartments();
-                txtDepartmanName.Clear();
+                txtDepartmentName1.Clear();
             }
             catch (Exception ex)
             {
@@ -108,7 +109,7 @@ namespace NtierArchitecture.UI.Formlar
                 if (lstDepartmants.SelectedItem is ListItem selectedItem)
                 {
                     Guid departmentId = Guid.Parse(selectedItem.Id);
-                    var newName = txtDepartmanName.Text.Trim();
+                    var newName = txtDepartmentName1.Text.Trim();
 
                     if (string.IsNullOrWhiteSpace(newName))
                     {
@@ -126,7 +127,7 @@ namespace NtierArchitecture.UI.Formlar
                         MessageBox.Show($"Departman   güncellendi");
 
                         LoadDepartments();
-                        txtDepartmanName.Clear();
+                        txtDepartmentName1.Clear();
                     }
                 }
                 else
@@ -150,9 +151,14 @@ namespace NtierArchitecture.UI.Formlar
 
                 if (department != null)
                 {
-                    txtDepartmanName.Text = department.Name;
+                    txtDepartmentName1.Text = department.Name;
                 }
             }
+        }
+
+        private void txtDepartmentName1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -123,6 +123,16 @@ namespace NtierArchitecture.UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap calendar {
+            get {
+                object obj = ResourceManager.GetObject("calendar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap deleteicon {
             get {
                 object obj = ResourceManager.GetObject("deleteicon", resourceCulture);
@@ -136,6 +146,16 @@ namespace NtierArchitecture.UI.Properties {
         internal static System.Drawing.Bitmap departmansicon {
             get {
                 object obj = ResourceManager.GetObject("departmansicon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap systems {
+            get {
+                object obj = ResourceManager.GetObject("systems", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

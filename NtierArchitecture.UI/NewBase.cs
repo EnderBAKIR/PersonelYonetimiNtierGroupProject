@@ -153,7 +153,27 @@ namespace NtierArchitecture.UI.Forms
         private void btnSalaryTracking_Click(object sender, EventArgs e)
         {
             OpenChildForm(new CalisanMaasTakibi(), sender);
-           
+
+        }
+
+        private void btnDepartment_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Departman(), sender);
+        }
+
+        private void btnPremision_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new IzinForm(), sender);
+        }
+
+        private void btnApprove_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Forms.IzinOnaylamaForm(), sender);
+        }
+
+        private void btnRaport_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Raporlar(), sender);
         }
     }
 }
