@@ -22,6 +22,7 @@ namespace NtierArchitecture.UI.Forms
         {
             InitializeComponent();
             random = new Random();
+            CustomizeDesign();
         }
 
         private Color SelectThemeColor()
@@ -29,7 +30,7 @@ namespace NtierArchitecture.UI.Forms
             int index = random.Next(ThemeColor.ColorList.Count);
             while (tempIndex == index)
             {
-                index =random.Next(ThemeColor.ColorList.Count);
+                index = random.Next(ThemeColor.ColorList.Count);
             }
             tempIndex = index;
             string color = ThemeColor.ColorList[index];
@@ -76,22 +77,83 @@ namespace NtierArchitecture.UI.Forms
         {
             if (activeForm != null)
             {
-                activeForm.Close();
+                activeForm.Close(); // Önceki formu kapat
             }
-            ActivateButton(btnSender);
+            ActivateButton(btnSender); // Seçilen butonu aktif hale getir
             activeForm = childForm;
             childForm.TopLevel = false;
-            childForm.FormBorderStyle= FormBorderStyle.None;
+            childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
             this.panelForms.Controls.Add(childForm);
             this.panelForms.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
-            lblTitle.Text = childForm.Text;
+            lblTitle.Text = childForm.Text; // Başlık güncellemesi
+                                            // Form açıldığında alt menüyü gizle
+            HideAllSubMenus();
         }
         private void btnPersonel_Click(object sender, EventArgs e)
         {
+            //OpenChildForm(new PersonelForm(), sender);
+            ToggleSubMenu(panelSubMenuPersonel);
+        }
+        private void ToggleSubMenu(Panel subMenu)
+        {
+            // Alt menüyü görünür/kapat
+            if (subMenu.Visible == false)
+            {
+                HideAllSubMenus(); // Tüm açık alt menüleri gizle
+                subMenu.Visible = true;
+            }
+            else
+            {
+                subMenu.Visible = false;
+
+                // Eğer bir form açıksa, alt menüyü kapatırken formu da kapatalım
+                if (activeForm != null)
+                {
+                    activeForm.Close();
+                    activeForm = null;
+                }
+            }
+        }
+
+        private void HideAllSubMenus()
+        {
+            // Diğer alt menüleri gizlemek için
+            panelSubMenuPersonel.Visible = false;
+        }
+        private void CustomizeDesign()
+        {
+            // Başlangıçta tüm alt menüler gizli
+            panelSubMenuPersonel.Visible = false;
+        }
+
+        private void panelSubMenuPersonel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnPersonelAdd_Click(object sender, EventArgs e)
+        {
             OpenChildForm(new PersonelForm(), sender);
+
+        }
+
+        private void panelsubMain_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnSalaryAssignment_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new MaasForm(), sender);
+        }
+
+        private void btnSalaryTracking_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new CalisanMaasTakibi(), sender);
+           
         }
     }
 }

@@ -39,9 +39,17 @@
             panelTitleBar = new Panel();
             lblTitle = new Label();
             panelForms = new Panel();
+            panelsubMain = new Panel();
+            panelSubMenuPersonel = new Panel();
+            btnSalaryTracking = new Button();
+            btnSalaryAssignment = new Button();
+            btnPersonelAdd = new Button();
             panelMenu.SuspendLayout();
             panelLogo.SuspendLayout();
             panelTitleBar.SuspendLayout();
+            panelForms.SuspendLayout();
+            panelsubMain.SuspendLayout();
+            panelSubMenuPersonel.SuspendLayout();
             SuspendLayout();
             // 
             // panelMenu
@@ -87,7 +95,7 @@
             btnPersonel.Name = "btnPersonel";
             btnPersonel.Size = new Size(220, 60);
             btnPersonel.TabIndex = 3;
-            btnPersonel.Text = "Personel Ekle";
+            btnPersonel.Text = "Personel İşlemleri             >";
             btnPersonel.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnPersonel.UseVisualStyleBackColor = true;
             btnPersonel.Click += btnPersonel_Click;
@@ -169,11 +177,88 @@
             // 
             // panelForms
             // 
+            panelForms.AllowDrop = true;
+            panelForms.Controls.Add(panelsubMain);
             panelForms.Dock = DockStyle.Fill;
             panelForms.Location = new Point(220, 80);
             panelForms.Name = "panelForms";
             panelForms.Size = new Size(580, 370);
             panelForms.TabIndex = 2;
+            // 
+            // panelsubMain
+            // 
+            panelsubMain.Controls.Add(panelSubMenuPersonel);
+            panelsubMain.Dock = DockStyle.Left;
+            panelsubMain.Location = new Point(0, 0);
+            panelsubMain.Name = "panelsubMain";
+            panelsubMain.Size = new Size(160, 370);
+            panelsubMain.TabIndex = 3;
+            panelsubMain.Paint += panelsubMain_Paint;
+            // 
+            // panelSubMenuPersonel
+            // 
+            panelSubMenuPersonel.AllowDrop = true;
+            panelSubMenuPersonel.Controls.Add(btnSalaryTracking);
+            panelSubMenuPersonel.Controls.Add(btnSalaryAssignment);
+            panelSubMenuPersonel.Controls.Add(btnPersonelAdd);
+            panelSubMenuPersonel.Location = new Point(0, 92);
+            panelSubMenuPersonel.Name = "panelSubMenuPersonel";
+            panelSubMenuPersonel.Size = new Size(160, 127);
+            panelSubMenuPersonel.TabIndex = 0;
+            panelSubMenuPersonel.Paint += panelSubMenuPersonel_Paint;
+            // 
+            // btnSalaryTracking
+            // 
+            btnSalaryTracking.BackColor = Color.FromArgb(136, 145, 178);
+            btnSalaryTracking.Dock = DockStyle.Top;
+            btnSalaryTracking.FlatAppearance.BorderColor = Color.FromArgb(40, 45, 62);
+            btnSalaryTracking.FlatAppearance.BorderSize = 0;
+            btnSalaryTracking.FlatStyle = FlatStyle.Flat;
+            btnSalaryTracking.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            btnSalaryTracking.ForeColor = Color.Gainsboro;
+            btnSalaryTracking.Location = new Point(0, 80);
+            btnSalaryTracking.Name = "btnSalaryTracking";
+            btnSalaryTracking.Size = new Size(160, 40);
+            btnSalaryTracking.TabIndex = 2;
+            btnSalaryTracking.Text = "Çalışan Maaş Takibi";
+            btnSalaryTracking.TextAlign = ContentAlignment.MiddleLeft;
+            btnSalaryTracking.UseVisualStyleBackColor = false;
+            btnSalaryTracking.Click += btnSalaryTracking_Click;
+            // 
+            // btnSalaryAssignment
+            // 
+            btnSalaryAssignment.BackColor = Color.FromArgb(136, 145, 178);
+            btnSalaryAssignment.Dock = DockStyle.Top;
+            btnSalaryAssignment.FlatAppearance.BorderColor = Color.White;
+            btnSalaryAssignment.FlatStyle = FlatStyle.Flat;
+            btnSalaryAssignment.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            btnSalaryAssignment.ForeColor = Color.Gainsboro;
+            btnSalaryAssignment.Location = new Point(0, 40);
+            btnSalaryAssignment.Name = "btnSalaryAssignment";
+            btnSalaryAssignment.Size = new Size(160, 40);
+            btnSalaryAssignment.TabIndex = 1;
+            btnSalaryAssignment.Text = "Maaş Atama";
+            btnSalaryAssignment.TextAlign = ContentAlignment.MiddleLeft;
+            btnSalaryAssignment.UseVisualStyleBackColor = false;
+            btnSalaryAssignment.Click += btnSalaryAssignment_Click;
+            // 
+            // btnPersonelAdd
+            // 
+            btnPersonelAdd.BackColor = Color.FromArgb(136, 145, 178);
+            btnPersonelAdd.Dock = DockStyle.Top;
+            btnPersonelAdd.FlatAppearance.BorderColor = Color.FromArgb(40, 45, 62);
+            btnPersonelAdd.FlatAppearance.BorderSize = 0;
+            btnPersonelAdd.FlatStyle = FlatStyle.Flat;
+            btnPersonelAdd.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            btnPersonelAdd.ForeColor = Color.Gainsboro;
+            btnPersonelAdd.Location = new Point(0, 0);
+            btnPersonelAdd.Name = "btnPersonelAdd";
+            btnPersonelAdd.Size = new Size(160, 40);
+            btnPersonelAdd.TabIndex = 0;
+            btnPersonelAdd.Text = "Personel Ekleme";
+            btnPersonelAdd.TextAlign = ContentAlignment.MiddleLeft;
+            btnPersonelAdd.UseVisualStyleBackColor = false;
+            btnPersonelAdd.Click += btnPersonelAdd_Click;
             // 
             // NewBase
             // 
@@ -190,6 +275,9 @@
             panelLogo.PerformLayout();
             panelTitleBar.ResumeLayout(false);
             panelTitleBar.PerformLayout();
+            panelForms.ResumeLayout(false);
+            panelsubMain.ResumeLayout(false);
+            panelSubMenuPersonel.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -205,5 +293,11 @@
         private Label lblTitle;
         private Label label1;
         private Panel panelForms;
+        private Panel panelSubMenuPersonel;
+        private Button btnPersonelAdd;
+        private Button btnSalaryTracking;
+        private Button btnSalaryAssignment;
+        private Panel panel1;
+        private Panel panelsubMain;
     }
 }
