@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Departman));
             label3 = new Label();
             DepartmantsShow = new Button();
             AddDepart = new Button();
@@ -51,30 +52,30 @@
             // 
             // DepartmantsShow
             // 
-            DepartmantsShow.Image = Properties.Resources.Adsız_tasarım__4_;
-            DepartmantsShow.Location = new Point(549, 390);
+            DepartmantsShow.Image = (Image)resources.GetObject("DepartmantsShow.Image");
+            DepartmantsShow.Location = new Point(761, 3);
             DepartmantsShow.Name = "DepartmantsShow";
-            DepartmantsShow.Size = new Size(107, 99);
+            DepartmantsShow.Size = new Size(50, 59);
             DepartmantsShow.TabIndex = 4;
             DepartmantsShow.UseVisualStyleBackColor = true;
             DepartmantsShow.Click += DepartmantsShow_Click;
             // 
             // AddDepart
             // 
-            AddDepart.Image = Properties.Resources.Adsız_tasarım__1_;
-            AddDepart.Location = new Point(39, 401);
+            AddDepart.Image = (Image)resources.GetObject("AddDepart.Image");
+            AddDepart.Location = new Point(144, 77);
             AddDepart.Name = "AddDepart";
-            AddDepart.Size = new Size(96, 78);
+            AddDepart.Size = new Size(60, 56);
             AddDepart.TabIndex = 5;
             AddDepart.UseVisualStyleBackColor = true;
             AddDepart.Click += AddDepart_Click;
             // 
             // btnDelete
             // 
-            btnDelete.Image = Properties.Resources.Adsız_tasarım__2_;
-            btnDelete.Location = new Point(212, 390);
+            btnDelete.Image = (Image)resources.GetObject("btnDelete.Image");
+            btnDelete.Location = new Point(272, 74);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(107, 101);
+            btnDelete.Size = new Size(60, 59);
             btnDelete.TabIndex = 8;
             btnDelete.UseVisualStyleBackColor = true;
             btnDelete.Click += btnDelete_Click;
@@ -83,9 +84,9 @@
             // 
             lstDepartmants.FormattingEnabled = true;
             lstDepartmants.ItemHeight = 28;
-            lstDepartmants.Location = new Point(500, 66);
+            lstDepartmants.Location = new Point(761, 74);
             lstDepartmants.Name = "lstDepartmants";
-            lstDepartmants.Size = new Size(253, 312);
+            lstDepartmants.Size = new Size(262, 452);
             lstDepartmants.TabIndex = 10;
             lstDepartmants.SelectedIndexChanged += lstDepartmants_SelectedIndexChanged;
             // 
@@ -98,10 +99,10 @@
             // 
             // btnUpdate
             // 
-            btnUpdate.Image = Properties.Resources.Adsız_tasarım__3_;
-            btnUpdate.Location = new Point(376, 390);
+            btnUpdate.Image = (Image)resources.GetObject("btnUpdate.Image");
+            btnUpdate.Location = new Point(409, 77);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(100, 101);
+            btnUpdate.Size = new Size(55, 53);
             btnUpdate.TabIndex = 12;
             btnUpdate.UseVisualStyleBackColor = true;
             btnUpdate.Click += btnUpdate_Click;
@@ -111,8 +112,8 @@
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Tan;
-            BackgroundImage = Properties.Resources.departmansicon;
-            ClientSize = new Size(752, 521);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(1022, 529);
             Controls.Add(btnUpdate);
             Controls.Add(txtDepartmanName);
             Controls.Add(lstDepartmants);
