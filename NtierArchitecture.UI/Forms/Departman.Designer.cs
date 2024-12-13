@@ -29,84 +29,33 @@
         private void InitializeComponent()
         {
             label3 = new Label();
-            DepartmantsShow = new Button();
-            AddDepart = new Button();
-            btnDelete = new Button();
-            lstDepartmants = new ListBox();
-            btnUpdate = new Button();
             txtDepartmentName1 = new Krypton.Toolkit.KryptonTextBox();
-            kryptonButton1 = new Krypton.Toolkit.KryptonButton();
+            AddDepart1 = new Krypton.Toolkit.KryptonButton();
+            lstDepartmants1 = new Krypton.Toolkit.KryptonListBox();
+            DepartmantsShow1 = new Krypton.Toolkit.KryptonButton();
+            btnDelete1 = new Krypton.Toolkit.KryptonButton();
+            btnUpdate1 = new Krypton.Toolkit.KryptonButton();
             SuspendLayout();
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.BackColor = Color.White;
-            label3.Font = new Font("Verdana Pro Cond", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label3.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
             label3.ForeColor = Color.FromArgb(64, 64, 64);
-            label3.Location = new Point(3, 18);
+            label3.Location = new Point(39, 31);
             label3.Name = "label3";
-            label3.Size = new Size(176, 28);
+            label3.Size = new Size(178, 29);
             label3.TabIndex = 2;
             label3.Text = "Departman Adı:";
             // 
-            // DepartmantsShow
-            // 
-            DepartmantsShow.Location = new Point(543, 85);
-            DepartmantsShow.Name = "DepartmantsShow";
-            DepartmantsShow.Size = new Size(165, 59);
-            DepartmantsShow.TabIndex = 4;
-            DepartmantsShow.Text = "listele";
-            DepartmantsShow.UseVisualStyleBackColor = true;
-            DepartmantsShow.Click += DepartmantsShow_Click;
-            // 
-            // AddDepart
-            // 
-            AddDepart.Location = new Point(3, 82);
-            AddDepart.Name = "AddDepart";
-            AddDepart.Size = new Size(141, 56);
-            AddDepart.TabIndex = 5;
-            AddDepart.Text = "ekle";
-            AddDepart.UseVisualStyleBackColor = true;
-            AddDepart.Click += AddDepart_Click;
-            // 
-            // btnDelete
-            // 
-            btnDelete.Location = new Point(181, 82);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(131, 59);
-            btnDelete.TabIndex = 8;
-            btnDelete.Text = "sil";
-            btnDelete.UseVisualStyleBackColor = true;
-            btnDelete.Click += btnDelete_Click;
-            // 
-            // lstDepartmants
-            // 
-            lstDepartmants.FormattingEnabled = true;
-            lstDepartmants.ItemHeight = 28;
-            lstDepartmants.Location = new Point(730, 32);
-            lstDepartmants.Name = "lstDepartmants";
-            lstDepartmants.Size = new Size(262, 452);
-            lstDepartmants.TabIndex = 10;
-            lstDepartmants.SelectedIndexChanged += lstDepartmants_SelectedIndexChanged;
-            // 
-            // btnUpdate
-            // 
-            btnUpdate.Location = new Point(342, 85);
-            btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(167, 53);
-            btnUpdate.TabIndex = 12;
-            btnUpdate.Text = "güncelle";
-            btnUpdate.UseVisualStyleBackColor = true;
-            btnUpdate.Click += btnUpdate_Click;
-            // 
             // txtDepartmentName1
             // 
-            txtDepartmentName1.Location = new Point(185, 10);
+            txtDepartmentName1.Location = new Point(223, 25);
             txtDepartmentName1.Name = "txtDepartmentName1";
-            txtDepartmentName1.Size = new Size(353, 35);
+            txtDepartmentName1.Size = new Size(443, 35);
             txtDepartmentName1.StateCommon.Back.Color1 = Color.White;
-            txtDepartmentName1.StateCommon.Border.Color1 = Color.FromArgb(224, 224, 224);
+            txtDepartmentName1.StateCommon.Border.Color1 = Color.FromArgb(141, 182, 252);
             txtDepartmentName1.StateCommon.Border.Color2 = Color.FromArgb(224, 224, 224);
             txtDepartmentName1.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
             txtDepartmentName1.StateCommon.Border.Rounding = 20F;
@@ -116,48 +65,205 @@
             txtDepartmentName1.TabIndex = 13;
             txtDepartmentName1.TextChanged += txtDepartmentName1_TextChanged;
             // 
-            // kryptonButton1
+            // AddDepart1
             // 
-            kryptonButton1.Location = new Point(12, 190);
-            kryptonButton1.Name = "kryptonButton1";
-            kryptonButton1.OverrideDefault.Back.Color1 = Color.DarkSlateGray;
-            kryptonButton1.OverrideDefault.Back.Color2 = Color.DarkSlateGray;
-            kryptonButton1.OverrideDefault.Back.ColorAngle = 45F;
-            kryptonButton1.OverrideDefault.Border.Color1 = Color.DarkSlateGray;
-            kryptonButton1.OverrideDefault.Border.Color2 = Color.Black;
-            kryptonButton1.OverrideDefault.Border.ColorAngle = 45F;
-            kryptonButton1.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            kryptonButton1.OverrideDefault.Border.Rounding = 18F;
-            kryptonButton1.OverrideDefault.Border.Width = 1;
-            kryptonButton1.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            kryptonButton1.Size = new Size(155, 49);
-            kryptonButton1.StateCommon.Back.Color1 = Color.DarkSlateGray;
-            kryptonButton1.StateCommon.Back.Color2 = Color.DarkSlateGray;
-            kryptonButton1.StateCommon.Border.Color1 = Color.DarkSlateGray;
-            kryptonButton1.StateCommon.Border.Color2 = Color.DarkSlateGray;
-            kryptonButton1.StateCommon.Border.ColorAngle = 45F;
-            kryptonButton1.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            kryptonButton1.StateCommon.Border.Rounding = 18F;
-            kryptonButton1.StateCommon.Border.Width = 1;
-            kryptonButton1.StateCommon.Content.ShortText.Color1 = Color.White;
-            kryptonButton1.StateCommon.Content.ShortText.Color2 = Color.White;
-            kryptonButton1.StateCommon.Content.ShortText.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            kryptonButton1.StatePressed.Back.Color1 = Color.DarkGray;
-            kryptonButton1.StatePressed.Back.Color2 = Color.Gray;
-            kryptonButton1.StatePressed.Border.Color1 = Color.DarkGray;
-            kryptonButton1.StatePressed.Border.Color2 = Color.Gray;
-            kryptonButton1.StatePressed.Border.Rounding = 18F;
-            kryptonButton1.StatePressed.Border.Width = 1;
-            kryptonButton1.StateTracking.Back.Color1 = Color.DarkSlateGray;
-            kryptonButton1.StateTracking.Back.Color2 = Color.DarkSlateGray;
-            kryptonButton1.StateTracking.Back.ColorAngle = 45F;
-            kryptonButton1.StateTracking.Border.ColorAngle = 45F;
-            kryptonButton1.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            kryptonButton1.StateTracking.Border.Rounding = 18F;
-            kryptonButton1.StateTracking.Border.Width = 1;
-            kryptonButton1.TabIndex = 14;
-            kryptonButton1.Values.DropDownArrowColor = Color.Empty;
-            kryptonButton1.Values.Text = "Ekle";
+            AddDepart1.Location = new Point(270, 98);
+            AddDepart1.Name = "AddDepart1";
+            AddDepart1.OverrideDefault.Back.Color1 = Color.FromArgb(59, 61, 59);
+            AddDepart1.OverrideDefault.Back.Color2 = Color.FromArgb(22, 22, 22);
+            AddDepart1.OverrideDefault.Back.ColorAngle = 45F;
+            AddDepart1.OverrideDefault.Border.Color1 = Color.FromArgb(50, 73, 73);
+            AddDepart1.OverrideDefault.Border.Color2 = Color.FromArgb(48, 48, 48);
+            AddDepart1.OverrideDefault.Border.ColorAngle = 45F;
+            AddDepart1.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            AddDepart1.OverrideDefault.Border.Rounding = 17F;
+            AddDepart1.OverrideDefault.Border.Width = 2;
+            AddDepart1.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            AddDepart1.Size = new Size(124, 43);
+            AddDepart1.StateCommon.Back.Color1 = Color.FromArgb(73, 73, 73);
+            AddDepart1.StateCommon.Back.Color2 = Color.FromArgb(48, 48, 48);
+            AddDepart1.StateCommon.Back.ColorAngle = 45F;
+            AddDepart1.StateCommon.Border.Color1 = Color.FromArgb(57, 57, 57);
+            AddDepart1.StateCommon.Border.Color2 = Color.FromArgb(57, 57, 57);
+            AddDepart1.StateCommon.Border.ColorAngle = 45F;
+            AddDepart1.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            AddDepart1.StateCommon.Border.Rounding = 17F;
+            AddDepart1.StateCommon.Border.Width = 2;
+            AddDepart1.StateCommon.Content.ShortText.Color1 = Color.White;
+            AddDepart1.StateCommon.Content.ShortText.Color2 = Color.White;
+            AddDepart1.StateCommon.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            AddDepart1.StateDisabled.Border.Width = 2;
+            AddDepart1.StateNormal.Border.Width = 2;
+            AddDepart1.StatePressed.Back.Color1 = Color.FromArgb(71, 156, 75);
+            AddDepart1.StatePressed.Back.Color2 = Color.FromArgb(64, 142, 66);
+            AddDepart1.StatePressed.Border.Color1 = Color.FromArgb(71, 156, 75);
+            AddDepart1.StatePressed.Border.Color2 = Color.FromArgb(32, 61, 33);
+            AddDepart1.StatePressed.Border.Rounding = 17F;
+            AddDepart1.StatePressed.Border.Width = 2;
+            AddDepart1.StateTracking.Back.Color1 = Color.FromArgb(73, 73, 73);
+            AddDepart1.StateTracking.Back.Color2 = Color.FromArgb(48, 48, 48);
+            AddDepart1.StateTracking.Back.ColorAngle = 45F;
+            AddDepart1.StateTracking.Border.ColorAngle = 45F;
+            AddDepart1.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            AddDepart1.StateTracking.Border.Rounding = 17F;
+            AddDepart1.StateTracking.Border.Width = 2;
+            AddDepart1.TabIndex = 14;
+            AddDepart1.Values.DropDownArrowColor = Color.Empty;
+            AddDepart1.Values.Text = "Ekle";
+            AddDepart1.Click += AddDepart1_Click;
+            // 
+            // lstDepartmants1
+            // 
+            lstDepartmants1.Location = new Point(39, 158);
+            lstDepartmants1.Name = "lstDepartmants1";
+            lstDepartmants1.Size = new Size(614, 203);
+            lstDepartmants1.StateCommon.Back.Color1 = Color.FromArgb(230, 234, 242);
+            lstDepartmants1.StateCommon.Border.Color1 = Color.FromArgb(222, 223, 224);
+            lstDepartmants1.StateCommon.Border.Rounding = 15F;
+            lstDepartmants1.StateCommon.Border.Width = 3;
+            lstDepartmants1.TabIndex = 15;
+            lstDepartmants1.SelectedIndexChanged += lstDepartmants1_SelectedIndexChanged;
+            // 
+            // DepartmantsShow1
+            // 
+            DepartmantsShow1.Location = new Point(400, 98);
+            DepartmantsShow1.Name = "DepartmantsShow1";
+            DepartmantsShow1.OverrideDefault.Back.Color1 = Color.FromArgb(59, 61, 59);
+            DepartmantsShow1.OverrideDefault.Back.Color2 = Color.FromArgb(22, 22, 22);
+            DepartmantsShow1.OverrideDefault.Back.ColorAngle = 45F;
+            DepartmantsShow1.OverrideDefault.Border.Color1 = Color.FromArgb(50, 73, 73);
+            DepartmantsShow1.OverrideDefault.Border.Color2 = Color.FromArgb(48, 48, 48);
+            DepartmantsShow1.OverrideDefault.Border.ColorAngle = 45F;
+            DepartmantsShow1.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            DepartmantsShow1.OverrideDefault.Border.Rounding = 17F;
+            DepartmantsShow1.OverrideDefault.Border.Width = 2;
+            DepartmantsShow1.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            DepartmantsShow1.Size = new Size(118, 43);
+            DepartmantsShow1.StateCommon.Back.Color1 = Color.FromArgb(73, 73, 73);
+            DepartmantsShow1.StateCommon.Back.Color2 = Color.FromArgb(48, 48, 48);
+            DepartmantsShow1.StateCommon.Back.ColorAngle = 45F;
+            DepartmantsShow1.StateCommon.Border.Color1 = Color.FromArgb(57, 57, 57);
+            DepartmantsShow1.StateCommon.Border.Color2 = Color.FromArgb(57, 57, 57);
+            DepartmantsShow1.StateCommon.Border.ColorAngle = 45F;
+            DepartmantsShow1.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            DepartmantsShow1.StateCommon.Border.Rounding = 17F;
+            DepartmantsShow1.StateCommon.Border.Width = 2;
+            DepartmantsShow1.StateCommon.Content.ShortText.Color1 = Color.White;
+            DepartmantsShow1.StateCommon.Content.ShortText.Color2 = Color.White;
+            DepartmantsShow1.StateCommon.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            DepartmantsShow1.StateDisabled.Border.Width = 2;
+            DepartmantsShow1.StateNormal.Border.Width = 2;
+            DepartmantsShow1.StatePressed.Back.Color1 = Color.FromArgb(181, 132, 68);
+            DepartmantsShow1.StatePressed.Back.Color2 = Color.FromArgb(147, 108, 57);
+            DepartmantsShow1.StatePressed.Border.Color1 = Color.FromArgb(181, 132, 68);
+            DepartmantsShow1.StatePressed.Border.Color2 = Color.FromArgb(147, 108, 57);
+            DepartmantsShow1.StatePressed.Border.Rounding = 17F;
+            DepartmantsShow1.StatePressed.Border.Width = 2;
+            DepartmantsShow1.StateTracking.Back.Color1 = Color.FromArgb(73, 73, 73);
+            DepartmantsShow1.StateTracking.Back.Color2 = Color.FromArgb(48, 48, 48);
+            DepartmantsShow1.StateTracking.Back.ColorAngle = 45F;
+            DepartmantsShow1.StateTracking.Border.ColorAngle = 45F;
+            DepartmantsShow1.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            DepartmantsShow1.StateTracking.Border.Rounding = 17F;
+            DepartmantsShow1.StateTracking.Border.Width = 2;
+            DepartmantsShow1.TabIndex = 14;
+            DepartmantsShow1.Values.DropDownArrowColor = Color.Empty;
+            DepartmantsShow1.Values.Text = "Listele";
+            DepartmantsShow1.Click += DepartmantsShow1_Click;
+            // 
+            // btnDelete1
+            // 
+            btnDelete1.Location = new Point(557, 376);
+            btnDelete1.Name = "btnDelete1";
+            btnDelete1.OverrideDefault.Back.Color1 = Color.FromArgb(59, 61, 59);
+            btnDelete1.OverrideDefault.Back.Color2 = Color.FromArgb(22, 22, 22);
+            btnDelete1.OverrideDefault.Back.ColorAngle = 45F;
+            btnDelete1.OverrideDefault.Border.Color1 = Color.FromArgb(50, 73, 73);
+            btnDelete1.OverrideDefault.Border.Color2 = Color.FromArgb(48, 48, 48);
+            btnDelete1.OverrideDefault.Border.ColorAngle = 45F;
+            btnDelete1.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnDelete1.OverrideDefault.Border.Rounding = 17F;
+            btnDelete1.OverrideDefault.Border.Width = 2;
+            btnDelete1.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            btnDelete1.Size = new Size(85, 45);
+            btnDelete1.StateCommon.Back.Color1 = Color.FromArgb(73, 73, 73);
+            btnDelete1.StateCommon.Back.Color2 = Color.FromArgb(48, 48, 48);
+            btnDelete1.StateCommon.Back.ColorAngle = 45F;
+            btnDelete1.StateCommon.Border.Color1 = Color.FromArgb(57, 57, 57);
+            btnDelete1.StateCommon.Border.Color2 = Color.FromArgb(57, 57, 57);
+            btnDelete1.StateCommon.Border.ColorAngle = 45F;
+            btnDelete1.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnDelete1.StateCommon.Border.Rounding = 15F;
+            btnDelete1.StateCommon.Border.Width = 2;
+            btnDelete1.StateCommon.Content.ShortText.Color1 = Color.White;
+            btnDelete1.StateCommon.Content.ShortText.Color2 = Color.White;
+            btnDelete1.StateCommon.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDelete1.StateDisabled.Border.Width = 2;
+            btnDelete1.StateNormal.Border.Width = 2;
+            btnDelete1.StatePressed.Back.Color1 = Color.Brown;
+            btnDelete1.StatePressed.Back.Color2 = Color.Firebrick;
+            btnDelete1.StatePressed.Border.Color1 = Color.FromArgb(181, 132, 68);
+            btnDelete1.StatePressed.Border.Color2 = Color.FromArgb(147, 108, 57);
+            btnDelete1.StatePressed.Border.Rounding = 15F;
+            btnDelete1.StatePressed.Border.Width = 2;
+            btnDelete1.StateTracking.Back.Color1 = Color.FromArgb(73, 73, 73);
+            btnDelete1.StateTracking.Back.Color2 = Color.FromArgb(48, 48, 48);
+            btnDelete1.StateTracking.Back.ColorAngle = 45F;
+            btnDelete1.StateTracking.Border.ColorAngle = 45F;
+            btnDelete1.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnDelete1.StateTracking.Border.Rounding = 17F;
+            btnDelete1.StateTracking.Border.Width = 2;
+            btnDelete1.TabIndex = 14;
+            btnDelete1.Values.DropDownArrowColor = Color.Empty;
+            btnDelete1.Values.Text = "Sil";
+            btnDelete1.Click += btnDelete1_Click;
+            // 
+            // btnUpdate1
+            // 
+            btnUpdate1.Location = new Point(524, 98);
+            btnUpdate1.Name = "btnUpdate1";
+            btnUpdate1.OverrideDefault.Back.Color1 = Color.FromArgb(59, 61, 59);
+            btnUpdate1.OverrideDefault.Back.Color2 = Color.FromArgb(22, 22, 22);
+            btnUpdate1.OverrideDefault.Back.ColorAngle = 45F;
+            btnUpdate1.OverrideDefault.Border.Color1 = Color.FromArgb(50, 73, 73);
+            btnUpdate1.OverrideDefault.Border.Color2 = Color.FromArgb(48, 48, 48);
+            btnUpdate1.OverrideDefault.Border.ColorAngle = 45F;
+            btnUpdate1.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnUpdate1.OverrideDefault.Border.Rounding = 17F;
+            btnUpdate1.OverrideDefault.Border.Width = 2;
+            btnUpdate1.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            btnUpdate1.Size = new Size(118, 43);
+            btnUpdate1.StateCommon.Back.Color1 = Color.FromArgb(73, 73, 73);
+            btnUpdate1.StateCommon.Back.Color2 = Color.FromArgb(48, 48, 48);
+            btnUpdate1.StateCommon.Back.ColorAngle = 45F;
+            btnUpdate1.StateCommon.Border.Color1 = Color.FromArgb(57, 57, 57);
+            btnUpdate1.StateCommon.Border.Color2 = Color.FromArgb(57, 57, 57);
+            btnUpdate1.StateCommon.Border.ColorAngle = 45F;
+            btnUpdate1.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnUpdate1.StateCommon.Border.Rounding = 17F;
+            btnUpdate1.StateCommon.Border.Width = 2;
+            btnUpdate1.StateCommon.Content.ShortText.Color1 = Color.White;
+            btnUpdate1.StateCommon.Content.ShortText.Color2 = Color.White;
+            btnUpdate1.StateCommon.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnUpdate1.StateDisabled.Border.Width = 2;
+            btnUpdate1.StateNormal.Border.Width = 2;
+            btnUpdate1.StatePressed.Back.Color1 = Color.FromArgb(237, 232, 97);
+            btnUpdate1.StatePressed.Back.Color2 = Color.FromArgb(216, 208, 56);
+            btnUpdate1.StatePressed.Border.Color1 = Color.FromArgb(181, 132, 68);
+            btnUpdate1.StatePressed.Border.Color2 = Color.FromArgb(147, 108, 57);
+            btnUpdate1.StatePressed.Border.Rounding = 17F;
+            btnUpdate1.StatePressed.Border.Width = 2;
+            btnUpdate1.StateTracking.Back.Color1 = Color.FromArgb(73, 73, 73);
+            btnUpdate1.StateTracking.Back.Color2 = Color.FromArgb(48, 48, 48);
+            btnUpdate1.StateTracking.Back.ColorAngle = 45F;
+            btnUpdate1.StateTracking.Border.ColorAngle = 45F;
+            btnUpdate1.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnUpdate1.StateTracking.Border.Rounding = 17F;
+            btnUpdate1.StateTracking.Border.Width = 2;
+            btnUpdate1.TabIndex = 14;
+            btnUpdate1.Values.DropDownArrowColor = Color.Empty;
+            btnUpdate1.Values.Text = "Güncelle";
+            btnUpdate1.Click += btnUpdate1_Click;
             // 
             // Departman
             // 
@@ -165,13 +271,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1022, 529);
-            Controls.Add(kryptonButton1);
+            Controls.Add(lstDepartmants1);
+            Controls.Add(btnDelete1);
+            Controls.Add(btnUpdate1);
+            Controls.Add(DepartmantsShow1);
+            Controls.Add(AddDepart1);
             Controls.Add(txtDepartmentName1);
-            Controls.Add(btnUpdate);
-            Controls.Add(lstDepartmants);
-            Controls.Add(btnDelete);
-            Controls.Add(AddDepart);
-            Controls.Add(DepartmantsShow);
             Controls.Add(label3);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
             ForeColor = Color.DarkRed;
@@ -185,12 +290,11 @@
 
         #endregion
         private Label label3;
-		private Button DepartmantsShow;
-		private Button AddDepart;
-		private Button btnDelete;
-		private ListBox lstDepartmants;
-        private Button btnUpdate;
         private Krypton.Toolkit.KryptonTextBox txtDepartmentName1;
-        private Krypton.Toolkit.KryptonButton kryptonButton1;
+        private Krypton.Toolkit.KryptonButton AddDepart1;
+        private Krypton.Toolkit.KryptonListBox lstDepartmants1;
+        private Krypton.Toolkit.KryptonButton DepartmantsShow1;
+        private Krypton.Toolkit.KryptonButton btnDelete1;
+        private Krypton.Toolkit.KryptonButton btnUpdate1;
     }
 }

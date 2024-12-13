@@ -19,7 +19,7 @@ namespace NtierArchitecture.UI.Formlar
             _departmentRepository = new DepartmentRepository(_context);
             _departmentService = new DepartmentService(_departmentRepository);
         }
-        private void AddDepart_Click(object sender, EventArgs e)
+        private void AddDepart1_Click(object sender, EventArgs e)
         {
 
             try
@@ -48,7 +48,7 @@ namespace NtierArchitecture.UI.Formlar
         }
         private void LoadDepartments()
         {
-            lstDepartmants.Items.Clear();
+            lstDepartmants1.Items.Clear();
             var departments = _departmentService.GetAll();
             foreach (var department in departments)
             {
@@ -57,7 +57,7 @@ namespace NtierArchitecture.UI.Formlar
                     Id = department.Id.ToString(),
                     DisplayText = department.Name
                 };
-                lstDepartmants.Items.Add(item);
+                lstDepartmants1.Items.Add(item);
             }
 
         }
@@ -77,14 +77,14 @@ namespace NtierArchitecture.UI.Formlar
 
         }
 
-        private void DepartmantsShow_Click(object sender, EventArgs e)
+        private void DepartmantsShow1_Click(object sender, EventArgs e)
         {
             LoadDepartments();
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void btnDelete1_Click(object sender, EventArgs e)
         {
-            if (lstDepartmants.SelectedItem is ListItem selectedItem)
+            if (lstDepartmants1.SelectedItem is ListItem selectedItem)
             {
                 Guid departmentId = Guid.Parse(selectedItem.Id);
                 _departmentService.Delete(departmentId);
@@ -99,14 +99,14 @@ namespace NtierArchitecture.UI.Formlar
             }
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private void btnUpdate1_Click(object sender, EventArgs e)
         {
             try
             {
 
 
 
-                if (lstDepartmants.SelectedItem is ListItem selectedItem)
+                if (lstDepartmants1.SelectedItem is ListItem selectedItem)
                 {
                     Guid departmentId = Guid.Parse(selectedItem.Id);
                     var newName = txtDepartmentName1.Text.Trim();
@@ -142,9 +142,16 @@ namespace NtierArchitecture.UI.Formlar
             }
         }
 
-        private void lstDepartmants_SelectedIndexChanged(object sender, EventArgs e)
+     
+
+        private void txtDepartmentName1_TextChanged(object sender, EventArgs e)
         {
-            if (lstDepartmants.SelectedItem is ListItem selectedItem)
+
+        }
+
+        private void lstDepartmants1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstDepartmants1.SelectedItem is ListItem selectedItem)
             {
                 Guid departmentId = Guid.Parse(selectedItem.Id);
                 var department = _departmentService.GetByID(departmentId);
@@ -154,11 +161,6 @@ namespace NtierArchitecture.UI.Formlar
                     txtDepartmentName1.Text = department.Name;
                 }
             }
-        }
-
-        private void txtDepartmentName1_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

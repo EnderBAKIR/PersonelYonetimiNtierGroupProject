@@ -29,285 +29,474 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            btnGetByDate = new Button();
-            label2 = new Label();
             label1 = new Label();
+            label6 = new Label();
+            btnGetByDate = new Krypton.Toolkit.KryptonButton();
             cmbYear = new ComboBox();
             cmbMonth = new ComboBox();
             groupBox2 = new GroupBox();
+            lblPersonelTc = new Label();
+            label5 = new Label();
+            btnPay = new Krypton.Toolkit.KryptonButton();
+            txtSearch = new Krypton.Toolkit.KryptonTextBox();
+            cmbDepartments = new Krypton.Toolkit.KryptonComboBox();
             dgwEmployees = new DataGridView();
             Departman = new DataGridViewTextBoxColumn();
             Tc = new DataGridViewTextBoxColumn();
             AdSoyad = new DataGridViewTextBoxColumn();
             Odeme = new DataGridViewTextBoxColumn();
-            label6 = new Label();
-            btnPay = new Button();
-            lblPersonelTc = new Label();
             label4 = new Label();
-            txtSearch = new TextBox();
             label3 = new Label();
-            cmbDepartments = new ComboBox();
             groupBox3 = new GroupBox();
-            btnTazminatOdeme = new Button();
+            label2 = new Label();
+            btnTazminatAtama = new Krypton.Toolkit.KryptonButton();
+            btnTazminatOdeme = new Krypton.Toolkit.KryptonButton();
             lstTazminatControl = new ListBox();
-            btnTazminatAtama = new Button();
-            label9 = new Label();
             lblTazminat = new Label();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)cmbDepartments).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgwEmployees).BeginInit();
             groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(btnGetByDate);
-            groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(label6);
+            groupBox1.Controls.Add(btnGetByDate);
             groupBox1.Controls.Add(cmbYear);
             groupBox1.Controls.Add(cmbMonth);
-            groupBox1.Location = new Point(19, 14);
+            groupBox1.Location = new Point(22, 19);
+            groupBox1.Margin = new Padding(3, 4, 3, 4);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(375, 92);
+            groupBox1.Padding = new Padding(3, 4, 3, 4);
+            groupBox1.Size = new Size(463, 111);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Kayıt oluşturma";
             // 
-            // btnGetByDate
-            // 
-            btnGetByDate.BackColor = Color.Silver;
-            btnGetByDate.Font = new Font("Georgia", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            btnGetByDate.ForeColor = SystemColors.ActiveCaptionText;
-            btnGetByDate.Location = new Point(248, 20);
-            btnGetByDate.Name = "btnGetByDate";
-            btnGetByDate.Size = new Size(104, 63);
-            btnGetByDate.TabIndex = 2;
-            btnGetByDate.Text = "Tüm Çalışanları Getir";
-            btnGetByDate.UseVisualStyleBackColor = false;
-            btnGetByDate.Click += btnGetByDate_Click;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(19, 52);
-            label2.Name = "label2";
-            label2.Size = new Size(58, 15);
-            label2.TabIndex = 1;
-            label2.Text = "Yıl seçiniz";
-            // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(19, 23);
+            label1.BackColor = Color.White;
+            label1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label1.ForeColor = Color.FromArgb(64, 64, 64);
+            label1.Location = new Point(9, 65);
             label1.Name = "label1";
-            label1.Size = new Size(59, 15);
-            label1.TabIndex = 1;
-            label1.Text = "Ay seçiniz";
+            label1.Size = new Size(53, 29);
+            label1.TabIndex = 22;
+            label1.Text = "Yıl :";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.BackColor = Color.White;
+            label6.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label6.ForeColor = Color.FromArgb(64, 64, 64);
+            label6.Location = new Point(9, 24);
+            label6.Name = "label6";
+            label6.Size = new Size(45, 29);
+            label6.TabIndex = 21;
+            label6.Text = "Ay:";
+            // 
+            // btnGetByDate
+            // 
+            btnGetByDate.Location = new Point(239, 41);
+            btnGetByDate.Name = "btnGetByDate";
+            btnGetByDate.OverrideDefault.Back.Color1 = Color.FromArgb(59, 61, 59);
+            btnGetByDate.OverrideDefault.Back.Color2 = Color.FromArgb(22, 22, 22);
+            btnGetByDate.OverrideDefault.Back.ColorAngle = 45F;
+            btnGetByDate.OverrideDefault.Border.Color1 = Color.FromArgb(50, 73, 73);
+            btnGetByDate.OverrideDefault.Border.Color2 = Color.FromArgb(48, 48, 48);
+            btnGetByDate.OverrideDefault.Border.ColorAngle = 45F;
+            btnGetByDate.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnGetByDate.OverrideDefault.Border.Rounding = 17F;
+            btnGetByDate.OverrideDefault.Border.Width = 2;
+            btnGetByDate.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            btnGetByDate.Size = new Size(176, 37);
+            btnGetByDate.StateCommon.Back.Color1 = Color.FromArgb(73, 73, 73);
+            btnGetByDate.StateCommon.Back.Color2 = Color.FromArgb(48, 48, 48);
+            btnGetByDate.StateCommon.Back.ColorAngle = 45F;
+            btnGetByDate.StateCommon.Border.Color1 = Color.FromArgb(57, 57, 57);
+            btnGetByDate.StateCommon.Border.Color2 = Color.FromArgb(57, 57, 57);
+            btnGetByDate.StateCommon.Border.ColorAngle = 45F;
+            btnGetByDate.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnGetByDate.StateCommon.Border.Rounding = 17F;
+            btnGetByDate.StateCommon.Border.Width = 2;
+            btnGetByDate.StateCommon.Content.ShortText.Color1 = Color.White;
+            btnGetByDate.StateCommon.Content.ShortText.Color2 = Color.White;
+            btnGetByDate.StateCommon.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnGetByDate.StateDisabled.Border.Width = 2;
+            btnGetByDate.StateNormal.Border.Width = 2;
+            btnGetByDate.StatePressed.Back.Color1 = Color.FromArgb(181, 132, 68);
+            btnGetByDate.StatePressed.Back.Color2 = Color.FromArgb(147, 108, 57);
+            btnGetByDate.StatePressed.Border.Color1 = Color.FromArgb(181, 132, 68);
+            btnGetByDate.StatePressed.Border.Color2 = Color.FromArgb(147, 108, 57);
+            btnGetByDate.StatePressed.Border.Rounding = 17F;
+            btnGetByDate.StatePressed.Border.Width = 2;
+            btnGetByDate.StateTracking.Back.Color1 = Color.FromArgb(73, 73, 73);
+            btnGetByDate.StateTracking.Back.Color2 = Color.FromArgb(48, 48, 48);
+            btnGetByDate.StateTracking.Back.ColorAngle = 45F;
+            btnGetByDate.StateTracking.Border.ColorAngle = 45F;
+            btnGetByDate.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnGetByDate.StateTracking.Border.Rounding = 17F;
+            btnGetByDate.StateTracking.Border.Width = 2;
+            btnGetByDate.TabIndex = 15;
+            btnGetByDate.Values.DropDownArrowColor = Color.Empty;
+            btnGetByDate.Values.Text = "Tümünü Listele";
+            btnGetByDate.Click += btnGetByDate_Click;
             // 
             // cmbYear
             // 
             cmbYear.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbYear.FormattingEnabled = true;
-            cmbYear.Location = new Point(98, 49);
+            cmbYear.Location = new Point(77, 65);
+            cmbYear.Margin = new Padding(3, 4, 3, 4);
             cmbYear.Name = "cmbYear";
-            cmbYear.Size = new Size(121, 23);
+            cmbYear.Size = new Size(127, 28);
             cmbYear.TabIndex = 0;
             // 
             // cmbMonth
             // 
             cmbMonth.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbMonth.FormattingEnabled = true;
-            cmbMonth.Location = new Point(98, 20);
+            cmbMonth.Location = new Point(77, 24);
+            cmbMonth.Margin = new Padding(3, 4, 3, 4);
             cmbMonth.Name = "cmbMonth";
-            cmbMonth.Size = new Size(121, 23);
+            cmbMonth.Size = new Size(127, 28);
             cmbMonth.TabIndex = 0;
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(dgwEmployees);
-            groupBox2.Controls.Add(label6);
-            groupBox2.Controls.Add(btnPay);
             groupBox2.Controls.Add(lblPersonelTc);
-            groupBox2.Controls.Add(label4);
+            groupBox2.Controls.Add(label5);
+            groupBox2.Controls.Add(btnPay);
             groupBox2.Controls.Add(txtSearch);
-            groupBox2.Controls.Add(label3);
             groupBox2.Controls.Add(cmbDepartments);
-            groupBox2.Location = new Point(22, 116);
+            groupBox2.Controls.Add(dgwEmployees);
+            groupBox2.Controls.Add(label4);
+            groupBox2.Controls.Add(label3);
+            groupBox2.Location = new Point(25, 138);
+            groupBox2.Margin = new Padding(3, 4, 3, 4);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(372, 300);
+            groupBox2.Padding = new Padding(3, 4, 3, 4);
+            groupBox2.Size = new Size(460, 439);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Ödeme Durumu Görüntüleme";
+            // 
+            // lblPersonelTc
+            // 
+            lblPersonelTc.AutoSize = true;
+            lblPersonelTc.BackColor = Color.White;
+            lblPersonelTc.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            lblPersonelTc.ForeColor = Color.FromArgb(64, 64, 64);
+            lblPersonelTc.Location = new Point(24, 313);
+            lblPersonelTc.Name = "lblPersonelTc";
+            lblPersonelTc.Size = new Size(248, 29);
+            lblPersonelTc.TabIndex = 21;
+            lblPersonelTc.Text = "TC veya Personel No ";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.White;
+            label5.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label5.ForeColor = Color.FromArgb(64, 64, 64);
+            label5.Location = new Point(6, 30);
+            label5.Name = "label5";
+            label5.Size = new Size(164, 29);
+            label5.TabIndex = 20;
+            label5.Text = "Departmanlar:";
+            // 
+            // btnPay
+            // 
+            btnPay.Location = new Point(208, 389);
+            btnPay.Name = "btnPay";
+            btnPay.OverrideDefault.Back.Color1 = Color.FromArgb(59, 61, 59);
+            btnPay.OverrideDefault.Back.Color2 = Color.FromArgb(22, 22, 22);
+            btnPay.OverrideDefault.Back.ColorAngle = 45F;
+            btnPay.OverrideDefault.Border.Color1 = Color.FromArgb(50, 73, 73);
+            btnPay.OverrideDefault.Border.Color2 = Color.FromArgb(48, 48, 48);
+            btnPay.OverrideDefault.Border.ColorAngle = 45F;
+            btnPay.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnPay.OverrideDefault.Border.Rounding = 17F;
+            btnPay.OverrideDefault.Border.Width = 2;
+            btnPay.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            btnPay.Size = new Size(229, 43);
+            btnPay.StateCommon.Back.Color1 = Color.FromArgb(73, 73, 73);
+            btnPay.StateCommon.Back.Color2 = Color.FromArgb(48, 48, 48);
+            btnPay.StateCommon.Back.ColorAngle = 45F;
+            btnPay.StateCommon.Border.Color1 = Color.FromArgb(57, 57, 57);
+            btnPay.StateCommon.Border.Color2 = Color.FromArgb(57, 57, 57);
+            btnPay.StateCommon.Border.ColorAngle = 45F;
+            btnPay.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnPay.StateCommon.Border.Rounding = 17F;
+            btnPay.StateCommon.Border.Width = 2;
+            btnPay.StateCommon.Content.ShortText.Color1 = Color.White;
+            btnPay.StateCommon.Content.ShortText.Color2 = Color.White;
+            btnPay.StateCommon.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPay.StateDisabled.Border.Width = 2;
+            btnPay.StateNormal.Border.Width = 2;
+            btnPay.StatePressed.Back.Color1 = Color.FromArgb(71, 156, 75);
+            btnPay.StatePressed.Back.Color2 = Color.FromArgb(64, 142, 66);
+            btnPay.StatePressed.Border.Color1 = Color.FromArgb(71, 156, 75);
+            btnPay.StatePressed.Border.Color2 = Color.FromArgb(32, 61, 33);
+            btnPay.StatePressed.Border.Rounding = 17F;
+            btnPay.StatePressed.Border.Width = 2;
+            btnPay.StateTracking.Back.Color1 = Color.FromArgb(73, 73, 73);
+            btnPay.StateTracking.Back.Color2 = Color.FromArgb(48, 48, 48);
+            btnPay.StateTracking.Back.ColorAngle = 45F;
+            btnPay.StateTracking.Border.ColorAngle = 45F;
+            btnPay.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnPay.StateTracking.Border.Rounding = 17F;
+            btnPay.StateTracking.Border.Width = 2;
+            btnPay.TabIndex = 19;
+            btnPay.Values.DropDownArrowColor = Color.Empty;
+            btnPay.Values.Text = "Ödeme Tamamlandı";
+            btnPay.Click += btnPay_Click;
+            // 
+            // txtSearch
+            // 
+            txtSearch.Location = new Point(175, 80);
+            txtSearch.Margin = new Padding(3, 4, 3, 4);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(262, 29);
+            txtSearch.StateCommon.Back.Color1 = Color.White;
+            txtSearch.StateCommon.Border.Color1 = Color.FromArgb(141, 182, 252);
+            txtSearch.StateCommon.Border.Color2 = Color.FromArgb(224, 224, 224);
+            txtSearch.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            txtSearch.StateCommon.Border.Rounding = 8F;
+            txtSearch.StateCommon.Content.Color1 = Color.DimGray;
+            txtSearch.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            txtSearch.StateCommon.Content.Padding = new Padding(10, 0, 10, 0);
+            txtSearch.TabIndex = 18;
+            txtSearch.TextChanged += txtSearch_TextChanged;
+            // 
+            // cmbDepartments
+            // 
+            cmbDepartments.DropDownWidth = 121;
+            cmbDepartments.IntegralHeight = false;
+            cmbDepartments.Location = new Point(176, 28);
+            cmbDepartments.Margin = new Padding(3, 4, 3, 4);
+            cmbDepartments.Name = "cmbDepartments";
+            cmbDepartments.Size = new Size(261, 32);
+            cmbDepartments.StateCommon.ComboBox.Border.Rounding = 8F;
+            cmbDepartments.StateCommon.ComboBox.Border.Width = 1;
+            cmbDepartments.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
+            cmbDepartments.TabIndex = 17;
+            cmbDepartments.SelectedIndexChanged += cmbDepartments_SelectedIndexChanged;
             // 
             // dgwEmployees
             // 
             dgwEmployees.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgwEmployees.Columns.AddRange(new DataGridViewColumn[] { Departman, Tc, AdSoyad, Odeme });
-            dgwEmployees.Location = new Point(32, 84);
+            dgwEmployees.Location = new Point(24, 135);
+            dgwEmployees.Margin = new Padding(3, 4, 3, 4);
             dgwEmployees.Name = "dgwEmployees";
-            dgwEmployees.Size = new Size(317, 110);
+            dgwEmployees.RowHeadersWidth = 51;
+            dgwEmployees.Size = new Size(413, 147);
             dgwEmployees.TabIndex = 7;
             dgwEmployees.CellClick += dgwEmployees_CellClick;
             // 
             // Departman
             // 
             Departman.HeaderText = "Departman";
+            Departman.MinimumWidth = 6;
             Departman.Name = "Departman";
+            Departman.Width = 125;
             // 
             // Tc
             // 
             Tc.HeaderText = "Tc";
+            Tc.MinimumWidth = 6;
             Tc.Name = "Tc";
+            Tc.Width = 125;
             // 
             // AdSoyad
             // 
             AdSoyad.HeaderText = "Ad Soyad";
+            AdSoyad.MinimumWidth = 6;
             AdSoyad.Name = "AdSoyad";
+            AdSoyad.Width = 125;
             // 
             // Odeme
             // 
             Odeme.HeaderText = "Ödeme";
+            Odeme.MinimumWidth = 6;
             Odeme.Name = "Odeme";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(6, 31);
-            label6.Name = "label6";
-            label6.Size = new Size(79, 15);
-            label6.TabIndex = 1;
-            label6.Text = "Departmanlar";
-            // 
-            // btnPay
-            // 
-            btnPay.BackColor = Color.Silver;
-            btnPay.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            btnPay.Location = new Point(192, 217);
-            btnPay.Name = "btnPay";
-            btnPay.Size = new Size(145, 44);
-            btnPay.TabIndex = 6;
-            btnPay.Text = "Ödeme tamamlandı";
-            btnPay.UseVisualStyleBackColor = false;
-            btnPay.Click += btnPay_Click;
-            // 
-            // lblPersonelTc
-            // 
-            lblPersonelTc.Location = new Point(43, 224);
-            lblPersonelTc.Name = "lblPersonelTc";
-            lblPersonelTc.Size = new Size(120, 37);
-            lblPersonelTc.TabIndex = 5;
-            lblPersonelTc.Text = "Tc veya personel no";
+            Odeme.Width = 125;
             // 
             // label4
             // 
             label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label4.ForeColor = SystemColors.MenuHighlight;
-            label4.Location = new Point(32, 55);
+            label4.Location = new Point(55, 80);
             label4.Name = "label4";
-            label4.Size = new Size(27, 23);
+            label4.Size = new Size(31, 31);
             label4.TabIndex = 3;
             label4.Text = "🔍";
-            // 
-            // txtSearch
-            // 
-            txtSearch.Location = new Point(88, 55);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(261, 23);
-            txtSearch.TabIndex = 2;
-            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(21, 28);
+            label3.Location = new Point(24, 37);
             label3.Name = "label3";
-            label3.Size = new Size(0, 15);
+            label3.Size = new Size(0, 20);
             label3.TabIndex = 1;
-            // 
-            // cmbDepartments
-            // 
-            cmbDepartments.FormattingEnabled = true;
-            cmbDepartments.Location = new Point(88, 28);
-            cmbDepartments.Name = "cmbDepartments";
-            cmbDepartments.Size = new Size(261, 23);
-            cmbDepartments.TabIndex = 0;
-            cmbDepartments.SelectedIndexChanged += cmbDepartments_SelectedIndexChanged;
             // 
             // groupBox3
             // 
+            groupBox3.Controls.Add(label2);
+            groupBox3.Controls.Add(btnTazminatAtama);
             groupBox3.Controls.Add(btnTazminatOdeme);
             groupBox3.Controls.Add(lstTazminatControl);
-            groupBox3.Controls.Add(btnTazminatAtama);
-            groupBox3.Controls.Add(label9);
             groupBox3.Controls.Add(lblTazminat);
-            groupBox3.Location = new Point(427, 24);
+            groupBox3.Location = new Point(505, 32);
+            groupBox3.Margin = new Padding(3, 4, 3, 4);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(326, 392);
+            groupBox3.Padding = new Padding(3, 4, 3, 4);
+            groupBox3.Size = new Size(356, 523);
             groupBox3.TabIndex = 2;
             groupBox3.TabStop = false;
             groupBox3.Text = "Tazminat Ödeme";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.White;
+            label2.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label2.ForeColor = Color.FromArgb(64, 64, 64);
+            label2.Location = new Point(18, 214);
+            label2.Name = "label2";
+            label2.Size = new Size(117, 29);
+            label2.TabIndex = 22;
+            label2.Text = "Tazminat:";
+            // 
+            // btnTazminatAtama
+            // 
+            btnTazminatAtama.Location = new Point(143, 283);
+            btnTazminatAtama.Name = "btnTazminatAtama";
+            btnTazminatAtama.OverrideDefault.Back.Color1 = Color.FromArgb(59, 61, 59);
+            btnTazminatAtama.OverrideDefault.Back.Color2 = Color.FromArgb(22, 22, 22);
+            btnTazminatAtama.OverrideDefault.Back.ColorAngle = 45F;
+            btnTazminatAtama.OverrideDefault.Border.Color1 = Color.FromArgb(50, 73, 73);
+            btnTazminatAtama.OverrideDefault.Border.Color2 = Color.FromArgb(48, 48, 48);
+            btnTazminatAtama.OverrideDefault.Border.ColorAngle = 45F;
+            btnTazminatAtama.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnTazminatAtama.OverrideDefault.Border.Rounding = 17F;
+            btnTazminatAtama.OverrideDefault.Border.Width = 2;
+            btnTazminatAtama.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            btnTazminatAtama.Size = new Size(189, 45);
+            btnTazminatAtama.StateCommon.Back.Color1 = Color.FromArgb(73, 73, 73);
+            btnTazminatAtama.StateCommon.Back.Color2 = Color.FromArgb(48, 48, 48);
+            btnTazminatAtama.StateCommon.Back.ColorAngle = 45F;
+            btnTazminatAtama.StateCommon.Border.Color1 = Color.FromArgb(57, 57, 57);
+            btnTazminatAtama.StateCommon.Border.Color2 = Color.FromArgb(57, 57, 57);
+            btnTazminatAtama.StateCommon.Border.ColorAngle = 45F;
+            btnTazminatAtama.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnTazminatAtama.StateCommon.Border.Rounding = 17F;
+            btnTazminatAtama.StateCommon.Border.Width = 2;
+            btnTazminatAtama.StateCommon.Content.ShortText.Color1 = Color.White;
+            btnTazminatAtama.StateCommon.Content.ShortText.Color2 = Color.White;
+            btnTazminatAtama.StateCommon.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnTazminatAtama.StateDisabled.Border.Width = 2;
+            btnTazminatAtama.StateNormal.Border.Width = 2;
+            btnTazminatAtama.StatePressed.Back.Color1 = Color.FromArgb(71, 156, 75);
+            btnTazminatAtama.StatePressed.Back.Color2 = Color.FromArgb(64, 142, 66);
+            btnTazminatAtama.StatePressed.Border.Color1 = Color.FromArgb(71, 156, 75);
+            btnTazminatAtama.StatePressed.Border.Color2 = Color.FromArgb(32, 61, 33);
+            btnTazminatAtama.StatePressed.Border.Rounding = 17F;
+            btnTazminatAtama.StatePressed.Border.Width = 2;
+            btnTazminatAtama.StateTracking.Back.Color1 = Color.FromArgb(73, 73, 73);
+            btnTazminatAtama.StateTracking.Back.Color2 = Color.FromArgb(48, 48, 48);
+            btnTazminatAtama.StateTracking.Back.ColorAngle = 45F;
+            btnTazminatAtama.StateTracking.Border.ColorAngle = 45F;
+            btnTazminatAtama.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnTazminatAtama.StateTracking.Border.Rounding = 17F;
+            btnTazminatAtama.StateTracking.Border.Width = 2;
+            btnTazminatAtama.TabIndex = 21;
+            btnTazminatAtama.Values.DropDownArrowColor = Color.Empty;
+            btnTazminatAtama.Values.Text = "Tazminat Atama";
+            btnTazminatAtama.Click += btnTazminatAtama_Click;
+            // 
             // btnTazminatOdeme
             // 
-            btnTazminatOdeme.BackColor = Color.Silver;
-            btnTazminatOdeme.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            btnTazminatOdeme.Location = new Point(64, 265);
+            btnTazminatOdeme.Location = new Point(64, 405);
             btnTazminatOdeme.Name = "btnTazminatOdeme";
-            btnTazminatOdeme.Size = new Size(169, 44);
-            btnTazminatOdeme.TabIndex = 8;
-            btnTazminatOdeme.Text = "Ödeme Tamamlandı";
-            btnTazminatOdeme.UseVisualStyleBackColor = false;
+            btnTazminatOdeme.OverrideDefault.Back.Color1 = Color.FromArgb(59, 61, 59);
+            btnTazminatOdeme.OverrideDefault.Back.Color2 = Color.FromArgb(22, 22, 22);
+            btnTazminatOdeme.OverrideDefault.Back.ColorAngle = 45F;
+            btnTazminatOdeme.OverrideDefault.Border.Color1 = Color.FromArgb(50, 73, 73);
+            btnTazminatOdeme.OverrideDefault.Border.Color2 = Color.FromArgb(48, 48, 48);
+            btnTazminatOdeme.OverrideDefault.Border.ColorAngle = 45F;
+            btnTazminatOdeme.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnTazminatOdeme.OverrideDefault.Border.Rounding = 17F;
+            btnTazminatOdeme.OverrideDefault.Border.Width = 2;
+            btnTazminatOdeme.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            btnTazminatOdeme.Size = new Size(229, 43);
+            btnTazminatOdeme.StateCommon.Back.Color1 = Color.FromArgb(73, 73, 73);
+            btnTazminatOdeme.StateCommon.Back.Color2 = Color.FromArgb(48, 48, 48);
+            btnTazminatOdeme.StateCommon.Back.ColorAngle = 45F;
+            btnTazminatOdeme.StateCommon.Border.Color1 = Color.FromArgb(57, 57, 57);
+            btnTazminatOdeme.StateCommon.Border.Color2 = Color.FromArgb(57, 57, 57);
+            btnTazminatOdeme.StateCommon.Border.ColorAngle = 45F;
+            btnTazminatOdeme.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnTazminatOdeme.StateCommon.Border.Rounding = 17F;
+            btnTazminatOdeme.StateCommon.Border.Width = 2;
+            btnTazminatOdeme.StateCommon.Content.ShortText.Color1 = Color.White;
+            btnTazminatOdeme.StateCommon.Content.ShortText.Color2 = Color.White;
+            btnTazminatOdeme.StateCommon.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnTazminatOdeme.StateDisabled.Border.Width = 2;
+            btnTazminatOdeme.StateNormal.Border.Width = 2;
+            btnTazminatOdeme.StatePressed.Back.Color1 = Color.FromArgb(71, 156, 75);
+            btnTazminatOdeme.StatePressed.Back.Color2 = Color.FromArgb(64, 142, 66);
+            btnTazminatOdeme.StatePressed.Border.Color1 = Color.FromArgb(71, 156, 75);
+            btnTazminatOdeme.StatePressed.Border.Color2 = Color.FromArgb(32, 61, 33);
+            btnTazminatOdeme.StatePressed.Border.Rounding = 17F;
+            btnTazminatOdeme.StatePressed.Border.Width = 2;
+            btnTazminatOdeme.StateTracking.Back.Color1 = Color.FromArgb(73, 73, 73);
+            btnTazminatOdeme.StateTracking.Back.Color2 = Color.FromArgb(48, 48, 48);
+            btnTazminatOdeme.StateTracking.Back.ColorAngle = 45F;
+            btnTazminatOdeme.StateTracking.Border.ColorAngle = 45F;
+            btnTazminatOdeme.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnTazminatOdeme.StateTracking.Border.Rounding = 17F;
+            btnTazminatOdeme.StateTracking.Border.Width = 2;
+            btnTazminatOdeme.TabIndex = 20;
+            btnTazminatOdeme.Values.DropDownArrowColor = Color.Empty;
+            btnTazminatOdeme.Values.Text = "Ödeme Tamamlandı";
             btnTazminatOdeme.Click += btnTazminatOdeme_Click;
             // 
             // lstTazminatControl
             // 
             lstTazminatControl.FormattingEnabled = true;
-            lstTazminatControl.ItemHeight = 15;
-            lstTazminatControl.Location = new Point(19, 39);
+            lstTazminatControl.Location = new Point(18, 28);
+            lstTazminatControl.Margin = new Padding(3, 4, 3, 4);
             lstTazminatControl.Name = "lstTazminatControl";
-            lstTazminatControl.Size = new Size(286, 109);
+            lstTazminatControl.Size = new Size(314, 164);
             lstTazminatControl.TabIndex = 7;
             lstTazminatControl.SelectedIndexChanged += lstTazminatControl_SelectedIndexChanged;
-            // 
-            // btnTazminatAtama
-            // 
-            btnTazminatAtama.AutoSize = true;
-            btnTazminatAtama.BackColor = Color.Honeydew;
-            btnTazminatAtama.Location = new Point(200, 176);
-            btnTazminatAtama.Name = "btnTazminatAtama";
-            btnTazminatAtama.Size = new Size(105, 31);
-            btnTazminatAtama.TabIndex = 4;
-            btnTazminatAtama.Text = "Tazminat Ata";
-            btnTazminatAtama.UseVisualStyleBackColor = false;
-            btnTazminatAtama.Click += btnTazminatAtama_Click;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(19, 184);
-            label9.Name = "label9";
-            label9.Size = new Size(54, 15);
-            label9.TabIndex = 3;
-            label9.Text = "Tazminat";
             // 
             // lblTazminat
             // 
             lblTazminat.AutoSize = true;
-            lblTazminat.Location = new Point(90, 184);
+            lblTazminat.Location = new Point(179, 221);
             lblTazminat.Name = "lblTazminat";
-            lblTazminat.Size = new Size(28, 15);
+            lblTazminat.Size = new Size(32, 20);
             lblTazminat.TabIndex = 2;
             lblTazminat.Text = ".....₺";
             // 
             // CalisanMaasTakibi
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SeaShell;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "CalisanMaasTakibi";
             Text = "CalisanMaasTakibi";
             Load += CalisanMaasTakibi_Load;
@@ -315,6 +504,7 @@
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)cmbDepartments).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgwEmployees).EndInit();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
@@ -324,29 +514,30 @@
         #endregion
 
         private GroupBox groupBox1;
-        private Button btnGetByDate;
-        private Label label2;
-        private Label label1;
         private ComboBox cmbYear;
         private ComboBox cmbMonth;
         private GroupBox groupBox2;
         private Label label4;
-        private TextBox txtSearch;
         private Label label3;
-        private ComboBox cmbDepartments;
-        private Button btnPay;
-        private Label lblPersonelTc;
         private DataGridView dgwEmployees;
         private DataGridViewTextBoxColumn Departman;
         private DataGridViewTextBoxColumn Tc;
         private DataGridViewTextBoxColumn AdSoyad;
         private DataGridViewTextBoxColumn Odeme;
-        private Label label6;
         private GroupBox groupBox3;
-        private Label label9;
         private Label lblTazminat;
-        private Button btnTazminatAtama;
         private ListBox lstTazminatControl;
-        private Button btnTazminatOdeme;
+        
+        private Krypton.Toolkit.KryptonComboBox cmbDepartments;
+        private Krypton.Toolkit.KryptonTextBox txtSearch;
+        private Krypton.Toolkit.KryptonButton btnGetByDate;
+        private Krypton.Toolkit.KryptonButton btnPay;
+        private Krypton.Toolkit.KryptonButton btnTazminatOdeme;
+        private Krypton.Toolkit.KryptonButton btnTazminatAtama;
+        private Label label5;
+        private Label label1;
+        private Label label6;
+        private Label lblPersonelTc;
+        private Label label2;
     }
 }

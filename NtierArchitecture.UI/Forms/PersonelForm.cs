@@ -26,7 +26,7 @@ namespace NtierArchitecture.UI.Formlar
 
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnAdd1_Click(object sender, EventArgs e)
         {
             try
             {
@@ -35,7 +35,7 @@ namespace NtierArchitecture.UI.Formlar
                 string PSurname = txtSurname.Text;
                 string PTC = maskedtxtTC.Text;
                 string PAdress = txtAdress.Text;
-                string PTel = maskedtxtTC.Text;
+                string PTel = maskedtxtTel.Text;
                 string PPassWord = maskedtxtPswrd.Text;
                 bool isActive;
                 if (cmbPosition.SelectedIndex == -1)
@@ -74,7 +74,7 @@ namespace NtierArchitecture.UI.Formlar
                         Password = PPassWord,
                         Adress = PAdress,
                         IsActive=isActive
-
+                        
 
                     };
                     _employeeService.Create(employee);
@@ -238,7 +238,7 @@ namespace NtierArchitecture.UI.Formlar
 
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private void btnUpdate1_Click(object sender, EventArgs e)
         {
             try
             {
@@ -295,7 +295,7 @@ namespace NtierArchitecture.UI.Formlar
 
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void btnDelete1_Click(object sender, EventArgs e)
         {
             try
             {
@@ -345,7 +345,7 @@ namespace NtierArchitecture.UI.Formlar
             }
         }
 
-        private void btnDetail_Click(object sender, EventArgs e)
+        private void btnDetail1_Click(object sender, EventArgs e)
         {
             if (selectedEmployee != null)
             {

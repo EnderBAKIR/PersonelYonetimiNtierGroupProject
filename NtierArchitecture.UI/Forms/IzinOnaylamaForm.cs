@@ -50,7 +50,7 @@ namespace NtierArchitecture.UI.Forms
             var activeLeaves = leaves.Where(l => l.Status == LeaveStatus.Pending && l.EndDate >= DateTime.Now).ToList();
             foreach (var leave in activeLeaves)
             {
-                lstActiveLeaves.Items.Add(new ListItem
+                lstActiveLeaves1.Items.Add(new ListItem
                 {
                     Id = leave.Id.ToString(),
                     DisplayText = $"Çalışan Tcsi:: {leave.Employee.TcNo} / Tarih  ({leave.StartDate:dd.MM.yyyy} - {leave.EndDate:dd.MM.yyyy})"
@@ -61,7 +61,7 @@ namespace NtierArchitecture.UI.Forms
             var finalizedLeaves = leaves.Where(l => l.Status == LeaveStatus.Approved || l.Status == LeaveStatus.Rejected).ToList();
             foreach (var leave in finalizedLeaves)
             {
-                lstLeaves.Items.Add(new ListItem
+                lstLeaves1.Items.Add(new ListItem
                 {
                     Id = leave.Id.ToString(),
                     DisplayText = $"Çalışan Tcsi: {leave.Employee.TcNo} / Tarih({leave.StartDate:dd.MM.yyyy} - {leave.EndDate:dd.MM.yyyy}) /({leave.Status})"
@@ -81,7 +81,7 @@ namespace NtierArchitecture.UI.Forms
 
         private void SelecItemForDGW()
         {
-            if (lstActiveLeaves.SelectedItem is ListItem selectedItem)
+            if (lstActiveLeaves1.SelectedItem is ListItem selectedItem)
             {
 
                 Guid leaveId = Guid.Parse(selectedItem.Id);
@@ -136,71 +136,10 @@ namespace NtierArchitecture.UI.Forms
             }
         }
 
-        private void lstActiveLeaves_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void btnApproved1_Click(object sender, EventArgs e)
         {
-            SelecItemForDGW();
-        }
-
-        private void lstLeaves_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (lstLeaves.SelectedItem is ListItem selectedItem)
-            {
-
-                Guid leaveId = Guid.Parse(selectedItem.Id);
-
-
-                var leave = _leaveService.GetByID(leaveId);
-
-                if (leave != null)
-                {
-                    string statusText = leave.Status switch
-                    {
-                        LeaveStatus.Pending => "Bekleniyor",
-                        LeaveStatus.Approved => "Onaylandı",
-                        LeaveStatus.Rejected => "Reddedildi",
-                        LeaveStatus.Expired => "Süresi Geçti",
-
-                    };
-
-                    dgwLeaveDetails.DataSource = new List<object>
-            {
-                new
-                {
-                    İzinAçıklaması = leave.Description,
-                    BaşlangıçTarihi = leave.StartDate.ToString("dd.MM.yyyy"),
-                    BitişTarihi = leave.EndDate.ToString("dd.MM.yyyy"),
-                    GünSayısı = leave.Day,
-                    Durum = statusText
-        }
-    };
-
-
-                    Employee employee = _employeeService.GetByID(leave.EmployeeId);
-
-                    if (employee != null)
-                    {
-
-                        dgwEmployeeDetails.DataSource = new List<object>
-                {
-                    new
-                    {
-                        Ad = employee.Name,
-                        Soyad = employee.Surname,
-                        Şifre = employee.Password,
-                        TCNo = employee.TcNo,
-                        DoğumTarihi = employee.BirthDate.ToString("dd.MM.yyyy"),
-                        Adres = employee.Adress,
-                        Telefon = employee.Tel
-                    }
-                };
-                    }
-                }
-            }
-        }
-
-        private void btnApproved_Click(object sender, EventArgs e)
-        {
-            if (lstActiveLeaves.SelectedItem is ListItem selectedItem)
+            if (lstActiveLeaves1.SelectedItem is ListItem selectedItem)
             {
                 // Seçili izin talebinin ID'sini al
                 Guid leaveId = Guid.Parse(selectedItem.Id);
@@ -216,16 +155,16 @@ namespace NtierArchitecture.UI.Forms
                     // Veritabanını güncelle
                     _leaveService.Update(leave);  // Eğer `Update` metodu yoksa, burada eklemelisin
 
-                    // İzin talebini lstActiveLeaves'den sil
-                    lstActiveLeaves.Items.Remove(selectedItem);
+                    // İzin talebini lstActiveLeaves1'den sil
+                    lstActiveLeaves1.Items.Remove(selectedItem);
 
-                    // Onaylanmış izin talebini lstLeaves'e ekle
+                    // Onaylanmış izin talebini lstLeaves1'e ekle
                     ListItem newItem = new ListItem
                     {
                         Id = leave.Id.ToString(),
                         DisplayText = $"Çalışan Tcsi: {leave.Employee.TcNo} / Tarih({leave.StartDate:dd.MM.yyyy} - {leave.EndDate:dd.MM.yyyy}) /({leave.Status})"
                     };
-                    lstLeaves.Items.Add(newItem);
+                    lstLeaves1.Items.Add(newItem);
                 }
                 else
                 {
@@ -238,9 +177,9 @@ namespace NtierArchitecture.UI.Forms
             }
         }
 
-        private void btnRejected_Click(object sender, EventArgs e)
+        private void btnRejected1_Click(object sender, EventArgs e)
         {
-            if (lstActiveLeaves.SelectedItem is ListItem selectedItem)
+            if (lstActiveLeaves1.SelectedItem is ListItem selectedItem)
             {
                 // Seçili izin talebinin ID'sini al
                 Guid leaveId = Guid.Parse(selectedItem.Id);
@@ -256,16 +195,16 @@ namespace NtierArchitecture.UI.Forms
                     // Veritabanını güncelle
                     _leaveService.Update(leave);  // Eğer `Update` metodu yoksa, burada eklemelisin
 
-                    // İzin talebini lstActiveLeaves'den sil
-                    lstActiveLeaves.Items.Remove(selectedItem);
+                    // İzin talebini lstActiveLeaves1'den sil
+                    lstActiveLeaves1.Items.Remove(selectedItem);
 
-                    // Onaylanmış izin talebini lstLeaves'e ekle
+                    // Onaylanmış izin talebini lstLeaves1'e ekle
                     ListItem newItem = new ListItem
                     {
                         Id = leave.Id.ToString(),
                         DisplayText = $"Çalışan Tcsi: {leave.Employee.TcNo} / Tarih({leave.StartDate:dd.MM.yyyy} - {leave.EndDate:dd.MM.yyyy}) /({leave.Status})"
                     };
-                    lstLeaves.Items.Add(newItem);
+                    lstLeaves1.Items.Add(newItem);
                 }
                 else
                 {
@@ -275,6 +214,68 @@ namespace NtierArchitecture.UI.Forms
             else
             {
                 MessageBox.Show("Lütfen aktif izin taleplerinden bir izin talebi seçin.");
+            }
+        }
+
+        private void lstActiveLeaves1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            SelecItemForDGW();
+        }
+
+        private void lstLeaves1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (lstLeaves1.SelectedItem is ListItem selectedItem)
+            {
+
+                Guid leaveId = Guid.Parse(selectedItem.Id);
+
+
+                var leave = _leaveService.GetByID(leaveId);
+
+                if (leave != null)
+                {
+                    string statusText = leave.Status switch
+                    {
+                        LeaveStatus.Pending => "Bekleniyor",
+                        LeaveStatus.Approved => "Onaylandı",
+                        LeaveStatus.Rejected => "Reddedildi",
+                        LeaveStatus.Expired => "Süresi Geçti",
+
+                    };
+
+                    dgwLeaveDetails.DataSource = new List<object>
+            {
+                new
+                {
+                    İzinAçıklaması = leave.Description,
+                    BaşlangıçTarihi = leave.StartDate.ToString("dd.MM.yyyy"),
+                    BitişTarihi = leave.EndDate.ToString("dd.MM.yyyy"),
+                    GünSayısı = leave.Day,
+                    Durum = statusText
+        }
+    };
+
+
+                    Employee employee = _employeeService.GetByID(leave.EmployeeId);
+
+                    if (employee != null)
+                    {
+
+                        dgwEmployeeDetails.DataSource = new List<object>
+                {
+                    new
+                    {
+                        Ad = employee.Name,
+                        Soyad = employee.Surname,
+                        Şifre = employee.Password,
+                        TCNo = employee.TcNo,
+                        DoğumTarihi = employee.BirthDate.ToString("dd.MM.yyyy"),
+                        Adres = employee.Adress,
+                        Telefon = employee.Tel
+                    }
+                };
+                    }
+                }
             }
         }
     }
