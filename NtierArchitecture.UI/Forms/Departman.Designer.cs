@@ -40,12 +40,12 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.BackColor = Color.White;
+            label3.BackColor = Color.SeaShell;
             label3.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
             label3.ForeColor = Color.FromArgb(64, 64, 64);
             label3.Location = new Point(39, 31);
             label3.Name = "label3";
-            label3.Size = new Size(178, 29);
+            label3.Size = new Size(140, 24);
             label3.TabIndex = 2;
             label3.Text = "Departman Adı:";
             // 
@@ -53,7 +53,7 @@
             // 
             txtDepartmentName1.Location = new Point(223, 25);
             txtDepartmentName1.Name = "txtDepartmentName1";
-            txtDepartmentName1.Size = new Size(443, 35);
+            txtDepartmentName1.Size = new Size(443, 31);
             txtDepartmentName1.StateCommon.Back.Color1 = Color.White;
             txtDepartmentName1.StateCommon.Border.Color1 = Color.FromArgb(141, 182, 252);
             txtDepartmentName1.StateCommon.Border.Color2 = Color.FromArgb(224, 224, 224);
@@ -267,9 +267,9 @@
             // 
             // Departman
             // 
-            AutoScaleDimensions = new SizeF(11F, 28F);
+            AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = Color.SeaShell;
             ClientSize = new Size(1022, 529);
             Controls.Add(lstDepartmants1);
             Controls.Add(btnDelete1);

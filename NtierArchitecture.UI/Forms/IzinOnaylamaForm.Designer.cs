@@ -46,28 +46,25 @@
             // 
             dgwEmployeeDetails.BackgroundColor = Color.Ivory;
             dgwEmployeeDetails.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgwEmployeeDetails.Location = new Point(34, 576);
-            dgwEmployeeDetails.Margin = new Padding(3, 4, 3, 4);
+            dgwEmployeeDetails.Location = new Point(30, 432);
             dgwEmployeeDetails.Name = "dgwEmployeeDetails";
             dgwEmployeeDetails.RowHeadersWidth = 51;
-            dgwEmployeeDetails.Size = new Size(935, 125);
+            dgwEmployeeDetails.Size = new Size(818, 94);
             dgwEmployeeDetails.TabIndex = 2;
             // 
             // dgwLeaveDetails
             // 
             dgwLeaveDetails.BackgroundColor = Color.Ivory;
             dgwLeaveDetails.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgwLeaveDetails.Location = new Point(34, 389);
-            dgwLeaveDetails.Margin = new Padding(3, 4, 3, 4);
+            dgwLeaveDetails.Location = new Point(30, 292);
             dgwLeaveDetails.Name = "dgwLeaveDetails";
             dgwLeaveDetails.RowHeadersWidth = 51;
-            dgwLeaveDetails.Size = new Size(935, 117);
+            dgwLeaveDetails.Size = new Size(818, 88);
             dgwLeaveDetails.TabIndex = 5;
             // 
             // btnApproved1
             // 
-            btnApproved1.Location = new Point(349, 724);
-            btnApproved1.Margin = new Padding(3, 4, 3, 4);
+            btnApproved1.Location = new Point(305, 543);
             btnApproved1.Name = "btnApproved1";
             btnApproved1.OverrideDefault.Back.Color1 = Color.FromArgb(59, 61, 59);
             btnApproved1.OverrideDefault.Back.Color2 = Color.FromArgb(22, 22, 22);
@@ -79,7 +76,7 @@
             btnApproved1.OverrideDefault.Border.Rounding = 17F;
             btnApproved1.OverrideDefault.Border.Width = 2;
             btnApproved1.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            btnApproved1.Size = new Size(142, 57);
+            btnApproved1.Size = new Size(124, 43);
             btnApproved1.StateCommon.Back.Color1 = Color.FromArgb(73, 73, 73);
             btnApproved1.StateCommon.Back.Color2 = Color.FromArgb(48, 48, 48);
             btnApproved1.StateCommon.Back.ColorAngle = 45F;
@@ -114,8 +111,7 @@
             // 
             // btnRejected1
             // 
-            btnRejected1.Location = new Point(520, 724);
-            btnRejected1.Margin = new Padding(3, 4, 3, 4);
+            btnRejected1.Location = new Point(455, 543);
             btnRejected1.Name = "btnRejected1";
             btnRejected1.OverrideDefault.Back.Color1 = Color.FromArgb(59, 61, 59);
             btnRejected1.OverrideDefault.Back.Color2 = Color.FromArgb(22, 22, 22);
@@ -127,7 +123,7 @@
             btnRejected1.OverrideDefault.Border.Rounding = 17F;
             btnRejected1.OverrideDefault.Border.Width = 2;
             btnRejected1.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            btnRejected1.Size = new Size(143, 57);
+            btnRejected1.Size = new Size(125, 43);
             btnRejected1.StateCommon.Back.Color1 = Color.FromArgb(73, 73, 73);
             btnRejected1.StateCommon.Back.Color2 = Color.FromArgb(48, 48, 48);
             btnRejected1.StateCommon.Back.ColorAngle = 45F;
@@ -162,10 +158,9 @@
             // 
             // lstLeaves1
             // 
-            lstLeaves1.Location = new Point(536, 78);
-            lstLeaves1.Margin = new Padding(3, 4, 3, 4);
+            lstLeaves1.Location = new Point(469, 58);
             lstLeaves1.Name = "lstLeaves1";
-            lstLeaves1.Size = new Size(442, 219);
+            lstLeaves1.Size = new Size(387, 164);
             lstLeaves1.StateActive.Back.Color1 = Color.White;
             lstLeaves1.StateActive.Back.Color2 = Color.White;
             lstLeaves1.StateCheckedNormal.Item.Back.Color1 = Color.White;
@@ -187,10 +182,9 @@
             // 
             // lstActiveLeaves1
             // 
-            lstActiveLeaves1.Location = new Point(34, 78);
-            lstActiveLeaves1.Margin = new Padding(3, 4, 3, 4);
+            lstActiveLeaves1.Location = new Point(30, 58);
             lstActiveLeaves1.Name = "lstActiveLeaves1";
-            lstActiveLeaves1.Size = new Size(456, 219);
+            lstActiveLeaves1.Size = new Size(399, 164);
             lstActiveLeaves1.StateActive.Back.Color1 = Color.White;
             lstActiveLeaves1.StateActive.Back.Color2 = Color.White;
             lstActiveLeaves1.StateCheckedNormal.Item.Back.Color1 = Color.White;
@@ -213,56 +207,57 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = Color.White;
+            label1.BackColor = Color.SeaShell;
             label1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
             label1.ForeColor = Color.FromArgb(64, 64, 64);
-            label1.Location = new Point(47, 45);
+            label1.Location = new Point(41, 34);
             label1.Name = "label1";
-            label1.Size = new Size(258, 29);
+            label1.Size = new Size(199, 24);
             label1.TabIndex = 20;
             label1.Text = "Bekleyen İzin Talepleri";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.BackColor = Color.White;
+            label4.BackColor = Color.SeaShell;
             label4.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
             label4.ForeColor = Color.FromArgb(64, 64, 64);
-            label4.Location = new Point(558, 45);
+            label4.Location = new Point(488, 34);
             label4.Name = "label4";
-            label4.Size = new Size(284, 29);
+            label4.Size = new Size(222, 24);
             label4.TabIndex = 21;
             label4.Text = "Sonuçlanan İzin Talepleri";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.BackColor = Color.White;
+            label3.BackColor = Color.SeaShell;
             label3.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
             label3.ForeColor = Color.FromArgb(64, 64, 64);
-            label3.Location = new Point(405, 346);
+            label3.Location = new Point(354, 260);
             label3.Name = "label3";
-            label3.Size = new Size(185, 29);
+            label3.Size = new Size(142, 24);
             label3.TabIndex = 22;
             label3.Text = "Personel Talebi";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.BackColor = Color.White;
+            label2.BackColor = Color.SeaShell;
             label2.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
             label2.ForeColor = Color.FromArgb(64, 64, 64);
-            label2.Location = new Point(405, 528);
+            label2.Location = new Point(354, 396);
             label2.Name = "label2";
-            label2.Size = new Size(182, 29);
+            label2.Size = new Size(138, 24);
             label2.TabIndex = 23;
             label2.Text = "Personel Bilgisi";
             // 
             // IzinOnaylamaForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1026, 832);
+            BackColor = Color.SeaShell;
+            ClientSize = new Size(898, 624);
             Controls.Add(label2);
             Controls.Add(label3);
             Controls.Add(label4);
@@ -273,7 +268,6 @@
             Controls.Add(btnApproved1);
             Controls.Add(dgwLeaveDetails);
             Controls.Add(dgwEmployeeDetails);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "IzinOnaylamaForm";
             Text = "İzinOnaylamaForm";
             Load += IzinOnaylamaForm_Load;

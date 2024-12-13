@@ -67,11 +67,9 @@
             groupBox1.Controls.Add(btnGetByDate);
             groupBox1.Controls.Add(cmbYear);
             groupBox1.Controls.Add(cmbMonth);
-            groupBox1.Location = new Point(22, 19);
-            groupBox1.Margin = new Padding(3, 4, 3, 4);
+            groupBox1.Location = new Point(19, 14);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(3, 4, 3, 4);
-            groupBox1.Size = new Size(463, 111);
+            groupBox1.Size = new Size(405, 83);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Kayıt oluşturma";
@@ -79,30 +77,31 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = Color.White;
+            label1.BackColor = Color.SeaShell;
             label1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
             label1.ForeColor = Color.FromArgb(64, 64, 64);
-            label1.Location = new Point(9, 65);
+            label1.Location = new Point(8, 49);
             label1.Name = "label1";
-            label1.Size = new Size(53, 29);
+            label1.Size = new Size(40, 24);
             label1.TabIndex = 22;
             label1.Text = "Yıl :";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.BackColor = Color.White;
+            label6.BackColor = Color.SeaShell;
             label6.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
             label6.ForeColor = Color.FromArgb(64, 64, 64);
-            label6.Location = new Point(9, 24);
+            label6.Location = new Point(8, 18);
             label6.Name = "label6";
-            label6.Size = new Size(45, 29);
+            label6.Size = new Size(37, 24);
             label6.TabIndex = 21;
             label6.Text = "Ay:";
             // 
             // btnGetByDate
             // 
-            btnGetByDate.Location = new Point(239, 41);
+            btnGetByDate.Location = new Point(209, 31);
+            btnGetByDate.Margin = new Padding(3, 2, 3, 2);
             btnGetByDate.Name = "btnGetByDate";
             btnGetByDate.OverrideDefault.Back.Color1 = Color.FromArgb(59, 61, 59);
             btnGetByDate.OverrideDefault.Back.Color2 = Color.FromArgb(22, 22, 22);
@@ -114,7 +113,7 @@
             btnGetByDate.OverrideDefault.Border.Rounding = 17F;
             btnGetByDate.OverrideDefault.Border.Width = 2;
             btnGetByDate.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            btnGetByDate.Size = new Size(176, 37);
+            btnGetByDate.Size = new Size(154, 28);
             btnGetByDate.StateCommon.Back.Color1 = Color.FromArgb(73, 73, 73);
             btnGetByDate.StateCommon.Back.Color2 = Color.FromArgb(48, 48, 48);
             btnGetByDate.StateCommon.Back.ColorAngle = 45F;
@@ -151,20 +150,18 @@
             // 
             cmbYear.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbYear.FormattingEnabled = true;
-            cmbYear.Location = new Point(77, 65);
-            cmbYear.Margin = new Padding(3, 4, 3, 4);
+            cmbYear.Location = new Point(67, 49);
             cmbYear.Name = "cmbYear";
-            cmbYear.Size = new Size(127, 28);
+            cmbYear.Size = new Size(112, 23);
             cmbYear.TabIndex = 0;
             // 
             // cmbMonth
             // 
             cmbMonth.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbMonth.FormattingEnabled = true;
-            cmbMonth.Location = new Point(77, 24);
-            cmbMonth.Margin = new Padding(3, 4, 3, 4);
+            cmbMonth.Location = new Point(67, 18);
             cmbMonth.Name = "cmbMonth";
-            cmbMonth.Size = new Size(127, 28);
+            cmbMonth.Size = new Size(112, 23);
             cmbMonth.TabIndex = 0;
             // 
             // groupBox2
@@ -177,11 +174,9 @@
             groupBox2.Controls.Add(dgwEmployees);
             groupBox2.Controls.Add(label4);
             groupBox2.Controls.Add(label3);
-            groupBox2.Location = new Point(25, 138);
-            groupBox2.Margin = new Padding(3, 4, 3, 4);
+            groupBox2.Location = new Point(22, 104);
             groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new Padding(3, 4, 3, 4);
-            groupBox2.Size = new Size(460, 439);
+            groupBox2.Size = new Size(402, 329);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Ödeme Durumu Görüntüleme";
@@ -192,27 +187,28 @@
             lblPersonelTc.BackColor = Color.White;
             lblPersonelTc.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
             lblPersonelTc.ForeColor = Color.FromArgb(64, 64, 64);
-            lblPersonelTc.Location = new Point(24, 313);
+            lblPersonelTc.Location = new Point(21, 235);
             lblPersonelTc.Name = "lblPersonelTc";
-            lblPersonelTc.Size = new Size(248, 29);
+            lblPersonelTc.Size = new Size(194, 24);
             lblPersonelTc.TabIndex = 21;
             lblPersonelTc.Text = "TC veya Personel No ";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.BackColor = Color.White;
+            label5.BackColor = Color.SeaShell;
             label5.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
             label5.ForeColor = Color.FromArgb(64, 64, 64);
-            label5.Location = new Point(6, 30);
+            label5.Location = new Point(5, 22);
             label5.Name = "label5";
-            label5.Size = new Size(164, 29);
+            label5.Size = new Size(127, 24);
             label5.TabIndex = 20;
             label5.Text = "Departmanlar:";
             // 
             // btnPay
             // 
-            btnPay.Location = new Point(208, 389);
+            btnPay.Location = new Point(182, 280);
+            btnPay.Margin = new Padding(3, 2, 3, 2);
             btnPay.Name = "btnPay";
             btnPay.OverrideDefault.Back.Color1 = Color.FromArgb(59, 61, 59);
             btnPay.OverrideDefault.Back.Color2 = Color.FromArgb(22, 22, 22);
@@ -224,7 +220,7 @@
             btnPay.OverrideDefault.Border.Rounding = 17F;
             btnPay.OverrideDefault.Border.Width = 2;
             btnPay.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            btnPay.Size = new Size(229, 43);
+            btnPay.Size = new Size(200, 32);
             btnPay.StateCommon.Back.Color1 = Color.FromArgb(73, 73, 73);
             btnPay.StateCommon.Back.Color2 = Color.FromArgb(48, 48, 48);
             btnPay.StateCommon.Back.ColorAngle = 45F;
@@ -259,10 +255,9 @@
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(175, 80);
-            txtSearch.Margin = new Padding(3, 4, 3, 4);
+            txtSearch.Location = new Point(153, 60);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(262, 29);
+            txtSearch.Size = new Size(229, 25);
             txtSearch.StateCommon.Back.Color1 = Color.White;
             txtSearch.StateCommon.Border.Color1 = Color.FromArgb(141, 182, 252);
             txtSearch.StateCommon.Border.Color2 = Color.FromArgb(224, 224, 224);
@@ -278,10 +273,9 @@
             // 
             cmbDepartments.DropDownWidth = 121;
             cmbDepartments.IntegralHeight = false;
-            cmbDepartments.Location = new Point(176, 28);
-            cmbDepartments.Margin = new Padding(3, 4, 3, 4);
+            cmbDepartments.Location = new Point(154, 21);
             cmbDepartments.Name = "cmbDepartments";
-            cmbDepartments.Size = new Size(261, 32);
+            cmbDepartments.Size = new Size(228, 28);
             cmbDepartments.StateCommon.ComboBox.Border.Rounding = 8F;
             cmbDepartments.StateCommon.ComboBox.Border.Width = 1;
             cmbDepartments.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
@@ -292,11 +286,10 @@
             // 
             dgwEmployees.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgwEmployees.Columns.AddRange(new DataGridViewColumn[] { Departman, Tc, AdSoyad, Odeme });
-            dgwEmployees.Location = new Point(24, 135);
-            dgwEmployees.Margin = new Padding(3, 4, 3, 4);
+            dgwEmployees.Location = new Point(21, 101);
             dgwEmployees.Name = "dgwEmployees";
             dgwEmployees.RowHeadersWidth = 51;
-            dgwEmployees.Size = new Size(413, 147);
+            dgwEmployees.Size = new Size(361, 110);
             dgwEmployees.TabIndex = 7;
             dgwEmployees.CellClick += dgwEmployees_CellClick;
             // 
@@ -332,18 +325,18 @@
             // 
             label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label4.ForeColor = SystemColors.MenuHighlight;
-            label4.Location = new Point(55, 80);
+            label4.Location = new Point(48, 60);
             label4.Name = "label4";
-            label4.Size = new Size(31, 31);
+            label4.Size = new Size(27, 23);
             label4.TabIndex = 3;
             label4.Text = "🔍";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(24, 37);
+            label3.Location = new Point(21, 28);
             label3.Name = "label3";
-            label3.Size = new Size(0, 20);
+            label3.Size = new Size(0, 15);
             label3.TabIndex = 1;
             // 
             // groupBox3
@@ -353,11 +346,9 @@
             groupBox3.Controls.Add(btnTazminatOdeme);
             groupBox3.Controls.Add(lstTazminatControl);
             groupBox3.Controls.Add(lblTazminat);
-            groupBox3.Location = new Point(505, 32);
-            groupBox3.Margin = new Padding(3, 4, 3, 4);
+            groupBox3.Location = new Point(442, 24);
             groupBox3.Name = "groupBox3";
-            groupBox3.Padding = new Padding(3, 4, 3, 4);
-            groupBox3.Size = new Size(356, 523);
+            groupBox3.Size = new Size(312, 392);
             groupBox3.TabIndex = 2;
             groupBox3.TabStop = false;
             groupBox3.Text = "Tazminat Ödeme";
@@ -365,18 +356,19 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.BackColor = Color.White;
+            label2.BackColor = Color.SeaShell;
             label2.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
             label2.ForeColor = Color.FromArgb(64, 64, 64);
-            label2.Location = new Point(18, 214);
+            label2.Location = new Point(16, 160);
             label2.Name = "label2";
-            label2.Size = new Size(117, 29);
+            label2.Size = new Size(91, 24);
             label2.TabIndex = 22;
             label2.Text = "Tazminat:";
             // 
             // btnTazminatAtama
             // 
-            btnTazminatAtama.Location = new Point(143, 283);
+            btnTazminatAtama.Location = new Point(158, 160);
+            btnTazminatAtama.Margin = new Padding(3, 2, 3, 2);
             btnTazminatAtama.Name = "btnTazminatAtama";
             btnTazminatAtama.OverrideDefault.Back.Color1 = Color.FromArgb(59, 61, 59);
             btnTazminatAtama.OverrideDefault.Back.Color2 = Color.FromArgb(22, 22, 22);
@@ -388,7 +380,7 @@
             btnTazminatAtama.OverrideDefault.Border.Rounding = 17F;
             btnTazminatAtama.OverrideDefault.Border.Width = 2;
             btnTazminatAtama.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            btnTazminatAtama.Size = new Size(189, 45);
+            btnTazminatAtama.Size = new Size(133, 34);
             btnTazminatAtama.StateCommon.Back.Color1 = Color.FromArgb(73, 73, 73);
             btnTazminatAtama.StateCommon.Back.Color2 = Color.FromArgb(48, 48, 48);
             btnTazminatAtama.StateCommon.Back.ColorAngle = 45F;
@@ -400,7 +392,7 @@
             btnTazminatAtama.StateCommon.Border.Width = 2;
             btnTazminatAtama.StateCommon.Content.ShortText.Color1 = Color.White;
             btnTazminatAtama.StateCommon.Content.ShortText.Color2 = Color.White;
-            btnTazminatAtama.StateCommon.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnTazminatAtama.StateCommon.Content.ShortText.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
             btnTazminatAtama.StateDisabled.Border.Width = 2;
             btnTazminatAtama.StateNormal.Border.Width = 2;
             btnTazminatAtama.StatePressed.Back.Color1 = Color.FromArgb(71, 156, 75);
@@ -423,7 +415,8 @@
             // 
             // btnTazminatOdeme
             // 
-            btnTazminatOdeme.Location = new Point(64, 405);
+            btnTazminatOdeme.Location = new Point(68, 307);
+            btnTazminatOdeme.Margin = new Padding(3, 2, 3, 2);
             btnTazminatOdeme.Name = "btnTazminatOdeme";
             btnTazminatOdeme.OverrideDefault.Back.Color1 = Color.FromArgb(59, 61, 59);
             btnTazminatOdeme.OverrideDefault.Back.Color2 = Color.FromArgb(22, 22, 22);
@@ -435,7 +428,7 @@
             btnTazminatOdeme.OverrideDefault.Border.Rounding = 17F;
             btnTazminatOdeme.OverrideDefault.Border.Width = 2;
             btnTazminatOdeme.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            btnTazminatOdeme.Size = new Size(229, 43);
+            btnTazminatOdeme.Size = new Size(200, 32);
             btnTazminatOdeme.StateCommon.Back.Color1 = Color.FromArgb(73, 73, 73);
             btnTazminatOdeme.StateCommon.Back.Color2 = Color.FromArgb(48, 48, 48);
             btnTazminatOdeme.StateCommon.Back.ColorAngle = 45F;
@@ -471,32 +464,31 @@
             // lstTazminatControl
             // 
             lstTazminatControl.FormattingEnabled = true;
-            lstTazminatControl.Location = new Point(18, 28);
-            lstTazminatControl.Margin = new Padding(3, 4, 3, 4);
+            lstTazminatControl.ItemHeight = 15;
+            lstTazminatControl.Location = new Point(16, 21);
             lstTazminatControl.Name = "lstTazminatControl";
-            lstTazminatControl.Size = new Size(314, 164);
+            lstTazminatControl.Size = new Size(290, 124);
             lstTazminatControl.TabIndex = 7;
             lstTazminatControl.SelectedIndexChanged += lstTazminatControl_SelectedIndexChanged;
             // 
             // lblTazminat
             // 
             lblTazminat.AutoSize = true;
-            lblTazminat.Location = new Point(179, 221);
+            lblTazminat.Location = new Point(123, 167);
             lblTazminat.Name = "lblTazminat";
-            lblTazminat.Size = new Size(32, 20);
+            lblTazminat.Size = new Size(28, 15);
             lblTazminat.TabIndex = 2;
             lblTazminat.Text = ".....₺";
             // 
             // CalisanMaasTakibi
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SeaShell;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(800, 450);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "CalisanMaasTakibi";
             Text = "CalisanMaasTakibi";
             Load += CalisanMaasTakibi_Load;

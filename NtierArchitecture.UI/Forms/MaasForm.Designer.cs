@@ -35,12 +35,12 @@
             txtmaskedTC = new MaskedTextBox();
             LstPersonelBilgileri = new ListBox();
             groupBox1 = new GroupBox();
+            label2 = new Label();
+            label1 = new Label();
+            label5 = new Label();
             comboBox1 = new Krypton.Toolkit.KryptonComboBox();
             btnYenile = new Krypton.Toolkit.KryptonButton();
             tcmaskedbox = new MaskedTextBox();
-            label5 = new Label();
-            label1 = new Label();
-            label2 = new Label();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)comboBox1).BeginInit();
@@ -50,7 +50,7 @@
             // 
             textBox2.Location = new Point(252, 238);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(228, 34);
+            textBox2.Size = new Size(228, 29);
             textBox2.TabIndex = 9;
             // 
             // groupBox2
@@ -69,12 +69,12 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.BackColor = Color.White;
+            label3.BackColor = Color.SeaShell;
             label3.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
             label3.ForeColor = Color.FromArgb(64, 64, 64);
             label3.Location = new Point(19, 46);
             label3.Name = "label3";
-            label3.Size = new Size(162, 29);
+            label3.Size = new Size(124, 24);
             label3.TabIndex = 16;
             label3.Text = "TC Kimlik No:";
             // 
@@ -130,17 +130,17 @@
             txtmaskedTC.Location = new Point(218, 41);
             txtmaskedTC.Mask = "00000000000";
             txtmaskedTC.Name = "txtmaskedTC";
-            txtmaskedTC.Size = new Size(266, 34);
+            txtmaskedTC.Size = new Size(266, 29);
             txtmaskedTC.TabIndex = 13;
             txtmaskedTC.ValidatingType = typeof(int);
             // 
             // LstPersonelBilgileri
             // 
             LstPersonelBilgileri.FormattingEnabled = true;
-            LstPersonelBilgileri.ItemHeight = 28;
+            LstPersonelBilgileri.ItemHeight = 21;
             LstPersonelBilgileri.Location = new Point(19, 173);
             LstPersonelBilgileri.Name = "LstPersonelBilgileri";
-            LstPersonelBilgileri.Size = new Size(465, 228);
+            LstPersonelBilgileri.Size = new Size(465, 214);
             LstPersonelBilgileri.TabIndex = 12;
             // 
             // groupBox1
@@ -159,13 +159,49 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Maaş İşlemleri ve Özlük";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.SeaShell;
+            label2.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label2.ForeColor = Color.FromArgb(64, 64, 64);
+            label2.Location = new Point(27, 243);
+            label2.Name = "label2";
+            label2.Size = new Size(103, 24);
+            label2.TabIndex = 23;
+            label2.Text = "Yeni Maaş:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.SeaShell;
+            label1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label1.ForeColor = Color.FromArgb(64, 64, 64);
+            label1.Location = new Point(27, 175);
+            label1.Name = "label1";
+            label1.Size = new Size(124, 24);
+            label1.TabIndex = 22;
+            label1.Text = "TC Kimlik No:";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.SeaShell;
+            label5.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label5.ForeColor = Color.FromArgb(64, 64, 64);
+            label5.Location = new Point(27, 96);
+            label5.Name = "label5";
+            label5.Size = new Size(107, 24);
+            label5.TabIndex = 21;
+            label5.Text = "Departman:";
+            // 
             // comboBox1
             // 
             comboBox1.DropDownWidth = 121;
             comboBox1.IntegralHeight = false;
             comboBox1.Location = new Point(252, 99);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(228, 26);
+            comboBox1.Size = new Size(228, 22);
             comboBox1.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             comboBox1.TabIndex = 16;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
@@ -223,51 +259,15 @@
             tcmaskedbox.Location = new Point(252, 170);
             tcmaskedbox.Mask = "00000000000";
             tcmaskedbox.Name = "tcmaskedbox";
-            tcmaskedbox.Size = new Size(228, 34);
+            tcmaskedbox.Size = new Size(228, 29);
             tcmaskedbox.TabIndex = 12;
             tcmaskedbox.ValidatingType = typeof(int);
             // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.White;
-            label5.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label5.ForeColor = Color.FromArgb(64, 64, 64);
-            label5.Location = new Point(27, 96);
-            label5.Name = "label5";
-            label5.Size = new Size(137, 29);
-            label5.TabIndex = 21;
-            label5.Text = "Departman:";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.White;
-            label1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label1.ForeColor = Color.FromArgb(64, 64, 64);
-            label1.Location = new Point(27, 175);
-            label1.Name = "label1";
-            label1.Size = new Size(162, 29);
-            label1.TabIndex = 22;
-            label1.Text = "TC Kimlik No:";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.White;
-            label2.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label2.ForeColor = Color.FromArgb(64, 64, 64);
-            label2.Location = new Point(27, 243);
-            label2.Name = "label2";
-            label2.Size = new Size(132, 29);
-            label2.TabIndex = 23;
-            label2.Text = "Yeni Maaş:";
-            // 
             // MaasForm
             // 
-            AutoScaleDimensions = new SizeF(11F, 28F);
+            AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = Color.SeaShell;
             ClientSize = new Size(1174, 645);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);

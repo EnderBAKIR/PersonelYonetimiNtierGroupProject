@@ -244,7 +244,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.BackColor = Color.White;
+            label7.BackColor = Color.SeaShell;
             label7.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label7.ForeColor = Color.FromArgb(64, 64, 64);
             label7.Location = new Point(66, 433);
@@ -256,7 +256,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.BackColor = Color.White;
+            label6.BackColor = Color.SeaShell;
             label6.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label6.ForeColor = Color.FromArgb(64, 64, 64);
             label6.Location = new Point(51, 386);
@@ -268,7 +268,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.BackColor = Color.White;
+            label12.BackColor = Color.SeaShell;
             label12.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label12.ForeColor = Color.FromArgb(64, 64, 64);
             label12.Location = new Point(79, 330);
@@ -280,7 +280,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.BackColor = Color.White;
+            label5.BackColor = Color.SeaShell;
             label5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label5.ForeColor = Color.FromArgb(64, 64, 64);
             label5.Location = new Point(85, 280);
@@ -292,7 +292,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.BackColor = Color.White;
+            label10.BackColor = Color.SeaShell;
             label10.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label10.ForeColor = Color.FromArgb(64, 64, 64);
             label10.Location = new Point(79, 235);
@@ -304,7 +304,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.BackColor = Color.White;
+            label4.BackColor = Color.SeaShell;
             label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label4.ForeColor = Color.FromArgb(64, 64, 64);
             label4.Location = new Point(91, 180);
@@ -316,7 +316,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.BackColor = Color.White;
+            label3.BackColor = Color.SeaShell;
             label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label3.ForeColor = Color.FromArgb(64, 64, 64);
             label3.Location = new Point(36, 138);
@@ -328,7 +328,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.BackColor = Color.White;
+            label2.BackColor = Color.SeaShell;
             label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label2.ForeColor = Color.FromArgb(64, 64, 64);
             label2.Location = new Point(79, 84);
@@ -340,7 +340,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.BackColor = Color.White;
+            label11.BackColor = Color.SeaShell;
             label11.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label11.ForeColor = Color.FromArgb(64, 64, 64);
             label11.Location = new Point(85, 41);
@@ -373,7 +373,7 @@
             // 
             // groupBox2
             // 
-            groupBox2.BackColor = Color.FromArgb(249, 250, 252);
+            groupBox2.BackColor = Color.SeaShell;
             groupBox2.Controls.Add(btnDelete1);
             groupBox2.Controls.Add(btnUpdate1);
             groupBox2.Controls.Add(btnDetail1);
@@ -578,7 +578,7 @@
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(249, 250, 252);
+            BackColor = Color.SeaShell;
             ClientSize = new Size(1194, 600);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);

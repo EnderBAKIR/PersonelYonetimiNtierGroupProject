@@ -94,8 +94,7 @@ namespace NtierArchitecture.UI.Forms
         }
         private void btnPersonel_Click(object sender, EventArgs e)
         {
-            //OpenChildForm(new PersonelForm(), sender);
-            ToggleSubMenu(panelSubMenuPersonel);
+
         }
         private void ToggleSubMenu(Panel subMenu)
         {

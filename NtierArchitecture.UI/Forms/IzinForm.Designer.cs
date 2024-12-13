@@ -63,7 +63,7 @@
             label1.ForeColor = Color.Red;
             label1.Location = new Point(12, 9);
             label1.Name = "label1";
-            label1.Size = new Size(231, 28);
+            label1.Size = new Size(186, 21);
             label1.TabIndex = 0;
             label1.Text = "İzin Devamsızlık Yönetimi";
             // 
@@ -71,16 +71,16 @@
             // 
             txtTc.Location = new Point(282, 40);
             txtTc.Name = "txtTc";
-            txtTc.Size = new Size(234, 34);
+            txtTc.Size = new Size(234, 29);
             txtTc.TabIndex = 2;
             // 
             // LstBilgi
             // 
             LstBilgi.FormattingEnabled = true;
-            LstBilgi.ItemHeight = 28;
+            LstBilgi.ItemHeight = 21;
             LstBilgi.Location = new Point(12, 346);
             LstBilgi.Name = "LstBilgi";
-            LstBilgi.Size = new Size(507, 144);
+            LstBilgi.Size = new Size(507, 130);
             LstBilgi.TabIndex = 7;
             // 
             // label5
@@ -88,7 +88,7 @@
             label5.AutoSize = true;
             label5.Location = new Point(216, 23);
             label5.Name = "label5";
-            label5.Size = new Size(224, 28);
+            label5.Size = new Size(178, 21);
             label5.TabIndex = 8;
             label5.Text = "İzin Talebinizi Açıklayınız";
             // 
@@ -104,17 +104,17 @@
             // 
             txtPassword.Location = new Point(282, 92);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(234, 34);
+            txtPassword.Size = new Size(234, 29);
             txtPassword.TabIndex = 13;
             txtPassword.UseSystemPasswordChar = true;
             // 
             // lstLeaveList
             // 
             lstLeaveList.FormattingEnabled = true;
-            lstLeaveList.ItemHeight = 28;
+            lstLeaveList.ItemHeight = 21;
             lstLeaveList.Location = new Point(52, 399);
             lstLeaveList.Name = "lstLeaveList";
-            lstLeaveList.Size = new Size(521, 116);
+            lstLeaveList.Size = new Size(521, 109);
             lstLeaveList.TabIndex = 14;
             lstLeaveList.SelectedIndexChanged += lstLeaveList_SelectedIndexChanged;
             // 
@@ -122,12 +122,12 @@
             // 
             nmrLeaveDay.Location = new Point(345, 141);
             nmrLeaveDay.Name = "nmrLeaveDay";
-            nmrLeaveDay.Size = new Size(141, 34);
+            nmrLeaveDay.Size = new Size(141, 29);
             nmrLeaveDay.TabIndex = 18;
             // 
             // groupBox1
             // 
-            groupBox1.BackColor = Color.White;
+            groupBox1.BackColor = Color.SeaShell;
             groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(txtPassword);
             groupBox1.Controls.Add(label3);
@@ -149,31 +149,31 @@
             label8.ForeColor = Color.FromArgb(64, 64, 64);
             label8.Location = new Point(20, 264);
             label8.Name = "label8";
-            label8.Size = new Size(171, 29);
+            label8.Size = new Size(129, 24);
             label8.TabIndex = 18;
             label8.Text = "Çalışan Bilgisi:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.BackColor = Color.White;
+            label3.BackColor = Color.SeaShell;
             label3.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
             label3.ForeColor = Color.FromArgb(64, 64, 64);
             label3.Location = new Point(20, 97);
             label3.Name = "label3";
-            label3.Size = new Size(265, 29);
+            label3.Size = new Size(203, 24);
             label3.TabIndex = 17;
             label3.Text = "Tanımlı Şifrenizi Giriniz:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.BackColor = Color.White;
+            label2.BackColor = Color.SeaShell;
             label2.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
             label2.ForeColor = Color.FromArgb(64, 64, 64);
             label2.Location = new Point(20, 45);
             label2.Name = "label2";
-            label2.Size = new Size(162, 29);
+            label2.Size = new Size(124, 24);
             label2.TabIndex = 16;
             label2.Text = "TC Kimlik No:";
             // 
@@ -226,7 +226,7 @@
             // 
             // groupBox2
             // 
-            groupBox2.BackColor = Color.White;
+            groupBox2.BackColor = Color.SeaShell;
             groupBox2.Controls.Add(label9);
             groupBox2.Controls.Add(label7);
             groupBox2.Controls.Add(label11);
@@ -251,24 +251,24 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.BackColor = Color.White;
+            label9.BackColor = Color.SeaShell;
             label9.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
             label9.ForeColor = Color.FromArgb(64, 64, 64);
             label9.Location = new Point(116, 226);
             label9.Name = "label9";
-            label9.Size = new Size(133, 29);
+            label9.Size = new Size(100, 24);
             label9.TabIndex = 30;
             label9.Text = "Bitiş Tarihi:";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.BackColor = Color.White;
+            label7.BackColor = Color.SeaShell;
             label7.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
             label7.ForeColor = Color.FromArgb(64, 64, 64);
             label7.Location = new Point(116, 189);
             label7.Name = "label7";
-            label7.Size = new Size(192, 29);
+            label7.Size = new Size(148, 24);
             label7.TabIndex = 30;
             label7.Text = "Başlangıç Tarihi:";
             // 
@@ -278,15 +278,15 @@
             label11.BackColor = Color.White;
             label11.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
             label11.ForeColor = Color.FromArgb(64, 64, 64);
-            label11.Location = new Point(227, 351);
+            label11.Location = new Point(52, 372);
             label11.Name = "label11";
-            label11.Size = new Size(176, 29);
+            label11.Size = new Size(134, 24);
             label11.TabIndex = 29;
             label11.Text = "Talep Detayları";
             // 
             // btnLeaveCancel
             // 
-            btnLeaveCancel.Location = new Point(400, 277);
+            btnLeaveCancel.Location = new Point(421, 279);
             btnLeaveCancel.Name = "btnLeaveCancel";
             btnLeaveCancel.OverrideDefault.Back.Color1 = Color.FromArgb(59, 61, 59);
             btnLeaveCancel.OverrideDefault.Back.Color2 = Color.FromArgb(22, 22, 22);
@@ -298,7 +298,7 @@
             btnLeaveCancel.OverrideDefault.Border.Rounding = 17F;
             btnLeaveCancel.OverrideDefault.Border.Width = 2;
             btnLeaveCancel.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            btnLeaveCancel.Size = new Size(173, 45);
+            btnLeaveCancel.Size = new Size(140, 42);
             btnLeaveCancel.StateCommon.Back.Color1 = Color.FromArgb(73, 73, 73);
             btnLeaveCancel.StateCommon.Back.Color2 = Color.FromArgb(48, 48, 48);
             btnLeaveCancel.StateCommon.Back.ColorAngle = 45F;
@@ -333,7 +333,7 @@
             // 
             // btnCreateLeave
             // 
-            btnCreateLeave.Location = new Point(28, 277);
+            btnCreateLeave.Location = new Point(52, 278);
             btnCreateLeave.Name = "btnCreateLeave";
             btnCreateLeave.OverrideDefault.Back.Color1 = Color.FromArgb(59, 61, 59);
             btnCreateLeave.OverrideDefault.Back.Color2 = Color.FromArgb(22, 22, 22);
@@ -345,7 +345,7 @@
             btnCreateLeave.OverrideDefault.Border.Rounding = 17F;
             btnCreateLeave.OverrideDefault.Border.Width = 2;
             btnCreateLeave.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            btnCreateLeave.Size = new Size(163, 43);
+            btnCreateLeave.Size = new Size(128, 43);
             btnCreateLeave.StateCommon.Back.Color1 = Color.FromArgb(73, 73, 73);
             btnCreateLeave.StateCommon.Back.Color2 = Color.FromArgb(48, 48, 48);
             btnCreateLeave.StateCommon.Back.ColorAngle = 45F;
@@ -380,7 +380,7 @@
             // 
             // btnLeaveUpdate
             // 
-            btnLeaveUpdate.Location = new Point(207, 277);
+            btnLeaveUpdate.Location = new Point(181, 278);
             btnLeaveUpdate.Name = "btnLeaveUpdate";
             btnLeaveUpdate.OverrideDefault.Back.Color1 = Color.FromArgb(59, 61, 59);
             btnLeaveUpdate.OverrideDefault.Back.Color2 = Color.FromArgb(22, 22, 22);
@@ -392,7 +392,7 @@
             btnLeaveUpdate.OverrideDefault.Border.Rounding = 17F;
             btnLeaveUpdate.OverrideDefault.Border.Width = 2;
             btnLeaveUpdate.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            btnLeaveUpdate.Size = new Size(182, 43);
+            btnLeaveUpdate.Size = new Size(154, 43);
             btnLeaveUpdate.StateCommon.Back.Color1 = Color.FromArgb(73, 73, 73);
             btnLeaveUpdate.StateCommon.Back.Color2 = Color.FromArgb(48, 48, 48);
             btnLeaveUpdate.StateCommon.Back.ColorAngle = 45F;
@@ -433,19 +433,19 @@
             lblDurum.ForeColor = Color.FromArgb(64, 64, 64);
             lblDurum.Location = new Point(52, 539);
             lblDurum.Name = "lblDurum";
-            lblDurum.Size = new Size(207, 29);
+            lblDurum.Size = new Size(166, 24);
             lblDurum.TabIndex = 25;
             lblDurum.Text = "izin Onay Durumu:";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.BackColor = Color.White;
+            label6.BackColor = Color.SeaShell;
             label6.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
             label6.ForeColor = Color.FromArgb(64, 64, 64);
             label6.Location = new Point(52, 146);
             label6.Name = "label6";
-            label6.Size = new Size(277, 29);
+            label6.Size = new Size(216, 24);
             label6.TabIndex = 24;
             label6.Text = "Talep Edilen Gün Sayısı:";
             // 
@@ -453,21 +453,21 @@
             // 
             dtEndDate.Location = new Point(314, 226);
             dtEndDate.Name = "dtEndDate";
-            dtEndDate.Size = new Size(263, 34);
+            dtEndDate.Size = new Size(263, 29);
             dtEndDate.TabIndex = 23;
             // 
             // dtStartDate
             // 
             dtStartDate.Location = new Point(315, 189);
             dtStartDate.Name = "dtStartDate";
-            dtStartDate.Size = new Size(262, 34);
+            dtStartDate.Size = new Size(262, 29);
             dtStartDate.TabIndex = 21;
             // 
             // IzinForm
             // 
-            AutoScaleDimensions = new SizeF(11F, 28F);
+            AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = Color.SeaShell;
             ClientSize = new Size(1175, 771);
             Controls.Add(LstBilgi);
             Controls.Add(label1);
