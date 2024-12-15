@@ -81,6 +81,7 @@ namespace NtierArchitecture.UI.Forms
             }
             ActivateButton(btnSender); // Seçilen butonu aktif hale getir
             activeForm = childForm;
+            this.Size=new Size(childForm.Size.Width, childForm.Size.Height);
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
@@ -135,6 +136,7 @@ namespace NtierArchitecture.UI.Forms
 
         private void btnPersonelAdd_Click(object sender, EventArgs e)
         {
+
             OpenChildForm(new PersonelForm(), sender);
 
         }
@@ -157,6 +159,7 @@ namespace NtierArchitecture.UI.Forms
 
         private void btnDepartment_Click(object sender, EventArgs e)
         {
+
             OpenChildForm(new Departman(), sender);
         }
 

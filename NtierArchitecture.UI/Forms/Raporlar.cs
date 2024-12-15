@@ -60,97 +60,97 @@ namespace NtierArchitecture.UI.Forms
 
         private void FillChartWithEmployeeData()
         {
-            
+
             var departmentEmployeeCounts = _departmentService.GetAll()
                 .Select(department => new
                 {
-                    DepartmentName = department.Name, 
-                    EmployeeCount = _employeeService.GetEmployeesByDepartmentId(department.Id).Where(x => x.IsActive == true).Count() 
+                    DepartmentName = department.Name,
+                    EmployeeCount = _employeeService.GetEmployeesByDepartmentId(department.Id).Where(x => x.IsActive == true).Count()
                 })
                 .ToList();
 
-            
+
             chrtEmpByDepartment.Series.Clear();
             chrtEmpByDepartment.Titles.Clear();
 
-            
+
             chrtEmpByDepartment.Titles.Add("Departmanlara Göre Çalışan Dağılımı");
 
-            
-            var series = new Series("Çalışanlar");
-            series.ChartType = SeriesChartType.Pie; 
 
-            
+            var series = new Series("Çalışanlar");
+            series.ChartType = SeriesChartType.Pie;
+
+
             foreach (var item in departmentEmployeeCounts)
             {
                 series.Points.AddXY(item.DepartmentName, item.EmployeeCount);
             }
 
-            
+
             chrtEmpByDepartment.Series.Add(series);
 
-            
+
             series.IsValueShownAsLabel = true;
         }
 
 
         private void FillChartWithAverageSalaryData()
         {
-            
+
             var departmentAverageSalaries = _departmentService.GetAll()
                 .Select(department => new
                 {
-                    DepartmentName = department.Name, 
+                    DepartmentName = department.Name,
                     AverageSalary = department.Employees != null && department.Employees.Any()
-                        ? Math.Round(department.Employees.Average(emp => emp.Salary ?? 0), 2) 
+                        ? Math.Round(department.Employees.Average(emp => emp.Salary ?? 0), 2)
                         : 0
                 })
-                .Where(data => data.AverageSalary > 0) 
+                .Where(data => data.AverageSalary > 0)
                 .ToList();
 
-            
+
             chrtAvarageSalary.Series.Clear();
             chrtAvarageSalary.Titles.Clear();
             chrtAvarageSalary.ChartAreas.Clear();
 
-            
+
             chrtAvarageSalary.Titles.Add("Departmanlara Göre Ortalama Maaşlar");
 
-            
+
             var chartArea = new ChartArea("DoughnutArea");
-            chartArea.AxisX.Enabled = AxisEnabled.False; 
-            chartArea.AxisY.Enabled = AxisEnabled.False; 
+            chartArea.AxisX.Enabled = AxisEnabled.False;
+            chartArea.AxisY.Enabled = AxisEnabled.False;
             chrtAvarageSalary.ChartAreas.Add(chartArea);
 
-           
-            var series = new Series("Ortalama Maaş");
-            series.ChartType = SeriesChartType.Doughnut; 
-            series.LabelFormat = "₺#,##0.00"; 
-            series.IsValueShownAsLabel = true; 
-            series.ToolTip = "#VALX: ₺#VALY"; 
 
-            
+            var series = new Series("Ortalama Maaş");
+            series.ChartType = SeriesChartType.Doughnut;
+            series.LabelFormat = "₺#,##0.00";
+            series.IsValueShownAsLabel = true;
+            series.ToolTip = "#VALX: ₺#VALY";
+
+
             foreach (var item in departmentAverageSalaries)
             {
-                
+
                 series.Points.AddXY(item.DepartmentName, item.AverageSalary);
             }
 
-           
+
             chrtAvarageSalary.Series.Add(series);
 
-            
-            series["PieLabelStyle"] = "Outside"; 
-            series["DoughnutRadius"] = "60"; 
 
-           
+            series["PieLabelStyle"] = "Outside";
+            series["DoughnutRadius"] = "60";
+
+
             var legend = new Legend("DepartmentLegend");
-            legend.Docking = Docking.Bottom; 
-            legend.Alignment = StringAlignment.Center; 
+            legend.Docking = Docking.Bottom;
+            legend.Alignment = StringAlignment.Center;
             chrtAvarageSalary.Legends.Add(legend);
 
-           
-            series.Legend = "DepartmentLegend"; 
+
+            series.Legend = "DepartmentLegend";
         }
 
         private void chrtEmpByDepartment_Click(object sender, EventArgs e)
@@ -159,24 +159,24 @@ namespace NtierArchitecture.UI.Forms
             var chartArea = chrtEmpByDepartment.ChartAreas[0];
             var mousePosition = chrtEmpByDepartment.PointToClient(MousePosition);
 
-           
+
             var hitTestResult = chrtEmpByDepartment.HitTest(mousePosition.X, mousePosition.Y);
 
             if (hitTestResult.ChartElementType == ChartElementType.DataPoint)
             {
-                
+
                 var dataPoint = hitTestResult.Series.Points[hitTestResult.PointIndex];
 
-                
+
                 string departmentName = dataPoint.AxisLabel;
                 int employeeCount = Convert.ToInt32(dataPoint.YValues[0]);
 
                 lstEmployees.Items.Clear();
 
-                
-                var employees = _employeeService.GetEmployeesByDepartmentName(departmentName); 
 
-                
+                var employees = _employeeService.GetEmployeesByDepartmentName(departmentName);
+
+
                 foreach (var employee in employees)
                 {
                     if (employee.IsActive == true)
@@ -184,7 +184,7 @@ namespace NtierArchitecture.UI.Forms
                         var listItem = new ListItem
                         {
                             Id = employee.Id.ToString(),
-                            DisplayText = employee.FullNameWithTc 
+                            DisplayText = employee.FullNameWithTc
                         };
                         lstEmployees.Items.Add(listItem);
                     }
@@ -197,25 +197,25 @@ namespace NtierArchitecture.UI.Forms
 
         private void lstEmployees_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             if (lstEmployees.SelectedItem != null)
             {
                 var selectedItem = (ListItem)lstEmployees.SelectedItem;
 
-                
+
                 var employeeId = selectedItem.Id;
 
-                
-                var employee = _employeeService.GetByID(Guid.Parse(employeeId)); 
+
+                var employee = _employeeService.GetByID(Guid.Parse(employeeId));
 
 
-                
+
                 dataGridView1.Rows.Clear();
 
-               
+
                 dataGridView1.AutoGenerateColumns = true;
 
-                
+
                 var employeeDetails = new BindingList<object>
         {
             new
@@ -234,7 +234,7 @@ namespace NtierArchitecture.UI.Forms
             }
         };
 
-                
+
                 dataGridView1.DataSource = employeeDetails;
             }
 
@@ -242,15 +242,15 @@ namespace NtierArchitecture.UI.Forms
 
         private void UpdateCompensationLabel()
         {
-          
-            var employeesWithCompensation = _employeeService.GetAll() 
-                .Where(e => e.IsCompensationPayed) 
+
+            var employeesWithCompensation = _employeeService.GetAll()
+                .Where(e => e.IsCompensationPayed)
                 .ToList();
 
-            
+
             double totalCompensation = employeesWithCompensation.Sum(e => e.CompensationFee);
 
-           
+
             lblCompensation.Text = $"Toplam Ödenen Tazminat: {totalCompensation:C2}";
         }
 
@@ -260,32 +260,32 @@ namespace NtierArchitecture.UI.Forms
         }
         private void LoadCompensationDgw()
         {
-            
-            var employeesWithCompensation = _employeeService.GetAll() 
-                .Where(e => e.IsCompensationPayed) 
+
+            var employeesWithCompensation = _employeeService.GetAll()
+                .Where(e => e.IsCompensationPayed)
                 .Select(e => new
                 {
                     e.Name,
                     e.Surname,
                     e.TcNo,
-                    e.BirthDate, 
+                    e.BirthDate,
                     e.Salary,
                     e.CompensationFee
                 })
                 .ToList();
 
-            
+
             dgwCompensation.Rows.Clear();
 
-            
+
             foreach (var employee in employeesWithCompensation)
             {
                 dgwCompensation.Rows.Add(
-                    employee.Name + " " + employee.Surname, 
-                    employee.TcNo, 
-                    employee.BirthDate.ToString("dd.MM.yyyy"), 
-                    employee.Salary, 
-                    employee.CompensationFee 
+                    employee.Name + " " + employee.Surname,
+                    employee.TcNo,
+                    employee.BirthDate.ToString("dd.MM.yyyy"),
+                    employee.Salary,
+                    employee.CompensationFee
                 );
             }
         }
@@ -301,34 +301,34 @@ namespace NtierArchitecture.UI.Forms
 
         private void LoadEmployeeSalaryDgw()
         {
-            
-            var activeEmployees = _employeeService.GetAll() 
-                .Where(e => e.IsActive) 
+
+            var activeEmployees = _employeeService.GetAll()
+                .Where(e => e.IsActive)
                 .Select(e => new
                 {
                     e.Name,
                     e.Surname,
                     e.TcNo,
-                    e.BirthDate, 
-                    e.CreateDate, 
+                    e.BirthDate,
+                    e.CreateDate,
                     e.Salary,
-                    DepartmentName = e.Department.Name 
+                    DepartmentName = e.Department.Name
                 })
                 .ToList();
 
-            
+
             dgwEmployeeSalary.Rows.Clear();
 
-            
+
             foreach (var employee in activeEmployees)
             {
                 dgwEmployeeSalary.Rows.Add(
-                    employee.Name + " " + employee.Surname, 
-                    employee.TcNo, 
-                    employee.BirthDate.ToString("dd.MM.yyyy"), 
-                    employee.CreateDate.ToString("dd.MM.yyyy"), 
-                    employee.Salary, 
-                    employee.DepartmentName 
+                    employee.Name + " " + employee.Surname,
+                    employee.TcNo,
+                    employee.BirthDate.ToString("dd.MM.yyyy"),
+                    employee.CreateDate.ToString("dd.MM.yyyy"),
+                    employee.Salary,
+                    employee.DepartmentName
                 );
             }
 
@@ -345,9 +345,9 @@ namespace NtierArchitecture.UI.Forms
 
         private void LoadEmployeeStatusChart()
         {
-            
-            var activeEmployeesCount = _employeeService.GetAll().Count(e => e.IsActive);  
-            var inactiveEmployeesCount = _employeeService.GetAll().Count(e => !e.IsActive); 
+
+            var activeEmployeesCount = _employeeService.GetAll().Count(e => e.IsActive);
+            var inactiveEmployeesCount = _employeeService.GetAll().Count(e => !e.IsActive);
 
             // Chart ayarlarını temizle
             chrtIsActive.Series.Clear();
@@ -358,11 +358,11 @@ namespace NtierArchitecture.UI.Forms
 
             // Yeni bir Series oluştur
             var series = new Series("Çalışan Durumu");
-            series.ChartType = SeriesChartType.Doughnut;  
+            series.ChartType = SeriesChartType.Doughnut;
 
             // Verileri Series'e ekle
-            series.Points.AddXY("Çıkmayan Çalışanlar", activeEmployeesCount);  
-            series.Points.AddXY("Çıkan Çalışanlar", inactiveEmployeesCount);   
+            series.Points.AddXY("Çıkmayan Çalışanlar", activeEmployeesCount);
+            series.Points.AddXY("Çıkan Çalışanlar", inactiveEmployeesCount);
 
             // Series'i Chart'a ekle
             chrtIsActive.Series.Add(series);
@@ -373,37 +373,37 @@ namespace NtierArchitecture.UI.Forms
 
         private void chrtIsActive_Click(object sender, EventArgs e)
         {
-            
+
             var chartArea = chrtIsActive.ChartAreas[0];
             var mousePosition = chrtIsActive.PointToClient(MousePosition);
 
-            
+
             var hitTestResult = chrtIsActive.HitTest(mousePosition.X, mousePosition.Y);
 
             if (hitTestResult.ChartElementType == ChartElementType.DataPoint)
             {
-                
+
                 var dataPoint = hitTestResult.Series.Points[hitTestResult.PointIndex];
 
-                
+
                 string groupName = dataPoint.AxisLabel;
 
-                
+
                 double averageSalary = 0;
 
                 if (groupName == "Çıkmayan Çalışanlar")
                 {
-                    
+
                     averageSalary = _employeeService.GetAll()
                         .Where(e => e.IsActive)
-                        .Average(e => e.Salary ?? 0); 
+                        .Average(e => e.Salary ?? 0);
                 }
                 else if (groupName == "Çıkan Çalışanlar")
                 {
-                    
+
                     averageSalary = _employeeService.GetAll()
                         .Where(e => !e.IsActive)
-                        .Average(e => e.Salary ?? 0); 
+                        .Average(e => e.Salary ?? 0);
                 }
 
                 // Sonucu label'a yazdır
@@ -414,29 +414,29 @@ namespace NtierArchitecture.UI.Forms
 
         private void LoadApprovedLeaves()
         {
-            
+
             lstLeaveList.Items.Clear();
 
-            
+
             var approvedLeaves = _leaveService.GetAll()
                 .Where(leave => leave.Status == LeaveStatus.Approved)
                 .ToList();
 
             foreach (var leave in approvedLeaves)
             {
-                
+
                 var employee = leave.Employee;
 
                 if (employee != null)
                 {
-                    
+
                     var listItem = new ListItem
                     {
                         Id = leave.Id.ToString(),
                         DisplayText = $"İsim: {employee.Name} {employee.Surname}, TC: {employee.TcNo}, İzin Günleri: {leave.Day} gün"
                     };
 
-                    
+
                     lstLeaveList.Items.Add(listItem);
                 }
             }
@@ -450,26 +450,26 @@ namespace NtierArchitecture.UI.Forms
 
         private void lstLeaveList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             var selectedItem = lstLeaveList.SelectedItem as ListItem;
             if (selectedItem == null) return;
 
-            
+
             var leave = _leaveService.GetAll()
                 .FirstOrDefault(l => l.Id.ToString() == selectedItem.Id);
 
             if (leave != null)
             {
-                
+
                 var employee = leave.Employee;
 
                 if (employee != null)
                 {
-                    
+
                     dgwLeaveDetails.Rows.Clear();
                     dgwLeaveDetails.Columns.Clear();
 
-                    
+
                     dgwLeaveDetails.Columns.Add("NameSurname", "Ad Soyad");
                     dgwLeaveDetails.Columns.Add("TcNo", "TC Kimlik No");
                     dgwLeaveDetails.Columns.Add("Department", "Departman");
@@ -477,14 +477,14 @@ namespace NtierArchitecture.UI.Forms
                     dgwLeaveDetails.Columns.Add("StartDate", "Başlangıç Tarihi");
                     dgwLeaveDetails.Columns.Add("EndDate", "Bitiş Tarihi");
 
-                    
+
                     dgwLeaveDetails.Rows.Add(
-                        $"{employee.Name} {employee.Surname}", 
-                        employee.TcNo,                        
-                        employee.Department?.Name ?? "Bilinmiyor", 
-                        leave.Day,                            
-                        leave.StartDate.ToShortDateString(),  
-                        leave.EndDate.ToShortDateString()     
+                        $"{employee.Name} {employee.Surname}",
+                        employee.TcNo,
+                        employee.Department?.Name ?? "Bilinmiyor",
+                        leave.Day,
+                        leave.StartDate.ToShortDateString(),
+                        leave.EndDate.ToShortDateString()
                     );
                 }
             }
@@ -492,11 +492,11 @@ namespace NtierArchitecture.UI.Forms
 
         private void LoadCurrentlyOnLeaveEmployees()
         {
-            
+
             dgwLeaveNowEmp.Rows.Clear();
             dgwLeaveNowEmp.Columns.Clear();
 
-           
+
             dgwLeaveNowEmp.Columns.Add("NameSurname", "Ad Soyad");
             dgwLeaveNowEmp.Columns.Add("TcNo", "TC Kimlik No");
             dgwLeaveNowEmp.Columns.Add("Department", "Departman");
@@ -504,20 +504,20 @@ namespace NtierArchitecture.UI.Forms
             dgwLeaveNowEmp.Columns.Add("StartDate", "Başlangıç Tarihi");
             dgwLeaveNowEmp.Columns.Add("EndDate", "Bitiş Tarihi");
 
-           
+
             var today = DateTime.Today;
 
-            
+
             var currentlyOnLeave = _leaveService.GetAll()
                 .Where(leave =>
-                    leave.Status == LeaveStatus.Approved && 
-                    leave.StartDate <= today &&            
-                    leave.EndDate >= today)                
+                    leave.Status == LeaveStatus.Approved &&
+                    leave.StartDate <= today &&
+                    leave.EndDate >= today)
                 .ToList();
 
             lblLeaveNow.Text = $"Şuan İzinli Olan Çalışan Sayısı: {currentlyOnLeave.Count()}";
 
-           
+
             foreach (var leave in currentlyOnLeave)
             {
                 var employee = leave.Employee;
@@ -525,12 +525,12 @@ namespace NtierArchitecture.UI.Forms
                 if (employee != null)
                 {
                     dgwLeaveNowEmp.Rows.Add(
-                        $"{employee.Name} {employee.Surname}", 
-                        employee.TcNo,                        
-                        employee.Department?.Name ?? "Bilinmiyor", 
-                        leave.Day,                            
-                        leave.StartDate.ToShortDateString(),  
-                        leave.EndDate.ToShortDateString()     
+                        $"{employee.Name} {employee.Surname}",
+                        employee.TcNo,
+                        employee.Department?.Name ?? "Bilinmiyor",
+                        leave.Day,
+                        leave.StartDate.ToShortDateString(),
+                        leave.EndDate.ToShortDateString()
                     );
                 }
             }
@@ -558,18 +558,18 @@ namespace NtierArchitecture.UI.Forms
         {
             try
             {
-                
+
                 var employees = _context.Employees
                     .Include(e => e.Department)
                     .Include(e => e.Leaves)
                     .Include(e => e.SalaryTrackings)
                     .ToList();
 
-                
+
                 var activeEmployees = employees.Where(e => e.IsActive).ToList();
                 var inactiveEmployees = employees.Where(e => !e.IsActive).ToList();
 
-                
+
                 var totalActiveSalary = activeEmployees.Any() ? activeEmployees.Sum(e => e.Salary ?? 0) : 0;
                 var averageActiveSalary = activeEmployees.Any() ? activeEmployees.Average(e => e.Salary ?? 0) : 0;
                 var totalInactiveSalary = inactiveEmployees.Any() ? inactiveEmployees.Sum(e => e.Salary ?? 0) : 0;
@@ -590,7 +590,7 @@ namespace NtierArchitecture.UI.Forms
                     })
                     .ToList();
 
-                
+
                 using (SaveFileDialog saveFileDialog = new SaveFileDialog())
                 {
                     saveFileDialog.Filter = "Excel Dosyası|*.xlsx";
@@ -601,10 +601,10 @@ namespace NtierArchitecture.UI.Forms
                     {
                         using (var workbook = new XLWorkbook())
                         {
-                            
+
                             var employeesWorksheet = workbook.Worksheets.Add("Çalışanlar");
 
-                            
+
                             employeesWorksheet.Cell(1, 1).Value = "Ad Soyad";
                             employeesWorksheet.Cell(1, 2).Value = "TC No";
                             employeesWorksheet.Cell(1, 3).Value = "Departman";
@@ -612,12 +612,12 @@ namespace NtierArchitecture.UI.Forms
                             employeesWorksheet.Cell(1, 5).Value = "Doğum Tarihi";
                             employeesWorksheet.Cell(1, 6).Value = "İzin Günleri";
                             employeesWorksheet.Cell(1, 7).Value = "Tazminat Durumu";
-                            employeesWorksheet.Cell(1, 8).Value = "Durum"; 
+                            employeesWorksheet.Cell(1, 8).Value = "Durum";
 
-                            
+
                             employeesWorksheet.Row(1).Style.Font.Bold = true;
 
-                            
+
                             for (int i = 0; i < employees.Count; i++)
                             {
                                 var employee = employees[i];
@@ -626,18 +626,18 @@ namespace NtierArchitecture.UI.Forms
                                 employeesWorksheet.Cell(i + 2, 3).Value = employee.Department?.Name ?? "Atanmamış";
                                 employeesWorksheet.Cell(i + 2, 4).Value = employee.Salary ?? 0;
                                 employeesWorksheet.Cell(i + 2, 5).Value = employee.BirthDate.ToShortDateString();
-                                employeesWorksheet.Cell(i + 2, 6).Value = employee.Leaves?.Sum(l => l.Day) ?? 0; 
+                                employeesWorksheet.Cell(i + 2, 6).Value = employee.Leaves?.Sum(l => l.Day) ?? 0;
                                 employeesWorksheet.Cell(i + 2, 7).Value = employee.IsCompensationPayed ? "Ödendi" : "Ödenmedi";
-                                employeesWorksheet.Cell(i + 2, 8).Value = employee.IsActive ? "Aktif" : "Pasif"; 
+                                employeesWorksheet.Cell(i + 2, 8).Value = employee.IsActive ? "Aktif" : "Pasif";
                             }
 
-                            
+
                             employeesWorksheet.Columns().AdjustToContents();
 
-                            
+
                             var summaryWorksheet = workbook.Worksheets.Add("Özet Bilgiler");
 
-                            
+
                             summaryWorksheet.Cell(1, 1).Value = "Toplam Aktif Çalışan Sayısı";
                             summaryWorksheet.Cell(1, 2).Value = totalActiveEmployees;
 
@@ -656,7 +656,7 @@ namespace NtierArchitecture.UI.Forms
                             summaryWorksheet.Cell(6, 1).Value = "Ortalama Pasif Maaş";
                             summaryWorksheet.Cell(6, 2).Value = averageInactiveSalary;
 
-                            
+
                             summaryWorksheet.Cell(8, 1).Value = "Departman";
                             summaryWorksheet.Cell(8, 2).Value = "Aktif Çalışan Sayısı";
                             summaryWorksheet.Cell(8, 3).Value = "Pasif Çalışan Sayısı";
@@ -674,7 +674,7 @@ namespace NtierArchitecture.UI.Forms
                                 summaryWorksheet.Cell(i + 9, 5).Value = dept.AverageInactiveDepartmentSalary;
                             }
 
-                           
+
                             var leavesWorksheet = workbook.Worksheets.Add("İzin Bilgileri");
 
                             leavesWorksheet.Cell(1, 1).Value = "Çalışan Adı";
@@ -705,7 +705,7 @@ namespace NtierArchitecture.UI.Forms
 
                             leavesWorksheet.Columns().AdjustToContents();
 
-                            
+
                             workbook.SaveAs(saveFileDialog.FileName);
                         }
 
@@ -726,18 +726,18 @@ namespace NtierArchitecture.UI.Forms
         {
             try
             {
-                
+
                 var employees = _context.Employees
                     .Include(e => e.Department)
                     .Include(e => e.Leaves)
                     .Include(e => e.SalaryTrackings)
                     .ToList();
 
-                
+
                 var activeEmployees = employees.Where(e => e.IsActive).ToList();
                 var inactiveEmployees = employees.Where(e => !e.IsActive).ToList();
 
-                
+
                 var totalActiveSalary = activeEmployees.Any() ? activeEmployees.Sum(e => e.Salary ?? 0) : 0;
                 var averageActiveSalary = activeEmployees.Any() ? activeEmployees.Average(e => e.Salary ?? 0) : 0;
                 var totalInactiveSalary = inactiveEmployees.Any() ? inactiveEmployees.Sum(e => e.Salary ?? 0) : 0;
@@ -758,7 +758,7 @@ namespace NtierArchitecture.UI.Forms
                     })
                     .ToList();
 
-               
+
                 using (SaveFileDialog saveFileDialog = new SaveFileDialog())
                 {
                     saveFileDialog.Filter = "PDF Dosyası|*.pdf";
@@ -802,7 +802,7 @@ namespace NtierArchitecture.UI.Forms
                             pdfDoc.Add(table);
                             pdfDoc.Add(new Paragraph("\n"));
 
-                            
+
                             pdfDoc.Add(new Paragraph("Özet Bilgiler"));
                             pdfDoc.Add(new Paragraph($"Toplam Aktif Çalışan Sayısı: {totalActiveEmployees}"));
                             pdfDoc.Add(new Paragraph($"Toplam Pasif Çalışan Sayısı: {totalInactiveEmployees}"));
@@ -811,7 +811,7 @@ namespace NtierArchitecture.UI.Forms
                             pdfDoc.Add(new Paragraph($"Ortalama Aktif Maaş: {averageActiveSalary}"));
                             pdfDoc.Add(new Paragraph($"Ortalama Pasif Maaş: {averageInactiveSalary}"));
 
-                            
+
                             pdfDoc.Add(new Paragraph("\nDepartman Özeti"));
                             var departmentTable = new PdfPTable(5) { WidthPercentage = 100 };
                             departmentTable.AddCell("Departman");
@@ -831,7 +831,7 @@ namespace NtierArchitecture.UI.Forms
 
                             pdfDoc.Add(departmentTable);
 
-                            
+
                             pdfDoc.Add(new Paragraph("\nİzin Bilgileri"));
                             var leaveTable = new PdfPTable(6) { WidthPercentage = 100 };
                             leaveTable.AddCell("Çalışan Adı");
@@ -878,19 +878,19 @@ namespace NtierArchitecture.UI.Forms
         {
             try
             {
-                
+
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
 
-                    
+
                     using (StreamWriter writer = new StreamWriter(csvFilePath))
                     {
                         using (SqlCommand command = new SqlCommand(query, connection))
                         {
                             using (SqlDataReader reader = command.ExecuteReader())
                             {
-                               
+
                                 for (int i = 0; i < reader.FieldCount; i++)
                                 {
                                     writer.Write(reader.GetName(i));
@@ -899,7 +899,7 @@ namespace NtierArchitecture.UI.Forms
                                 }
                                 writer.WriteLine();
 
-                                
+
                                 while (reader.Read())
                                 {
                                     for (int i = 0; i < reader.FieldCount; i++)
@@ -928,7 +928,7 @@ namespace NtierArchitecture.UI.Forms
 
             try
             {
-                
+
                 string connectionString = JsonConfigReader.GetConnectionString("EnderSql");
 
                 if (string.IsNullOrEmpty(connectionString))
@@ -937,7 +937,7 @@ namespace NtierArchitecture.UI.Forms
                     return;
                 }
 
-                
+
                 var models = new Dictionary<string, string>
         {
             { "Department", "SELECT * FROM Departments" },
@@ -946,27 +946,27 @@ namespace NtierArchitecture.UI.Forms
             { "SalaryTracking", "SELECT * FROM SalaryTrackings" }
         };
 
-               
+
                 using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
                 {
                     if (folderDialog.ShowDialog() == DialogResult.OK)
                     {
                         string directory = folderDialog.SelectedPath;
 
-                        
+
                         foreach (var model in models)
                         {
                             string modelName = model.Key;
                             string query = model.Value;
 
-                            
+
                             string csvFilePath = Path.Combine(directory, $"{modelName}_{DateTime.Now:yyyyMMdd_HHmmss}.csv");
 
-                            
+
                             ExportDatabaseToCsv(connectionString, query, csvFilePath);
                         }
 
-                       
+
                         MessageBox.Show("Veriler başarıyla CSV dosyasına aktarıldı.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
@@ -981,26 +981,26 @@ namespace NtierArchitecture.UI.Forms
 
         private void SendVerificationEmail(string toEmail)
         {
-            
+
             verificationCode = GenerateVerificationCode();
 
-            
-            string smtpServer = "smtp.gmail.com";  
-            string smtpUser = "personelproje072@gmail.com";  
-            string smtpPassword = "obsf usfy vnju ddeq";  
-            string fromEmail = "personelproje072@gmail.com"; 
 
-            
+            string smtpServer = "smtp.gmail.com";
+            string smtpUser = "personelproje072@gmail.com";
+            string smtpPassword = "obsf usfy vnju ddeq";
+            string fromEmail = "personelproje072@gmail.com";
+
+
             string subject = "Doğrulama Kodu";
             string body = $"Merhaba,\n\nDoğrulama kodunuz: {verificationCode}\n\nKodla işlem yapabilirsiniz.";
 
             try
             {
-                
+
                 using (SmtpClient smtp = new SmtpClient(smtpServer))
                 {
                     smtp.Credentials = new NetworkCredential(smtpUser, smtpPassword);
-                    smtp.Port = 587; 
+                    smtp.Port = 587;
                     smtp.EnableSsl = true;
 
                     // E-posta mesajı
@@ -1021,7 +1021,7 @@ namespace NtierArchitecture.UI.Forms
         {
             Random rand = new Random();
             StringBuilder code = new StringBuilder();
-            for (int i = 0; i < 6; i++) 
+            for (int i = 0; i < 6; i++)
             {
                 code.Append(rand.Next(0, 10).ToString());
             }
@@ -1030,7 +1030,7 @@ namespace NtierArchitecture.UI.Forms
 
         private void btnSendEmail_Click(object sender, EventArgs e)
         {
-            
+
             string userEmail = "ender.bkrr@gmail.com";
 
             if (string.IsNullOrEmpty(userEmail))
@@ -1039,7 +1039,7 @@ namespace NtierArchitecture.UI.Forms
                 return;
             }
 
-            
+
             SendVerificationEmail(userEmail);
         }
 
@@ -1047,15 +1047,15 @@ namespace NtierArchitecture.UI.Forms
         {
             try
             {
-                
-                string userCode = txtVerificationCode.Text; 
+
+                string userCode = txtVerificationCode.Text;
 
                 if (userCode == verificationCode)
                 {
-                    
+
                     MessageBox.Show("Doğrulama başarılı. Dosyalar aktarılıyor...", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    
+
                     string connectionString = JsonConfigReader.GetConnectionString("EnderSql");
 
                     if (string.IsNullOrEmpty(connectionString))
@@ -1073,34 +1073,34 @@ namespace NtierArchitecture.UI.Forms
                 { "SalaryTracking", "SELECT * FROM SalaryTrackings" }
             };
 
-                    
+
                     using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
                     {
                         if (folderDialog.ShowDialog() == DialogResult.OK)
                         {
                             string directory = folderDialog.SelectedPath;
 
-                            
+
                             foreach (var model in models)
                             {
                                 string modelName = model.Key;
                                 string query = model.Value;
 
-                               
+
                                 string csvFilePath = Path.Combine(directory, $"{modelName}_{DateTime.Now:yyyyMMdd_HHmmss}.csv");
 
-                                
+
                                 ExportDatabaseToCsv(connectionString, query, csvFilePath);
                             }
 
-                            
+
                             MessageBox.Show("Veriler başarıyla CSV dosyasına aktarıldı.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                 }
                 else
                 {
-                    
+
                     MessageBox.Show("Geçersiz doğrulama kodu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -1109,6 +1109,8 @@ namespace NtierArchitecture.UI.Forms
                 MessageBox.Show($"Hata: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+     
     }
 }
 

@@ -468,7 +468,7 @@
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SeaShell;
-            ClientSize = new Size(1175, 771);
+            ClientSize = new Size(1175, 668);
             Controls.Add(LstBilgi);
             Controls.Add(label1);
             Controls.Add(groupBox1);

@@ -68,15 +68,16 @@
             // 
             // btnRaport
             // 
+            btnRaport.Dock = DockStyle.Top;
             btnRaport.FlatAppearance.BorderSize = 0;
             btnRaport.FlatStyle = FlatStyle.Flat;
             btnRaport.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 162);
             btnRaport.ForeColor = Color.Gainsboro;
             btnRaport.Image = (Image)resources.GetObject("btnRaport.Image");
             btnRaport.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRaport.Location = new Point(0, 422);
+            btnRaport.Location = new Point(0, 350);
             btnRaport.Name = "btnRaport";
-            btnRaport.Size = new Size(217, 60);
+            btnRaport.Size = new Size(220, 60);
             btnRaport.TabIndex = 5;
             btnRaport.Text = "Raporlama";
             btnRaport.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -109,9 +110,9 @@
             btnApprove.ForeColor = Color.Gainsboro;
             btnApprove.Image = (Image)resources.GetObject("btnApprove.Image");
             btnApprove.ImageAlign = ContentAlignment.MiddleLeft;
-            btnApprove.Location = new Point(0, 356);
+            btnApprove.Location = new Point(3, 416);
             btnApprove.Name = "btnApprove";
-            btnApprove.Size = new Size(220, 60);
+            btnApprove.Size = new Size(214, 60);
             btnApprove.TabIndex = 4;
             btnApprove.Text = " İzin Onay";
             btnApprove.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -242,6 +243,7 @@
             // panelForms
             // 
             panelForms.AllowDrop = true;
+            panelForms.AutoSize = true;
             panelForms.BackgroundImage = (Image)resources.GetObject("panelForms.BackgroundImage");
             panelForms.Controls.Add(panelSubMenuPersonel);
             panelForms.Dock = DockStyle.Fill;
@@ -263,6 +265,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             ClientSize = new Size(782, 630);
             Controls.Add(panelForms);
             Controls.Add(panelTitleBar);
@@ -274,6 +277,7 @@
             panelTitleBar.PerformLayout();
             panelForms.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

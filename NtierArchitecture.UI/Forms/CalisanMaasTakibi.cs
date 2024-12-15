@@ -23,6 +23,7 @@ namespace NtierArchitecture.UI.Forms
         public CalisanMaasTakibi()
         {
             InitializeComponent();
+
             _context = new ApplicationDbContext();
             _employeeRepository = new EmployeeRepository(_context);
             _employeeService = new EmployeeService(_employeeRepository);
@@ -37,8 +38,10 @@ namespace NtierArchitecture.UI.Forms
 
         private void CalisanMaasTakibi_Load(object sender, EventArgs e)
         {
+
             LoadDepartments();
             TazminatListe();
+
         }
 
         private void TazminatListe()
@@ -51,11 +54,11 @@ namespace NtierArchitecture.UI.Forms
                 .Where(emp => !emp.IsActive && !emp.IsCompensationPayed)
                 .ToList();
 
-        
-            lstTazminatControl.DataSource = null; 
+
+            lstTazminatControl.DataSource = null;
             lstTazminatControl.ValueMember = "Id";
-            lstTazminatControl.DisplayMember = "TcWithCompensation"; 
-            lstTazminatControl.DataSource = filteredEmployees; 
+            lstTazminatControl.DisplayMember = "TcWithCompensation";
+            lstTazminatControl.DataSource = filteredEmployees;
         }
         public static class CompensationHelper
         {
@@ -66,7 +69,7 @@ namespace NtierArchitecture.UI.Forms
                 if (employee == null)
                     throw new ArgumentNullException(nameof(employee));
 
-               
+
                 int yearsOfWork = DateTime.Now.Year - employee.CreateDate.Year;
                 if (DateTime.Now < employee.CreateDate.AddYears(yearsOfWork))
                 {
@@ -93,16 +96,16 @@ namespace NtierArchitecture.UI.Forms
                 return;
             }
 
-          
+
             if (double.TryParse(lblTazminat.Text, out double compensationFee))
             {
                 selectEmployee.CompensationFee = compensationFee;
 
 
-              
+
                 _employeeService.Update(selectEmployee);
 
-          
+
                 TazminatListe();
 
                 MessageBox.Show("Tazminat başarıyla atandı ");
@@ -350,8 +353,8 @@ namespace NtierArchitecture.UI.Forms
                 {
                     // Tazminat hesapla
                     double compensationFee = CompensationHelper.CalculateCompensationFee(selectEmployee);
-                  
-                    lblTazminat.Text = $" {compensationFee.ToString("N2")}";      
+
+                    lblTazminat.Text = $" {compensationFee.ToString("N2")}";
                     selectEmployee.CompensationFee = compensationFee;
                 }
             }
@@ -364,11 +367,11 @@ namespace NtierArchitecture.UI.Forms
                 MessageBox.Show("Lütfen bir çalışan seçin.");
                 return;
             }
-          
+
             // Ödeme durumu güncelle
             selectEmployee.IsCompensationPayed = true;
 
-         
+
             _employeeService.Update(selectEmployee);
 
             MessageBox.Show("Tazminat ödemesi başarıyla tamamlandı!");
@@ -376,6 +379,11 @@ namespace NtierArchitecture.UI.Forms
             //  true olanlar listeden kalkar)
             TazminatListe();
 
+
+        }
+
+        private void CalisanMaasTakibi_Resize(object sender, EventArgs e)
+        {
 
         }
     }

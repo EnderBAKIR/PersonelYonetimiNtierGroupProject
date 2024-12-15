@@ -492,6 +492,7 @@
             Name = "CalisanMaasTakibi";
             Text = "CalisanMaasTakibi";
             Load += CalisanMaasTakibi_Load;
+            Resize += CalisanMaasTakibi_Resize;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);

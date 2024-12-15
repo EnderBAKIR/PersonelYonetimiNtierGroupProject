@@ -268,7 +268,7 @@
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SeaShell;
-            ClientSize = new Size(1174, 645);
+            ClientSize = new Size(1174, 512);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);

@@ -270,7 +270,7 @@
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SeaShell;
-            ClientSize = new Size(1022, 529);
+            ClientSize = new Size(772, 490);
             Controls.Add(lstDepartmants1);
             Controls.Add(btnDelete1);
             Controls.Add(btnUpdate1);
