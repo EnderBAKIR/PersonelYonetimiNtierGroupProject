@@ -81,18 +81,65 @@ namespace NtierArchitecture.UI.Forms
             }
             ActivateButton(btnSender); // Seçilen butonu aktif hale getir
             activeForm = childForm;
-            this.Size=new Size(childForm.Size.Width, childForm.Size.Height);
+
+            // Burada formun boyutlarını belirliyoruz
+            if (formSizes.ContainsKey(childForm.GetType()))
+            {
+                childForm.Size = formSizes[childForm.GetType()];  // Form türüne göre boyut belirleniyor
+            }
+            else
+            {
+                // Eğer boyutlar belirlenmemişse varsayılan bir boyut veriyoruz
+                childForm.Size = new Size(800, 600);
+            }
+
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
+
+            this.ClientSize = childForm.Size; // Ana formun boyutlarını childForm'un boyutuna ayarlıyoruz
+
             this.panelForms.Controls.Add(childForm);
             this.panelForms.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
-            lblTitle.Text = childForm.Text; // Başlık güncellemesi
-                                            // Form açıldığında alt menüyü gizle
+            lblTitle.Text = GetFormTitle(childForm.GetType());
             HideAllSubMenus();
         }
+
+        // Form türüne göre başlık döndüren metot
+        private string GetFormTitle(Type formType)
+        {
+            // Form türüne göre istenen başlıkları eşleştirin
+            var formTitles = new Dictionary<Type, string>
+{
+    { typeof(PersonelForm), "Personel Yönetimi" },
+    { typeof(MaasForm), "Maaş Atama" },
+    { typeof(CalisanMaasTakibi), "Çalışan Maaş Takibi" },
+    { typeof(Raporlar), "Raporlar" },
+    { typeof(Departman), "Departman Yönetimi" },
+    { typeof(IzinForm), "İzin Talepleri" },
+    { typeof(IzinOnaylamaForm), "İzin Onaylama" }
+};
+
+            // Form türü sözlükte varsa döndür, yoksa varsayılan değer kullan
+            return formTitles.ContainsKey(formType) ? formTitles[formType] : formType.Name;
+        }
+        // Formlar için boyutları tutan bir Dictionary
+        private Dictionary<Type, Size> formSizes = new Dictionary<Type, Size>
+    {
+        { typeof(PersonelForm), new Size(1450, 750) },  // PersonelForm için boyut
+        { typeof(MaasForm), new Size(1450, 650) },     // MaasForm için boyut
+        { typeof(CalisanMaasTakibi), new Size(1070, 600) }, // CalisanMaasTakibi için boyut
+        { typeof(Raporlar), new Size(1600, 800) },
+        { typeof(Departman), new Size(1000,650) },
+        { typeof(IzinForm), new Size(1400,760) },
+        { typeof(IzinOnaylamaForm), new Size(1230,770) }
+    };
+
+
+
+
         private void btnPersonel_Click(object sender, EventArgs e)
         {
 

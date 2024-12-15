@@ -101,12 +101,12 @@ namespace NtierArchitecture.UI.Forms
                 .Select(department => new
                 {
                     DepartmentName = department.Name,
-                    AverageSalary = department.Employees != null && department.Employees.Any()
-                        ? Math.Round(department.Employees.Average(emp => emp.Salary ?? 0), 2)
-                        : 0
+                    AverageSalary = department.Employees != null && department.Employees.Any(x => x.IsActive == true)
+             ? Math.Round(department.Employees.Where(x => x.IsActive == true).Average(emp => emp.Salary ?? 0), 2)
+             : 0
                 })
-                .Where(data => data.AverageSalary > 0)
-                .ToList();
+     .Where(data => data.AverageSalary > 0)
+     .ToList();
 
 
             chrtAvarageSalary.Series.Clear();
@@ -268,7 +268,7 @@ namespace NtierArchitecture.UI.Forms
                     e.Name,
                     e.Surname,
                     e.TcNo,
-                    e.BirthDate,
+                    e.CreateDate,
                     e.Salary,
                     e.CompensationFee
                 })
@@ -283,7 +283,7 @@ namespace NtierArchitecture.UI.Forms
                 dgwCompensation.Rows.Add(
                     employee.Name + " " + employee.Surname,
                     employee.TcNo,
-                    employee.BirthDate.ToString("dd.MM.yyyy"),
+                    employee.CreateDate.ToString("dd.MM.yyyy"),
                     employee.Salary,
                     employee.CompensationFee
                 );
@@ -602,15 +602,15 @@ namespace NtierArchitecture.UI.Forms
                         using (var workbook = new XLWorkbook())
                         {
 
-                            var employeesWorksheet = workbook.Worksheets.Add("Çalışanlar");
+                            var employeesWorksheet = workbook.Worksheets.Add("Calisanlar");
 
 
                             employeesWorksheet.Cell(1, 1).Value = "Ad Soyad";
                             employeesWorksheet.Cell(1, 2).Value = "TC No";
                             employeesWorksheet.Cell(1, 3).Value = "Departman";
-                            employeesWorksheet.Cell(1, 4).Value = "Maaş";
-                            employeesWorksheet.Cell(1, 5).Value = "Doğum Tarihi";
-                            employeesWorksheet.Cell(1, 6).Value = "İzin Günleri";
+                            employeesWorksheet.Cell(1, 4).Value = "Maas";
+                            employeesWorksheet.Cell(1, 5).Value = "Dogum Tarihi";
+                            employeesWorksheet.Cell(1, 6).Value = "Izin Gunleri";
                             employeesWorksheet.Cell(1, 7).Value = "Tazminat Durumu";
                             employeesWorksheet.Cell(1, 8).Value = "Durum";
 
@@ -623,11 +623,11 @@ namespace NtierArchitecture.UI.Forms
                                 var employee = employees[i];
                                 employeesWorksheet.Cell(i + 2, 1).Value = $"{employee.Name} {employee.Surname}";
                                 employeesWorksheet.Cell(i + 2, 2).Value = employee.TcNo;
-                                employeesWorksheet.Cell(i + 2, 3).Value = employee.Department?.Name ?? "Atanmamış";
+                                employeesWorksheet.Cell(i + 2, 3).Value = employee.Department?.Name ?? "Atanmamis";
                                 employeesWorksheet.Cell(i + 2, 4).Value = employee.Salary ?? 0;
                                 employeesWorksheet.Cell(i + 2, 5).Value = employee.BirthDate.ToShortDateString();
                                 employeesWorksheet.Cell(i + 2, 6).Value = employee.Leaves?.Sum(l => l.Day) ?? 0;
-                                employeesWorksheet.Cell(i + 2, 7).Value = employee.IsCompensationPayed ? "Ödendi" : "Ödenmedi";
+                                employeesWorksheet.Cell(i + 2, 7).Value = employee.IsCompensationPayed ? "Odendi" : "Odenmedi";
                                 employeesWorksheet.Cell(i + 2, 8).Value = employee.IsActive ? "Aktif" : "Pasif";
                             }
 
@@ -635,33 +635,33 @@ namespace NtierArchitecture.UI.Forms
                             employeesWorksheet.Columns().AdjustToContents();
 
 
-                            var summaryWorksheet = workbook.Worksheets.Add("Özet Bilgiler");
+                            var summaryWorksheet = workbook.Worksheets.Add("Ozet Bilgiler");
 
 
-                            summaryWorksheet.Cell(1, 1).Value = "Toplam Aktif Çalışan Sayısı";
+                            summaryWorksheet.Cell(1, 1).Value = "Toplam Aktif Calisan Sayisi";
                             summaryWorksheet.Cell(1, 2).Value = totalActiveEmployees;
 
-                            summaryWorksheet.Cell(2, 1).Value = "Toplam Pasif Çalışan Sayısı";
+                            summaryWorksheet.Cell(2, 1).Value = "Toplam Pasif Calisan Sayisi";
                             summaryWorksheet.Cell(2, 2).Value = totalInactiveEmployees;
 
-                            summaryWorksheet.Cell(3, 1).Value = "Toplam Aktif Maaş";
+                            summaryWorksheet.Cell(3, 1).Value = "Toplam Aktif Maas";
                             summaryWorksheet.Cell(3, 2).Value = totalActiveSalary;
 
-                            summaryWorksheet.Cell(4, 1).Value = "Toplam Pasif Maaş";
+                            summaryWorksheet.Cell(4, 1).Value = "Toplam Pasif Maas";
                             summaryWorksheet.Cell(4, 2).Value = totalInactiveSalary;
 
-                            summaryWorksheet.Cell(5, 1).Value = "Ortalama Aktif Maaş";
+                            summaryWorksheet.Cell(5, 1).Value = "Ortalama Aktif Maas";
                             summaryWorksheet.Cell(5, 2).Value = averageActiveSalary;
 
-                            summaryWorksheet.Cell(6, 1).Value = "Ortalama Pasif Maaş";
+                            summaryWorksheet.Cell(6, 1).Value = "Ortalama Pasif Maas";
                             summaryWorksheet.Cell(6, 2).Value = averageInactiveSalary;
 
 
                             summaryWorksheet.Cell(8, 1).Value = "Departman";
-                            summaryWorksheet.Cell(8, 2).Value = "Aktif Çalışan Sayısı";
-                            summaryWorksheet.Cell(8, 3).Value = "Pasif Çalışan Sayısı";
-                            summaryWorksheet.Cell(8, 4).Value = "Aktif Ort. Maaş";
-                            summaryWorksheet.Cell(8, 5).Value = "Pasif Ort. Maaş";
+                            summaryWorksheet.Cell(8, 2).Value = "Aktif Calisan Sayisi";
+                            summaryWorksheet.Cell(8, 3).Value = "Pasif Calisan Sayisi";
+                            summaryWorksheet.Cell(8, 4).Value = "Aktif Ort. Maas";
+                            summaryWorksheet.Cell(8, 5).Value = "Pasif Ort. Maas";
                             summaryWorksheet.Row(8).Style.Font.Bold = true;
 
                             for (int i = 0; i < departmentGroups.Count; i++)
@@ -675,13 +675,13 @@ namespace NtierArchitecture.UI.Forms
                             }
 
 
-                            var leavesWorksheet = workbook.Worksheets.Add("İzin Bilgileri");
+                            var leavesWorksheet = workbook.Worksheets.Add("Izin Bilgileri");
 
-                            leavesWorksheet.Cell(1, 1).Value = "Çalışan Adı";
-                            leavesWorksheet.Cell(1, 2).Value = "İzin Başlangıç";
-                            leavesWorksheet.Cell(1, 3).Value = "İzin Bitiş";
-                            leavesWorksheet.Cell(1, 4).Value = "İzin Günü";
-                            leavesWorksheet.Cell(1, 5).Value = "Açıklama";
+                            leavesWorksheet.Cell(1, 1).Value = "Calisan Adi";
+                            leavesWorksheet.Cell(1, 2).Value = "Izin Baslangic";
+                            leavesWorksheet.Cell(1, 3).Value = "Izin Bitis";
+                            leavesWorksheet.Cell(1, 4).Value = "Izin Gunu";
+                            leavesWorksheet.Cell(1, 5).Value = "Aciklama";
                             leavesWorksheet.Cell(1, 6).Value = "Durumu";
                             leavesWorksheet.Row(1).Style.Font.Bold = true;
 
@@ -747,7 +747,7 @@ namespace NtierArchitecture.UI.Forms
                 var totalInactiveEmployees = inactiveEmployees.Count;
 
                 var departmentGroups = employees
-                    .GroupBy(e => e.Department?.Name ?? "Atanmamış")
+                    .GroupBy(e => e.Department?.Name ?? "Atanmamis")
                     .Select(g => new
                     {
                         DepartmentName = g.Key,
@@ -773,7 +773,7 @@ namespace NtierArchitecture.UI.Forms
                             pdfDoc.Open();
 
                             // Başlık
-                            pdfDoc.Add(new Paragraph($"Çalışanlar Raporu - {DateTime.Now:yyyyMMdd}"));
+                            pdfDoc.Add(new Paragraph($"Calisanlar Raporu - {DateTime.Now:yyyyMMdd}"));
                             pdfDoc.Add(new Paragraph("\n"));
 
                             // Çalışanlar Tablosu
@@ -781,9 +781,9 @@ namespace NtierArchitecture.UI.Forms
                             table.AddCell("Ad Soyad");
                             table.AddCell("TC No");
                             table.AddCell("Departman");
-                            table.AddCell("Maaş");
-                            table.AddCell("Doğum Tarihi");
-                            table.AddCell("İzin Günleri");
+                            table.AddCell("Maas");
+                            table.AddCell("Dogum Tarihi");
+                            table.AddCell("Izin Gunleri");
                             table.AddCell("Tazminat Durumu");
                             table.AddCell("Durum");
 
@@ -791,11 +791,11 @@ namespace NtierArchitecture.UI.Forms
                             {
                                 table.AddCell($"{employee.Name} {employee.Surname}");
                                 table.AddCell(employee.TcNo);
-                                table.AddCell(employee.Department?.Name ?? "Atanmamış");
+                                table.AddCell(employee.Department?.Name ?? "Atanmamis");
                                 table.AddCell(employee.Salary?.ToString() ?? "0");
                                 table.AddCell(employee.BirthDate.ToShortDateString());
                                 table.AddCell((employee.Leaves?.Sum(l => l.Day) ?? 0).ToString());
-                                table.AddCell(employee.IsCompensationPayed ? "Ödendi" : "Ödenmedi");
+                                table.AddCell(employee.IsCompensationPayed ? "Odendi" : "Odenmedi");
                                 table.AddCell(employee.IsActive ? "Aktif" : "Pasif");
                             }
 
@@ -803,22 +803,22 @@ namespace NtierArchitecture.UI.Forms
                             pdfDoc.Add(new Paragraph("\n"));
 
 
-                            pdfDoc.Add(new Paragraph("Özet Bilgiler"));
-                            pdfDoc.Add(new Paragraph($"Toplam Aktif Çalışan Sayısı: {totalActiveEmployees}"));
-                            pdfDoc.Add(new Paragraph($"Toplam Pasif Çalışan Sayısı: {totalInactiveEmployees}"));
-                            pdfDoc.Add(new Paragraph($"Toplam Aktif Maaş: {totalActiveSalary}"));
-                            pdfDoc.Add(new Paragraph($"Toplam Pasif Maaş: {totalInactiveSalary}"));
-                            pdfDoc.Add(new Paragraph($"Ortalama Aktif Maaş: {averageActiveSalary}"));
-                            pdfDoc.Add(new Paragraph($"Ortalama Pasif Maaş: {averageInactiveSalary}"));
+                            pdfDoc.Add(new Paragraph("Ozet Bilgiler"));
+                            pdfDoc.Add(new Paragraph($"Toplam Aktif Calisan Sayisi: {totalActiveEmployees}"));
+                            pdfDoc.Add(new Paragraph($"Toplam Pasif Calisan Sayisi: {totalInactiveEmployees}"));
+                            pdfDoc.Add(new Paragraph($"Toplam Aktif Maas: {totalActiveSalary}"));
+                            pdfDoc.Add(new Paragraph($"Toplam Pasif Maas: {totalInactiveSalary}"));
+                            pdfDoc.Add(new Paragraph($"Ortalama Aktif Maas: {averageActiveSalary}"));
+                            pdfDoc.Add(new Paragraph($"Ortalama Pasif Maas: {averageInactiveSalary}"));
 
 
                             pdfDoc.Add(new Paragraph("\nDepartman Özeti"));
                             var departmentTable = new PdfPTable(5) { WidthPercentage = 100 };
                             departmentTable.AddCell("Departman");
-                            departmentTable.AddCell("Aktif Çalışan Sayısı");
-                            departmentTable.AddCell("Pasif Çalışan Sayısı");
-                            departmentTable.AddCell("Aktif Ort. Maaş");
-                            departmentTable.AddCell("Pasif Ort. Maaş");
+                            departmentTable.AddCell("Aktif Calisan Sayisi");
+                            departmentTable.AddCell("Pasif Calisan Sayisi");
+                            departmentTable.AddCell("Aktif Ort. Maas");
+                            departmentTable.AddCell("Pasif Ort. Maas");
 
                             foreach (var dept in departmentGroups)
                             {
@@ -834,11 +834,11 @@ namespace NtierArchitecture.UI.Forms
 
                             pdfDoc.Add(new Paragraph("\nİzin Bilgileri"));
                             var leaveTable = new PdfPTable(6) { WidthPercentage = 100 };
-                            leaveTable.AddCell("Çalışan Adı");
-                            leaveTable.AddCell("İzin Başlangıç");
-                            leaveTable.AddCell("İzin Bitiş");
-                            leaveTable.AddCell("İzin Günü");
-                            leaveTable.AddCell("Açıklama");
+                            leaveTable.AddCell("Calisan Adi");
+                            leaveTable.AddCell("Izin Baslangic");
+                            leaveTable.AddCell("Izin Bitis");
+                            leaveTable.AddCell("Izin Gunu");
+                            leaveTable.AddCell("Aciklama");
                             leaveTable.AddCell("Durumu");
 
                             foreach (var employee in employees)
@@ -1031,7 +1031,7 @@ namespace NtierArchitecture.UI.Forms
         private void btnSendEmail_Click(object sender, EventArgs e)
         {
 
-            string userEmail = "ender.bkrr@gmail.com";
+            string userEmail = "personelyonetimi@hotmail.com";
 
             if (string.IsNullOrEmpty(userEmail))
             {
@@ -1110,7 +1110,7 @@ namespace NtierArchitecture.UI.Forms
             }
         }
 
-     
+
     }
 }
 

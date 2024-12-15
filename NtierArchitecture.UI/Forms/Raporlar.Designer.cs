@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Raporlar));
             chrtEmpByDepartment = new System.Windows.Forms.DataVisualization.Charting.Chart();
             chrtAvarageSalary = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -99,17 +99,17 @@
             // 
             // chrtEmpByDepartment
             // 
-            chartArea1.Name = "ChartArea1";
-            chrtEmpByDepartment.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            chrtEmpByDepartment.Legends.Add(legend1);
+            chartArea4.Name = "ChartArea1";
+            chrtEmpByDepartment.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            chrtEmpByDepartment.Legends.Add(legend4);
             chrtEmpByDepartment.Location = new Point(15, 22);
             chrtEmpByDepartment.Name = "chrtEmpByDepartment";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            chrtEmpByDepartment.Series.Add(series1);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            chrtEmpByDepartment.Series.Add(series4);
             chrtEmpByDepartment.Size = new Size(253, 184);
             chrtEmpByDepartment.TabIndex = 0;
             chrtEmpByDepartment.Text = "chrtEmpDepartment";
@@ -117,18 +117,18 @@
             // 
             // chrtAvarageSalary
             // 
-            chartArea2.Name = "ChartArea1";
-            chrtAvarageSalary.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            chrtAvarageSalary.Legends.Add(legend2);
+            chartArea5.Name = "ChartArea1";
+            chrtAvarageSalary.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            chrtAvarageSalary.Legends.Add(legend5);
             chrtAvarageSalary.Location = new Point(13, 33);
             chrtAvarageSalary.Name = "chrtAvarageSalary";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            series2.YValuesPerPoint = 4;
-            chrtAvarageSalary.Series.Add(series2);
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            series5.YValuesPerPoint = 4;
+            chrtAvarageSalary.Series.Add(series5);
             chrtAvarageSalary.Size = new Size(293, 214);
             chrtAvarageSalary.TabIndex = 1;
             chrtAvarageSalary.Text = "Departmanlara göre ortlama maaş";
@@ -275,17 +275,17 @@
             // 
             // chrtIsActive
             // 
-            chartArea3.Name = "ChartArea1";
-            chrtIsActive.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            chrtIsActive.Legends.Add(legend3);
+            chartArea6.Name = "ChartArea1";
+            chrtIsActive.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            chrtIsActive.Legends.Add(legend6);
             chrtIsActive.Location = new Point(20, 22);
             chrtIsActive.Name = "chrtIsActive";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            chrtIsActive.Series.Add(series3);
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            chrtIsActive.Series.Add(series6);
             chrtIsActive.Size = new Size(270, 227);
             chrtIsActive.TabIndex = 10;
             chrtIsActive.Text = "chart1";
@@ -514,7 +514,7 @@
             groupBox4.Controls.Add(btnExportEmployeesToPdf);
             groupBox4.Controls.Add(btnVerifyCode);
             groupBox4.Controls.Add(btnSendEmail);
-            groupBox4.Location = new Point(620, 12);
+            groupBox4.Location = new Point(621, 12);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(707, 436);
             groupBox4.TabIndex = 31;
@@ -550,7 +550,7 @@
             groupBox6.Controls.Add(lblLeaveNow);
             groupBox6.Controls.Add(dgwLeaveNowEmp);
             groupBox6.Controls.Add(btnLeaveNow);
-            groupBox6.Location = new Point(626, 787);
+            groupBox6.Location = new Point(621, 787);
             groupBox6.Name = "groupBox6";
             groupBox6.Size = new Size(701, 201);
             groupBox6.TabIndex = 33;
@@ -562,7 +562,7 @@
             lblLeaveNow.AutoSize = true;
             lblLeaveNow.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
             lblLeaveNow.ForeColor = Color.Teal;
-            lblLeaveNow.Location = new Point(6, 26);
+            lblLeaveNow.Location = new Point(8, 26);
             lblLeaveNow.Name = "lblLeaveNow";
             lblLeaveNow.Size = new Size(240, 25);
             lblLeaveNow.TabIndex = 17;
@@ -572,6 +572,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
             BackColor = Color.SeaShell;
             ClientSize = new Size(1340, 984);
             Controls.Add(groupBox6);
