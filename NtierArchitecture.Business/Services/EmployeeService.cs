@@ -107,5 +107,13 @@ namespace NtierArchitecture.Business.Services
         {
             return _repository.GetAll().Where(e => e.Department != null && e.Department.Id == departmanId).ToList();
         }
+
+
+        public List<Employee> GetEmployeesByDepartmentName(string departmentName)
+        {
+            return _repository.GetAll() // Tüm çalışanları al
+                .Where(e => e.Department.Name == departmentName) // Departmana göre filtrele
+                .ToList();
+        }
     }
 }
