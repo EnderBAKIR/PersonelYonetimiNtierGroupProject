@@ -354,7 +354,7 @@ namespace NtierArchitecture.UI.Forms
                     // Tazminat hesapla
                     double compensationFee = CompensationHelper.CalculateCompensationFee(selectEmployee);
 
-                    lblTazminat.Text = $" {compensationFee.ToString("N2")}";
+                    lblTazminat.Text = $" {compensationFee.ToString("N2")} ₺";
                     selectEmployee.CompensationFee = compensationFee;
                 }
             }

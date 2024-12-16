@@ -112,15 +112,15 @@ namespace NtierArchitecture.UI.Forms
         {
             // Form türüne göre istenen başlıkları eşleştirin
             var formTitles = new Dictionary<Type, string>
-{
-    { typeof(PersonelForm), "Personel Yönetimi" },
-    { typeof(MaasForm), "Maaş Atama" },
-    { typeof(CalisanMaasTakibi), "Çalışan Maaş Takibi" },
-    { typeof(Raporlar), "Raporlar" },
-    { typeof(Departman), "Departman Yönetimi" },
-    { typeof(IzinForm), "İzin Talepleri" },
-    { typeof(IzinOnaylamaForm), "İzin Onaylama" }
-};
+            {
+                { typeof(PersonelForm), "Personel Yönetimi" },
+                { typeof(MaasForm), "Maaş Atama" },
+                { typeof(CalisanMaasTakibi), "Çalışan Maaş Takibi" },
+                { typeof(Raporlar), "Raporlar" },
+                { typeof(Departman), "Departman Yönetimi" },
+                { typeof(IzinForm), "İzin Talepleri" },
+                { typeof(IzinOnaylamaForm), "İzin Onaylama" }
+            };
 
             // Form türü sözlükte varsa döndür, yoksa varsayılan değer kullan
             return formTitles.ContainsKey(formType) ? formTitles[formType] : formType.Name;
@@ -130,7 +130,7 @@ namespace NtierArchitecture.UI.Forms
     {
         { typeof(PersonelForm), new Size(1450, 750) },  // PersonelForm için boyut
         { typeof(MaasForm), new Size(1450, 650) },     // MaasForm için boyut
-        { typeof(CalisanMaasTakibi), new Size(1070, 600) }, // CalisanMaasTakibi için boyut
+        { typeof(CalisanMaasTakibi), new Size(1200, 600) }, // CalisanMaasTakibi için boyut
         { typeof(Raporlar), new Size(1600, 800) },
         { typeof(Departman), new Size(1000,650) },
         { typeof(IzinForm), new Size(1400,760) },

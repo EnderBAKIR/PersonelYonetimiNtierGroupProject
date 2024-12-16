@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Raporlar));
             chrtEmpByDepartment = new System.Windows.Forms.DataVisualization.Charting.Chart();
             chrtAvarageSalary = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -99,17 +99,17 @@
             // 
             // chrtEmpByDepartment
             // 
-            chartArea4.Name = "ChartArea1";
-            chrtEmpByDepartment.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            chrtEmpByDepartment.Legends.Add(legend4);
+            chartArea1.Name = "ChartArea1";
+            chrtEmpByDepartment.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            chrtEmpByDepartment.Legends.Add(legend1);
             chrtEmpByDepartment.Location = new Point(15, 22);
             chrtEmpByDepartment.Name = "chrtEmpByDepartment";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            chrtEmpByDepartment.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            chrtEmpByDepartment.Series.Add(series1);
             chrtEmpByDepartment.Size = new Size(253, 184);
             chrtEmpByDepartment.TabIndex = 0;
             chrtEmpByDepartment.Text = "chrtEmpDepartment";
@@ -117,19 +117,19 @@
             // 
             // chrtAvarageSalary
             // 
-            chartArea5.Name = "ChartArea1";
-            chrtAvarageSalary.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            chrtAvarageSalary.Legends.Add(legend5);
-            chrtAvarageSalary.Location = new Point(13, 33);
+            chartArea2.Name = "ChartArea1";
+            chrtAvarageSalary.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            chrtAvarageSalary.Legends.Add(legend2);
+            chrtAvarageSalary.Location = new Point(13, 15);
             chrtAvarageSalary.Name = "chrtAvarageSalary";
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            series5.YValuesPerPoint = 4;
-            chrtAvarageSalary.Series.Add(series5);
-            chrtAvarageSalary.Size = new Size(293, 214);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            series2.YValuesPerPoint = 4;
+            chrtAvarageSalary.Series.Add(series2);
+            chrtAvarageSalary.Size = new Size(305, 293);
             chrtAvarageSalary.TabIndex = 1;
             chrtAvarageSalary.Text = "Departmanlara göre ortlama maaş";
             // 
@@ -199,12 +199,16 @@
             // 
             // btnCompensation
             // 
-            btnCompensation.Location = new Point(377, 40);
+            btnCompensation.BackColor = Color.DarkGoldenrod;
+            btnCompensation.FlatStyle = FlatStyle.Flat;
+            btnCompensation.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            btnCompensation.ForeColor = Color.Transparent;
+            btnCompensation.Location = new Point(373, 34);
             btnCompensation.Name = "btnCompensation";
-            btnCompensation.Size = new Size(175, 27);
+            btnCompensation.Size = new Size(179, 33);
             btnCompensation.TabIndex = 6;
             btnCompensation.Text = "Tazminat Listesini Güncelle";
-            btnCompensation.UseVisualStyleBackColor = true;
+            btnCompensation.UseVisualStyleBackColor = false;
             btnCompensation.Click += btnCompensation_Click;
             // 
             // lblSalarySum
@@ -212,7 +216,7 @@
             lblSalarySum.AutoSize = true;
             lblSalarySum.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
             lblSalarySum.ForeColor = Color.FromArgb(64, 64, 64);
-            lblSalarySum.Location = new Point(13, 253);
+            lblSalarySum.Location = new Point(12, 311);
             lblSalarySum.Name = "lblSalarySum";
             lblSalarySum.Size = new Size(65, 25);
             lblSalarySum.TabIndex = 7;
@@ -222,9 +226,9 @@
             // 
             dgwEmployeeSalary.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgwEmployeeSalary.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn9, dataGridViewTextBoxColumn10, dataGridViewTextBoxColumn11 });
-            dgwEmployeeSalary.Location = new Point(12, 290);
+            dgwEmployeeSalary.Location = new Point(12, 339);
             dgwEmployeeSalary.Name = "dgwEmployeeSalary";
-            dgwEmployeeSalary.Size = new Size(672, 137);
+            dgwEmployeeSalary.Size = new Size(672, 120);
             dgwEmployeeSalary.TabIndex = 8;
             // 
             // dataGridViewTextBoxColumn6
@@ -275,17 +279,17 @@
             // 
             // chrtIsActive
             // 
-            chartArea6.Name = "ChartArea1";
-            chrtIsActive.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            chrtIsActive.Legends.Add(legend6);
+            chartArea3.Name = "ChartArea1";
+            chrtIsActive.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            chrtIsActive.Legends.Add(legend3);
             chrtIsActive.Location = new Point(20, 22);
             chrtIsActive.Name = "chrtIsActive";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            chrtIsActive.Series.Add(series6);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            chrtIsActive.Series.Add(series3);
             chrtIsActive.Size = new Size(270, 227);
             chrtIsActive.TabIndex = 10;
             chrtIsActive.Text = "chart1";
@@ -496,7 +500,7 @@
             groupBox3.Controls.Add(lblIsactiveEmployeeSalaryAverage);
             groupBox3.Location = new Point(30, 618);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(567, 330);
+            groupBox3.Size = new Size(567, 399);
             groupBox3.TabIndex = 30;
             groupBox3.TabStop = false;
             groupBox3.Text = "Çalışan Ve İşten Çıkan Personellerin Ortalama Maaş Bilgilendirmesi";
@@ -516,7 +520,7 @@
             groupBox4.Controls.Add(btnSendEmail);
             groupBox4.Location = new Point(621, 12);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(707, 436);
+            groupBox4.Size = new Size(707, 465);
             groupBox4.TabIndex = 31;
             groupBox4.TabStop = false;
             groupBox4.Text = "Departmanlara Göre Maaş Raporu";
@@ -527,7 +531,7 @@
             groupBox5.Controls.Add(lstLeaveList);
             groupBox5.Controls.Add(btnLeaeList);
             groupBox5.Controls.Add(dgwLeaveDetails);
-            groupBox5.Location = new Point(620, 454);
+            groupBox5.Location = new Point(621, 483);
             groupBox5.Name = "groupBox5";
             groupBox5.Size = new Size(707, 327);
             groupBox5.TabIndex = 32;
@@ -550,7 +554,7 @@
             groupBox6.Controls.Add(lblLeaveNow);
             groupBox6.Controls.Add(dgwLeaveNowEmp);
             groupBox6.Controls.Add(btnLeaveNow);
-            groupBox6.Location = new Point(621, 787);
+            groupBox6.Location = new Point(621, 816);
             groupBox6.Name = "groupBox6";
             groupBox6.Size = new Size(701, 201);
             groupBox6.TabIndex = 33;
@@ -574,7 +578,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.SeaShell;
-            ClientSize = new Size(1340, 984);
+            ClientSize = new Size(1333, 1059);
             Controls.Add(groupBox6);
             Controls.Add(groupBox5);
             Controls.Add(groupBox4);

@@ -88,7 +88,7 @@ namespace NtierArchitecture.UI.Formlar
                     LstPersonelBilgileri.Items.Add($"Ad: {employee.Name}");
                     LstPersonelBilgileri.Items.Add($"Soyad: {employee.Surname}");
                     LstPersonelBilgileri.Items.Add($"Departman: {department?.Name ?? "Belirtilmemiş"}");
-                    LstPersonelBilgileri.Items.Add($"Maaş: {employee.Salary?.ToString("C")} ₺");
+                    LstPersonelBilgileri.Items.Add($"Maaş: {employee.Salary?.ToString("N2")} ₺");
                 }
                 else
                 {

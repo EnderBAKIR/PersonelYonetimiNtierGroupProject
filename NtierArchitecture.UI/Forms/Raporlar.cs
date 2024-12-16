@@ -251,7 +251,7 @@ namespace NtierArchitecture.UI.Forms
             double totalCompensation = employeesWithCompensation.Sum(e => e.CompensationFee);
 
 
-            lblCompensation.Text = $"Toplam Ödenen Tazminat: {totalCompensation:C2}";
+            lblCompensation.Text = $"Toplam Ödenen Tazminat: {totalCompensation.ToString("N2") + "₺"}";
         }
 
         private void btnCompensation_Click(object sender, EventArgs e)
@@ -407,7 +407,7 @@ namespace NtierArchitecture.UI.Forms
                 }
 
                 // Sonucu label'a yazdır
-                lblIsactiveEmployeeSalaryAverage.Text = $"{groupName} için Ortalama Maaş: {averageSalary:C}";
+                lblIsactiveEmployeeSalaryAverage.Text = $"{groupName} için Ortalama Maaş: {averageSalary.ToString("N2") + "₺"}";
             }
         }
 

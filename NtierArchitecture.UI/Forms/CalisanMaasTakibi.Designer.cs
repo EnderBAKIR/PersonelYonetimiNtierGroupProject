@@ -69,7 +69,7 @@
             groupBox1.Controls.Add(cmbMonth);
             groupBox1.Location = new Point(19, 14);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(405, 83);
+            groupBox1.Size = new Size(516, 69);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Kayıt oluşturma";
@@ -80,7 +80,7 @@
             label1.BackColor = Color.SeaShell;
             label1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
             label1.ForeColor = Color.FromArgb(64, 64, 64);
-            label1.Location = new Point(8, 49);
+            label1.Location = new Point(185, 17);
             label1.Name = "label1";
             label1.Size = new Size(40, 24);
             label1.TabIndex = 22;
@@ -100,7 +100,7 @@
             // 
             // btnGetByDate
             // 
-            btnGetByDate.Location = new Point(209, 31);
+            btnGetByDate.Location = new Point(356, 17);
             btnGetByDate.Margin = new Padding(3, 2, 3, 2);
             btnGetByDate.Name = "btnGetByDate";
             btnGetByDate.OverrideDefault.Back.Color1 = Color.FromArgb(59, 61, 59);
@@ -150,7 +150,7 @@
             // 
             cmbYear.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbYear.FormattingEnabled = true;
-            cmbYear.Location = new Point(67, 49);
+            cmbYear.Location = new Point(231, 18);
             cmbYear.Name = "cmbYear";
             cmbYear.Size = new Size(112, 23);
             cmbYear.TabIndex = 0;
@@ -174,9 +174,9 @@
             groupBox2.Controls.Add(dgwEmployees);
             groupBox2.Controls.Add(label4);
             groupBox2.Controls.Add(label3);
-            groupBox2.Location = new Point(22, 104);
+            groupBox2.Location = new Point(19, 109);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(402, 329);
+            groupBox2.Size = new Size(519, 329);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Ödeme Durumu Görüntüleme";
@@ -255,9 +255,9 @@
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(153, 60);
+            txtSearch.Location = new Point(247, 60);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(229, 25);
+            txtSearch.Size = new Size(263, 25);
             txtSearch.StateCommon.Back.Color1 = Color.White;
             txtSearch.StateCommon.Border.Color1 = Color.FromArgb(141, 182, 252);
             txtSearch.StateCommon.Border.Color2 = Color.FromArgb(224, 224, 224);
@@ -275,7 +275,7 @@
             cmbDepartments.IntegralHeight = false;
             cmbDepartments.Location = new Point(154, 21);
             cmbDepartments.Name = "cmbDepartments";
-            cmbDepartments.Size = new Size(228, 28);
+            cmbDepartments.Size = new Size(356, 28);
             cmbDepartments.StateCommon.ComboBox.Border.Rounding = 8F;
             cmbDepartments.StateCommon.ComboBox.Border.Width = 1;
             cmbDepartments.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
@@ -286,10 +286,10 @@
             // 
             dgwEmployees.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgwEmployees.Columns.AddRange(new DataGridViewColumn[] { Departman, Tc, AdSoyad, Odeme });
-            dgwEmployees.Location = new Point(21, 101);
+            dgwEmployees.Location = new Point(6, 91);
             dgwEmployees.Name = "dgwEmployees";
             dgwEmployees.RowHeadersWidth = 51;
-            dgwEmployees.Size = new Size(361, 110);
+            dgwEmployees.Size = new Size(507, 110);
             dgwEmployees.TabIndex = 7;
             dgwEmployees.CellClick += dgwEmployees_CellClick;
             // 
@@ -325,7 +325,7 @@
             // 
             label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label4.ForeColor = SystemColors.MenuHighlight;
-            label4.Location = new Point(48, 60);
+            label4.Location = new Point(214, 65);
             label4.Name = "label4";
             label4.Size = new Size(27, 23);
             label4.TabIndex = 3;
@@ -346,7 +346,7 @@
             groupBox3.Controls.Add(btnTazminatOdeme);
             groupBox3.Controls.Add(lstTazminatControl);
             groupBox3.Controls.Add(lblTazminat);
-            groupBox3.Location = new Point(442, 24);
+            groupBox3.Location = new Point(547, 24);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(312, 392);
             groupBox3.TabIndex = 2;
@@ -367,7 +367,7 @@
             // 
             // btnTazminatAtama
             // 
-            btnTazminatAtama.Location = new Point(158, 160);
+            btnTazminatAtama.Location = new Point(173, 190);
             btnTazminatAtama.Margin = new Padding(3, 2, 3, 2);
             btnTazminatAtama.Name = "btnTazminatAtama";
             btnTazminatAtama.OverrideDefault.Back.Color1 = Color.FromArgb(59, 61, 59);
@@ -485,7 +485,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SeaShell;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(980, 450);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
